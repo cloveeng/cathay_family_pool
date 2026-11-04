@@ -296,6 +296,111 @@
 
     .activity-empty { color: var(--muted); }
 
+    .fare-card {
+      margin-top: 22px;
+      padding: 17px 15px 16px;
+      border: 1px solid #e3ebea;
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: 0 6px 18px rgb(22 61 66 / 5%);
+    }
+
+    .fare-card .section-heading {
+      margin: 0 0 14px;
+    }
+
+    .fare-card .section-heading h2 { font-size: 17px; }
+
+    .current-step-label {
+      flex: 0 0 auto;
+      padding: 5px 9px;
+      border-radius: 999px;
+      color: var(--teal-dark);
+      background: #e5f4f1;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .fare-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .fare-step {
+      min-width: 0;
+      padding: 11px 6px 10px;
+      border: 1px solid #e6eceb;
+      border-radius: 13px;
+      background: #f8fafa;
+      text-align: center;
+    }
+
+    .fare-step.current {
+      border: 2px solid var(--teal);
+      padding: 10px 5px 9px;
+      background: #edf6f3;
+      box-shadow: 0 0 0 2px rgb(0 91 77 / 8%);
+    }
+
+    .fare-trip {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+      line-height: 1.35;
+    }
+
+    .fare-discount {
+      display: block;
+      margin-top: 4px;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 750;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .fare-step.current .fare-trip,
+    .fare-step.current .fare-discount { color: var(--teal-dark); }
+
+    .fare-step.current::after {
+      content: "CURRENT";
+      display: block;
+      margin-top: 5px;
+      color: var(--teal-dark);
+      font-size: 9px;
+      font-weight: 750;
+      letter-spacing: .07em;
+    }
+
+    .fare-progress-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 15px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .fare-progress-heading strong { color: var(--ink); font-weight: 650; }
+
+    .fare-progress-track {
+      height: 8px;
+      margin-top: 7px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e5eeec;
+    }
+
+    .fare-progress-fill {
+      width: 66.6667%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--teal);
+    }
+
     .prototype-label {
       margin: 22px 0 0;
       padding: 4px 0 2px;
@@ -317,6 +422,11 @@
       .member { gap: 9px; padding-right: 10px; padding-left: 10px; }
       .member-avatar { width: 40px; height: 40px; }
       .member-name, .contribution strong { font-size: 14px; }
+      .fare-card { padding-right: 11px; padding-left: 11px; }
+      .fare-steps { gap: 5px; }
+      .fare-step { padding-right: 3px; padding-left: 3px; }
+      .fare-step.current { padding-right: 2px; padding-left: 2px; }
+      .fare-discount { font-size: 15px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -354,6 +464,34 @@
         <div class="actions" aria-label="Add miles">
           <button class="action-button" id="student-spending" type="button">Add student spending</button>
           <button class="action-button" id="parent-top-up" type="button">Parent tops up</button>
+        </div>
+      </section>
+
+      <section class="fare-card" aria-labelledby="fare-title">
+        <div class="section-heading">
+          <h2 id="fare-title">Student fare ladder</h2>
+          <span class="current-step-label">Trip 2 · Current</span>
+        </div>
+        <div class="fare-steps" aria-label="Student fare discounts">
+          <div class="fare-step">
+            <span class="fare-trip">Trip 1</span>
+            <span class="fare-discount">5% off</span>
+          </div>
+          <div class="fare-step current" aria-current="step">
+            <span class="fare-trip">Trip 2</span>
+            <span class="fare-discount">7% off</span>
+          </div>
+          <div class="fare-step">
+            <span class="fare-trip">Trip 3</span>
+            <span class="fare-discount">10% off</span>
+          </div>
+        </div>
+        <div class="fare-progress-heading">
+          <span>Progress to Trip 3</span>
+          <strong>2 of 3 trips</strong>
+        </div>
+        <div class="fare-progress-track" role="progressbar" aria-label="Progress to Trip 3" aria-valuemin="0" aria-valuemax="3" aria-valuenow="2">
+          <div class="fare-progress-fill"></div>
         </div>
       </section>
 
