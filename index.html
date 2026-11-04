@@ -6,284 +6,97 @@
   <meta name="theme-color" content="#005B4D">
   <title>Family | Cathay</title>
   <style>
-    @property --progress {
-      syntax: "<percentage>";
-      inherits: false;
-      initial-value: 81.6667%;
-    }
-
+    @property --progress { syntax: "<percentage>"; inherits: false; initial-value: 81.6667%; }
     :root {
       color-scheme: light;
-      --teal: #005B4D;
-      --teal-dark: #00463B;
-      --paper: #F5F3EE;
-      --page: #e8e8e6;
-      --ink: #20302d;
-      --muted: #59645f;
-      --line: #e8e6e0;
-      --white: #fff;
-      --surface: #fffefa;
+      --teal: #005B4D; --teal-dark: #00463B; --paper: #F5F3EE;
+      --page: #e8e8e6; --ink: #20302d; --muted: #59645f;
+      --line: #e8e6e0; --surface: #fffefa;
     }
-
     * { box-sizing: border-box; }
     html, body { min-height: 100%; }
-
     body {
-      margin: 0;
-      min-width: 320px;
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      background: var(--page);
-      color: var(--ink);
+      margin: 0; min-width: 320px; min-height: 100vh; min-height: 100dvh;
+      display: grid; place-items: center; padding: 24px;
+      background: var(--page); color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased;
     }
-
     button { font: inherit; }
-
     .phone {
-      display: flex;
-      width: min(390px, 100%);
-      height: min(844px, calc(100dvh - 48px));
-      min-height: 620px;
-      flex-direction: column;
-      overflow: hidden;
-      border: 1px solid rgb(29 44 39 / 8%);
-      border-radius: 34px;
-      background: var(--paper);
+      position: relative; display: flex; width: min(390px, 100%);
+      height: min(844px, calc(100dvh - 48px)); min-height: 620px;
+      flex-direction: column; overflow: hidden; border: 1px solid rgb(29 44 39 / 8%);
+      border-radius: 34px; background: var(--paper);
       box-shadow: 0 24px 70px rgb(26 39 34 / 18%), 0 4px 12px rgb(26 39 34 / 8%);
     }
-
     .app-header {
-      flex: 0 0 auto;
-      padding: max(20px, env(safe-area-inset-top)) 22px 22px;
-      background: var(--teal);
-      color: var(--white);
+      flex: 0 0 auto; padding: max(20px, env(safe-area-inset-top)) 22px 22px;
+      background: var(--teal); color: #fff;
     }
-
     .miles-chip {
-      display: inline-flex;
-      min-height: 34px;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border: 1px solid rgb(255 255 255 / 28%);
-      border-radius: 999px;
-      background: rgb(255 255 255 / 12%);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 650;
-      font-variant-numeric: tabular-nums;
+      display: inline-flex; min-height: 34px; align-items: center; gap: 8px;
+      padding: 6px 12px; border: 1px solid rgb(255 255 255 / 28%);
+      border-radius: 999px; background: rgb(255 255 255 / 12%); color: #fff;
+      font-size: 13px; font-weight: 650; font-variant-numeric: tabular-nums;
     }
-
     .miles-icon {
-      display: grid;
-      width: 20px;
-      height: 20px;
-      place-items: center;
-      border-radius: 50%;
-      background: #fff;
-      color: var(--teal);
-      font-size: 11px;
-      font-weight: 800;
+      display: grid; width: 20px; height: 20px; place-items: center;
+      border-radius: 50%; background: #fff; color: var(--teal); font-size: 11px; font-weight: 800;
     }
-
-    .app-header h1 {
-      margin: 17px 0 0;
-      font-size: 29px;
-      font-weight: 650;
-      line-height: 1.15;
-      letter-spacing: -.035em;
-    }
-
+    .app-header h1 { margin: 17px 0 0; font-size: 29px; font-weight: 650; line-height: 1.15; letter-spacing: -.035em; }
     .screen-content {
-      flex: 1 1 auto;
-      min-height: 0;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      padding: 16px 16px 20px;
-      scrollbar-width: thin;
-      scrollbar-color: #c8cec9 transparent;
+      flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+      padding: 16px 16px 100px; scrollbar-width: thin; scrollbar-color: #c8cec9 transparent;
     }
-
-    .card {
-      border: 1px solid #e6e3dc;
-      border-radius: 19px;
-      background: var(--surface);
-      box-shadow: 0 5px 16px rgb(35 48 43 / 5%);
-    }
-
-    .goal-card {
-      padding: 17px 15px 16px;
-      text-align: center;
-    }
-
-    .eyebrow {
-      margin: 0;
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 750;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
+    .card { border: 1px solid #e6e3dc; border-radius: 19px; background: var(--surface); box-shadow: 0 5px 16px rgb(35 48 43 / 5%); }
+    .goal-card { padding: 17px 15px 16px; text-align: center; }
+    .eyebrow { margin: 0; color: var(--muted); font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
     .progress-ring {
-      --progress: 81.6667%;
-      display: grid;
-      width: 154px;
-      aspect-ratio: 1;
-      margin: 14px auto 11px;
-      place-items: center;
-      border-radius: 50%;
-      background: conic-gradient(var(--teal) var(--progress), #e8e9e3 0);
-      transform: rotate(-90deg);
-      transition: --progress 500ms cubic-bezier(.2, .75, .25, 1);
+      --progress: 81.6667%; display: grid; width: 154px; aspect-ratio: 1; margin: 14px auto 11px;
+      place-items: center; border-radius: 50%; background: conic-gradient(var(--teal) var(--progress), #e8e9e3 0);
+      transform: rotate(-90deg); transition: --progress 500ms cubic-bezier(.2, .75, .25, 1);
     }
-
     .ring-inner {
-      display: flex;
-      width: calc(100% - 24px);
-      aspect-ratio: 1;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: var(--surface);
-      transform: rotate(90deg);
+      display: flex; width: calc(100% - 24px); aspect-ratio: 1; flex-direction: column;
+      align-items: center; justify-content: center; border-radius: 50%; background: var(--surface); transform: rotate(90deg);
     }
-
-    .miles-total {
-      color: var(--ink);
-      font-size: 28px;
-      font-weight: 750;
-      letter-spacing: -.045em;
-      line-height: 1.1;
-      font-variant-numeric: tabular-nums;
-    }
-
+    .miles-total { color: var(--ink); font-size: 28px; font-weight: 750; letter-spacing: -.045em; line-height: 1.1; font-variant-numeric: tabular-nums; }
     .miles-caption { margin-top: 4px; color: var(--muted); font-size: 12px; }
-
-    .goal-caption {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.45;
-      font-variant-numeric: tabular-nums;
-    }
-
+    .goal-caption { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; font-variant-numeric: tabular-nums; }
     .goal-caption strong { color: var(--ink); }
-
-    .actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 9px;
-      margin-top: 14px;
-    }
-
+    .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 14px; }
     .action-button {
-      min-height: 46px;
-      padding: 9px 10px;
-      border: 0;
-      border-radius: 12px;
-      background: var(--teal);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      line-height: 1.25;
-      cursor: pointer;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
+      min-height: 46px; padding: 9px 10px; border: 0; border-radius: 12px;
+      background: var(--teal); color: #fff; font-size: 12px; font-weight: 700; line-height: 1.25;
+      cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
       transition: background-color 150ms ease, transform 150ms ease;
     }
-
     .action-button:hover { background: var(--teal-dark); }
     .action-button:active { transform: scale(.98); }
     .action-button:focus-visible { outline: 3px solid #7bc8b8; outline-offset: 2px; }
-
-    .section-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin: 20px 2px 10px;
-    }
-
-    .section-heading h2 {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 750;
-      letter-spacing: -.02em;
-      line-height: 1.25;
-    }
-
+    .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 20px 2px 10px; }
+    .section-heading h2 { margin: 0; font-size: 16px; font-weight: 750; letter-spacing: -.02em; line-height: 1.25; }
     .small-meta { color: var(--muted); font-size: 11px; white-space: nowrap; }
-
-    .member-list, .activity-list {
-      overflow: hidden;
-      border: 1px solid #e6e3dc;
-      border-radius: 16px;
-      background: var(--surface);
-    }
-
-    .member {
-      display: flex;
-      min-height: 61px;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 12px;
-    }
-
+    .member-list, .activity-list { overflow: hidden; border: 1px solid #e6e3dc; border-radius: 16px; background: var(--surface); }
+    .member { display: flex; min-height: 61px; align-items: center; gap: 10px; padding: 9px 12px; }
     .member + .member, .activity-item + .activity-item { border-top: 1px solid #eeece6; }
-
-    .member-avatar {
-      display: grid;
-      width: 38px;
-      height: 38px;
-      flex: 0 0 auto;
-      place-items: center;
-      border-radius: 13px;
-      background: #e6f0ec;
-      color: var(--teal);
-      font-size: 12px;
-      font-weight: 750;
-    }
-
+    .member-avatar { display: grid; width: 38px; height: 38px; flex: 0 0 auto; place-items: center; border-radius: 13px; background: #e6f0ec; color: var(--teal); font-size: 12px; font-weight: 750; }
     .member:nth-child(2) .member-avatar { background: #f5eddb; color: #795414; }
     .member:nth-child(3) .member-avatar { background: #f0eafa; color: #644a94; }
     .member:nth-child(4) .member-avatar { background: #fcebea; color: #a84642; }
-
     .member-info { min-width: 0; flex: 1; }
     .member-name { font-size: 13px; font-weight: 700; line-height: 1.25; }
     .member-role { margin-top: 3px; color: var(--muted); font-size: 11px; line-height: 1.25; }
     .contribution { flex: 0 0 auto; text-align: right; }
     .contribution strong { display: block; font-size: 13px; font-weight: 750; font-variant-numeric: tabular-nums; }
     .contribution span { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; }
-
     .fare-card { margin-top: 16px; padding: 14px 12px 13px; }
     .fare-card .section-heading { margin: 0 0 11px; }
-    .current-label {
-      flex: 0 0 auto;
-      padding: 4px 7px;
-      border-radius: 99px;
-      background: #e6f0ec;
-      color: var(--teal);
-      font-size: 10px;
-      font-weight: 750;
-    }
-
+    .current-label { flex: 0 0 auto; padding: 4px 7px; border-radius: 99px; background: #e6f0ec; color: var(--teal); font-size: 10px; font-weight: 750; }
     .fare-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
-    .fare-step {
-      min-width: 0;
-      padding: 9px 3px;
-      border: 1px solid #e8e6e0;
-      border-radius: 11px;
-      background: #faf9f5;
-      text-align: center;
-    }
-    .fare-step.current { border: 2px solid var(--teal); padding: 8px 2px; background: #edf4f0; }
+    .fare-step { min-width: 0; padding: 9px 3px; border: 1px solid #e8e6e0; border-radius: 11px; background: #faf9f5; text-align: center; }
+    .fare-step.current { padding: 8px 2px; border: 2px solid var(--teal); background: #edf4f0; }
     .fare-trip { display: block; color: var(--muted); font-size: 11px; font-weight: 650; }
     .fare-discount { display: block; margin-top: 3px; color: var(--ink); font-size: 14px; font-weight: 750; white-space: nowrap; }
     .fare-step.current .fare-trip, .fare-step.current .fare-discount { color: var(--teal); }
@@ -292,61 +105,28 @@
     .fare-progress-heading strong { color: var(--ink); }
     .fare-progress-track { height: 7px; margin-top: 6px; overflow: hidden; border-radius: 99px; background: #e8e9e3; }
     .fare-progress-fill { width: 66.6667%; height: 100%; border-radius: inherit; background: var(--teal); }
-
     .activity-item { padding: 11px 12px; color: var(--ink); font-size: 12px; line-height: 1.4; animation: activity-in 240ms ease both; }
     .activity-empty { color: var(--muted); }
-
     .goal-note { margin: 10px 3px 0; color: var(--muted); font-size: 11px; line-height: 1.45; text-align: center; }
     .prototype-label { padding: 15px 0 2px; color: var(--muted); font-size: 10px; letter-spacing: .04em; text-align: center; }
-
     .tab-bar {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      flex: 0 0 auto;
+      position: absolute; z-index: 5; right: 0; bottom: 0; left: 0;
+      display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
       padding: 7px 4px max(8px, env(safe-area-inset-bottom));
-      border-top: 1px solid var(--line);
-      background: rgb(255 254 250 / 98%);
+      border-top: 1px solid var(--line); background: rgb(255 254 250 / 98%);
     }
-
-    .tab {
-      display: flex;
-      min-width: 0;
-      min-height: 53px;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      padding: 3px 1px;
-      border: 0;
-      border-radius: 11px;
-      background: transparent;
-      color: var(--muted);
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-    }
-
+    .tab { display: flex; min-width: 0; min-height: 53px; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 3px 1px; border: 0; border-radius: 11px; background: transparent; color: var(--muted); cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
     .tab-icon { display: grid; width: 21px; height: 21px; place-items: center; font-size: 18px; line-height: 1; }
     .tab-label { font-size: 9px; font-weight: 550; line-height: 1.2; white-space: nowrap; }
     .tab[aria-current="page"] { color: var(--teal); }
     .tab[aria-current="page"] .tab-label { font-weight: 800; }
     .tab:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
-
-    @keyframes activity-in {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    @keyframes activity-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 430px) {
       body { display: block; padding: 0; }
       .phone { width: 100%; height: 100vh; height: 100dvh; min-height: 560px; border: 0; border-radius: 0; box-shadow: none; }
     }
-
-    @media (max-height: 700px) and (min-width: 431px) {
-      body { padding: 12px; }
-      .phone { height: calc(100dvh - 24px); min-height: 560px; }
-    }
-
+    @media (max-height: 700px) and (min-width: 431px) { body { padding: 12px; } .phone { height: calc(100dvh - 24px); min-height: 560px; } }
     @media (max-width: 350px) {
       .screen-content { padding-right: 11px; padding-left: 11px; }
       .actions { gap: 7px; }
@@ -354,19 +134,13 @@
       .member { gap: 8px; padding-right: 9px; padding-left: 9px; }
       .fare-card { padding-right: 9px; padding-left: 9px; }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
-    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
   </style>
 </head>
 <body>
   <main class="phone" aria-label="Cathay mobile app">
     <header class="app-header">
-      <div class="miles-chip" aria-label="Available miles: 245,000">
-        <span class="miles-icon" aria-hidden="true">A</span>
-        <span id="header-miles">245,000</span>
-      </div>
+      <div class="miles-chip" aria-label="Available miles: 245,000"><span class="miles-icon" aria-hidden="true">A</span><span id="header-miles">245,000</span></div>
       <h1 id="page-title">Family</h1>
     </header>
 
@@ -374,10 +148,7 @@
       <section class="card goal-card" aria-labelledby="goal-title">
         <p class="eyebrow" id="goal-title">Family miles goal</p>
         <div class="progress-ring" id="progress-ring" role="img" aria-label="245,000 of 300,000 miles, 82 percent of goal">
-          <div class="ring-inner">
-            <span class="miles-total" id="total-miles" aria-live="polite">245,000</span>
-            <span class="miles-caption">miles collected</span>
-          </div>
+          <div class="ring-inner"><span class="miles-total" id="total-miles" aria-live="polite">245,000</span><span class="miles-caption">miles collected</span></div>
         </div>
         <p class="goal-caption" id="goal-caption"><strong>245,000</strong> of 300,000 miles · 82% there</p>
         <div class="actions" aria-label="Add miles to family pool">
@@ -387,58 +158,30 @@
       </section>
 
       <section aria-labelledby="members-title">
-        <div class="section-heading">
-          <h2 id="members-title">Family members</h2>
-          <span class="small-meta">4 contributors</span>
-        </div>
+        <div class="section-heading"><h2 id="members-title">Family members</h2><span class="small-meta">4 contributors</span></div>
         <div class="member-list">
-          <article class="member">
-            <div class="member-avatar" aria-hidden="true">AL</div>
-            <div class="member-info"><div class="member-name">Alex Lee</div><div class="member-role">Pool organizer</div></div>
-            <div class="contribution"><strong>82,000</strong><span>miles</span></div>
-          </article>
-          <article class="member">
-            <div class="member-avatar" aria-hidden="true">ER</div>
-            <div class="member-info"><div class="member-name">Erien</div><div class="member-role">Family member</div></div>
-            <div class="contribution"><strong id="erien-miles">65,000</strong><span>miles</span></div>
-          </article>
-          <article class="member">
-            <div class="member-avatar" aria-hidden="true">ML</div>
-            <div class="member-info"><div class="member-name">Morgan Lee</div><div class="member-role">Family member</div></div>
-            <div class="contribution"><strong>54,000</strong><span>miles</span></div>
-          </article>
-          <article class="member">
-            <div class="member-avatar" aria-hidden="true">WE</div>
-            <div class="member-info"><div class="member-name">Wei</div><div class="member-role">Student</div></div>
-            <div class="contribution"><strong id="wei-miles">44,000</strong><span>miles</span></div>
-          </article>
+          <article class="member"><div class="member-avatar" aria-hidden="true">AL</div><div class="member-info"><div class="member-name">Alex Lee</div><div class="member-role">Pool organizer</div></div><div class="contribution"><strong>82,000</strong><span>miles</span></div></article>
+          <article class="member"><div class="member-avatar" aria-hidden="true">ER</div><div class="member-info"><div class="member-name">Erien</div><div class="member-role">Family member</div></div><div class="contribution"><strong id="erien-miles">65,000</strong><span>miles</span></div></article>
+          <article class="member"><div class="member-avatar" aria-hidden="true">ML</div><div class="member-info"><div class="member-name">Morgan Lee</div><div class="member-role">Family member</div></div><div class="contribution"><strong>54,000</strong><span>miles</span></div></article>
+          <article class="member"><div class="member-avatar" aria-hidden="true">WE</div><div class="member-info"><div class="member-name">Wei</div><div class="member-role">Student</div></div><div class="contribution"><strong id="wei-miles">44,000</strong><span>miles</span></div></article>
         </div>
         <p class="goal-note" id="goal-note">Together, you’re just 55,000 miles away from your family goal.</p>
       </section>
 
       <section class="card fare-card" aria-labelledby="fare-title">
-        <div class="section-heading">
-          <h2 id="fare-title">Student fare ladder</h2>
-          <span class="current-label">Trip 2 · Current</span>
-        </div>
+        <div class="section-heading"><h2 id="fare-title">Student fare ladder</h2><span class="current-label">Trip 2 · Current</span></div>
         <div class="fare-steps" aria-label="Student fare discounts">
           <div class="fare-step"><span class="fare-trip">Trip 1</span><span class="fare-discount">5% off</span></div>
           <div class="fare-step current" aria-current="step"><span class="fare-trip">Trip 2</span><span class="fare-discount">7% off</span></div>
           <div class="fare-step"><span class="fare-trip">Trip 3</span><span class="fare-discount">10% off</span></div>
         </div>
         <div class="fare-progress-heading"><span>Progress to Trip 3</span><strong>2 of 3 trips</strong></div>
-        <div class="fare-progress-track" role="progressbar" aria-label="Progress to Trip 3" aria-valuemin="0" aria-valuemax="3" aria-valuenow="2">
-          <div class="fare-progress-fill"></div>
-        </div>
+        <div class="fare-progress-track" role="progressbar" aria-label="Progress to Trip 3" aria-valuemin="0" aria-valuemax="3" aria-valuenow="2"><div class="fare-progress-fill"></div></div>
       </section>
 
       <section aria-labelledby="activity-title">
-        <div class="section-heading">
-          <h2 id="activity-title">Recent activity</h2>
-        </div>
-        <div class="activity-list" id="activity-list" aria-live="polite" aria-relevant="additions">
-          <div class="activity-item activity-empty" id="activity-empty">No activity yet. Add miles to get started.</div>
-        </div>
+        <div class="section-heading"><h2 id="activity-title">Recent activity</h2></div>
+        <div class="activity-list" id="activity-list" aria-live="polite" aria-relevant="additions"><div class="activity-item activity-empty" id="activity-empty">No activity yet. Add miles to get started.</div></div>
       </section>
       <footer class="prototype-label">Prototype</footer>
     </div>
@@ -457,11 +200,7 @@
     (() => {
       const goal = 300000;
       const values = { total: 245000, wei: 44000, erien: 65000 };
-      const nodes = {
-        total: document.getElementById('total-miles'),
-        wei: document.getElementById('wei-miles'),
-        erien: document.getElementById('erien-miles')
-      };
+      const nodes = { total: document.getElementById('total-miles'), wei: document.getElementById('wei-miles'), erien: document.getElementById('erien-miles') };
       const headerMiles = document.getElementById('header-miles');
       const ring = document.getElementById('progress-ring');
       const caption = document.getElementById('goal-caption');
@@ -477,7 +216,6 @@
         const startTime = performance.now();
         const duration = 420;
         const ease = t => 1 - Math.pow(1 - t, 3);
-
         function step(now) {
           const progress = Math.min((now - startTime) / duration, 1);
           node.textContent = formatMiles(start + (target - start) * ease(progress));
@@ -509,34 +247,25 @@
       }
 
       document.getElementById('student-spending').addEventListener('click', () => {
-        values.total += 5000;
-        values.wei += 5000;
-        animateValue('total', values.total);
-        animateValue('wei', values.wei);
-        updatePool();
-        addActivity('Wei: card spending +5,000');
+        values.total += 5000; values.wei += 5000;
+        animateValue('total', values.total); animateValue('wei', values.wei);
+        updatePool(); addActivity('Wei: card spending +5,000');
       });
-
       document.getElementById('parent-top-up').addEventListener('click', () => {
-        values.total += 10000;
-        values.erien += 10000;
-        animateValue('total', values.total);
-        animateValue('erien', values.erien);
-        updatePool();
-        addActivity('Erien: parent top-up +10,000');
+        values.total += 10000; values.erien += 10000;
+        animateValue('total', values.total); animateValue('erien', values.erien);
+        updatePool(); addActivity('Erien: parent top-up +10,000');
       });
 
       const tabs = document.querySelectorAll('.tab');
       const pageTitle = document.getElementById('page-title');
       const familyContent = document.getElementById('family-content');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          tabs.forEach(item => item.removeAttribute('aria-current'));
-          tab.setAttribute('aria-current', 'page');
-          pageTitle.textContent = tab.dataset.title;
-          familyContent.hidden = tab.dataset.title !== 'Family';
-        });
-      });
+      tabs.forEach(tab => tab.addEventListener('click', () => {
+        tabs.forEach(item => item.removeAttribute('aria-current'));
+        tab.setAttribute('aria-current', 'page');
+        pageTitle.textContent = tab.dataset.title;
+        familyContent.hidden = tab.dataset.title !== 'Family';
+      }));
     })();
   </script>
 </body>
