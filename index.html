@@ -6,6 +6,12 @@
   <meta name="theme-color" content="#005B4D">
   <title>Cathay Family Pool</title>
   <style>
+    @property --progress {
+      syntax: "<percentage>";
+      inherits: false;
+      initial-value: 81.6667%;
+    }
+
     :root {
       color-scheme: light;
       --teal: #005B4D;
@@ -125,6 +131,7 @@
       border-radius: 50%;
       background: conic-gradient(var(--teal) var(--progress), #e8f0ef 0);
       transform: rotate(-90deg);
+      transition: --progress 500ms cubic-bezier(.2, .75, .25, 1);
     }
 
     .ring-inner {
@@ -145,6 +152,7 @@
       font-weight: 720;
       letter-spacing: -.045em;
       line-height: 1.1;
+      font-variant-numeric: tabular-nums;
     }
 
     .miles-label {
@@ -157,9 +165,35 @@
       margin: 0;
       color: var(--muted);
       font-size: 13px;
+      font-variant-numeric: tabular-nums;
     }
 
     .goal-caption strong { color: var(--ink); font-weight: 650; }
+
+    .actions {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .action-button {
+      min-height: 48px;
+      padding: 12px 16px;
+      border: 0;
+      border-radius: 14px;
+      color: #fff;
+      background: var(--teal);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 650;
+      cursor: pointer;
+      transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .action-button:hover { background: var(--teal-dark); }
+    .action-button:active { transform: scale(.98); }
+    .action-button:focus-visible { outline: 3px solid #7bc8b8; outline-offset: 3px; }
 
     .section-heading {
       display: flex;
@@ -180,7 +214,7 @@
       font-size: 12px;
     }
 
-    .member-list {
+    .member-list, .activity-list {
       overflow: hidden;
       border: 1px solid #e8eeee;
       border-radius: 19px;
@@ -195,7 +229,7 @@
       padding: 13px 15px;
     }
 
-    .member + .member { border-top: 1px solid #edf1f1; }
+    .member + .member, .activity-item + .activity-item { border-top: 1px solid #edf1f1; }
 
     .member-avatar {
       display: grid;
@@ -218,7 +252,7 @@
     .member-name { font-size: 14px; font-weight: 650; }
     .member-role { margin-top: 4px; color: var(--muted); font-size: 12px; }
     .contribution { text-align: right; }
-    .contribution strong { display: block; font-size: 14px; font-weight: 700; }
+    .contribution strong { display: block; font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
     .contribution span { display: block; margin-top: 4px; color: var(--muted); font-size: 11px; }
 
     .footer-note {
@@ -227,6 +261,25 @@
       font-size: 11px;
       line-height: 1.5;
       text-align: center;
+    }
+
+    .activity-item {
+      padding: 14px 15px;
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.4;
+      animation: activity-in 260ms ease both;
+    }
+
+    .activity-empty { color: var(--muted); }
+
+    @keyframes activity-in {
+      from { opacity: 0; transform: translateY(-7px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
     }
 
     @media (min-width: 520px) {
@@ -250,13 +303,17 @@
     <main>
       <section class="goal-card" aria-labelledby="goal-title">
         <p class="eyebrow" id="goal-title">Family miles goal</p>
-        <div class="progress-ring" role="img" aria-label="245,000 of 300,000 miles, 82 percent of goal">
+        <div class="progress-ring" id="progress-ring" role="img" aria-label="245,000 of 300,000 miles, 82 percent of goal">
           <div class="ring-inner">
-            <span class="miles">245,000</span>
+            <span class="miles" id="total-miles" aria-live="polite">245,000</span>
             <span class="miles-label">miles collected</span>
           </div>
         </div>
-        <p class="goal-caption"><strong>245,000</strong> of 300,000 miles <span aria-hidden="true">·</span> 82% there</p>
+        <p class="goal-caption" id="goal-caption"><strong>245,000</strong> of 300,000 miles <span aria-hidden="true">·</span> 82% there</p>
+        <div class="actions" aria-label="Add miles">
+          <button class="action-button" id="student-spending" type="button">Add student spending</button>
+          <button class="action-button" id="parent-top-up" type="button">Parent tops up</button>
+        </div>
       </section>
 
       <section aria-labelledby="members-title">
@@ -271,9 +328,9 @@
             <div class="contribution"><strong>82,000</strong><span>miles</span></div>
           </article>
           <article class="member">
-            <div class="member-avatar" aria-hidden="true">JL</div>
-            <div class="member-info"><div class="member-name">Jamie Lee</div><div class="member-role">Family member</div></div>
-            <div class="contribution"><strong>65,000</strong><span>miles</span></div>
+            <div class="member-avatar" aria-hidden="true">ER</div>
+            <div class="member-info"><div class="member-name">Erien</div><div class="member-role">Family member</div></div>
+            <div class="contribution"><strong id="erien-miles">65,000</strong><span>miles</span></div>
           </article>
           <article class="member">
             <div class="member-avatar" aria-hidden="true">ML</div>
@@ -281,14 +338,95 @@
             <div class="contribution"><strong>54,000</strong><span>miles</span></div>
           </article>
           <article class="member">
-            <div class="member-avatar" aria-hidden="true">RL</div>
-            <div class="member-info"><div class="member-name">Riley Lee</div><div class="member-role">Family member</div></div>
-            <div class="contribution"><strong>44,000</strong><span>miles</span></div>
+            <div class="member-avatar" aria-hidden="true">WE</div>
+            <div class="member-info"><div class="member-name">Wei</div><div class="member-role">Student</div></div>
+            <div class="contribution"><strong id="wei-miles">44,000</strong><span>miles</span></div>
           </article>
         </div>
-        <p class="footer-note">Together, you’re just 55,000 miles away from your family goal.</p>
+        <p class="footer-note" id="goal-note">Together, you’re just 55,000 miles away from your family goal.</p>
+      </section>
+
+      <section aria-labelledby="activity-title">
+        <div class="section-heading">
+          <h2 id="activity-title">Recent activity</h2>
+        </div>
+        <div class="activity-list" id="activity-list" aria-live="polite" aria-relevant="additions">
+          <div class="activity-item activity-empty" id="activity-empty">No activity yet. Add miles to get started.</div>
+        </div>
       </section>
     </main>
   </div>
+
+  <script>
+    (() => {
+      const goal = 300000;
+      const values = { total: 245000, wei: 44000, erien: 65000 };
+      const nodes = {
+        total: document.getElementById('total-miles'),
+        wei: document.getElementById('wei-miles'),
+        erien: document.getElementById('erien-miles')
+      };
+      const ring = document.getElementById('progress-ring');
+      const caption = document.getElementById('goal-caption');
+      const goalNote = document.getElementById('goal-note');
+      const activityList = document.getElementById('activity-list');
+      const animationFrames = {};
+      const formatMiles = value => Math.round(value).toLocaleString('en-US');
+
+      function animateValue(key, target) {
+        if (animationFrames[key]) cancelAnimationFrame(animationFrames[key]);
+        const node = nodes[key];
+        const start = Number(node.textContent.replace(/,/g, '')) || 0;
+        const duration = 420;
+        const startTime = performance.now();
+        const ease = t => 1 - Math.pow(1 - t, 3);
+
+        function step(now) {
+          const progress = Math.min((now - startTime) / duration, 1);
+          node.textContent = formatMiles(start + (target - start) * ease(progress));
+          if (progress < 1) animationFrames[key] = requestAnimationFrame(step);
+          else delete animationFrames[key];
+        }
+        animationFrames[key] = requestAnimationFrame(step);
+      }
+
+      function updatePool() {
+        const percent = Math.min(values.total / goal * 100, 100);
+        const roundedPercent = Math.round(percent);
+        ring.style.setProperty('--progress', `${percent}%`);
+        ring.setAttribute('aria-label', `${formatMiles(values.total)} of ${formatMiles(goal)} miles, ${roundedPercent} percent of goal`);
+        caption.innerHTML = `<strong>${formatMiles(values.total)}</strong> of ${formatMiles(goal)} miles <span aria-hidden="true">·</span> ${roundedPercent}% there`;
+        const remaining = Math.max(goal - values.total, 0);
+        goalNote.textContent = remaining ? `Together, you’re just ${formatMiles(remaining)} miles away from your family goal.` : 'Family goal reached — great work, everyone!';
+      }
+
+      function addActivity(text) {
+        const empty = document.getElementById('activity-empty');
+        if (empty) empty.remove();
+        const item = document.createElement('div');
+        item.className = 'activity-item';
+        item.textContent = text;
+        activityList.prepend(item);
+      }
+
+      document.getElementById('student-spending').addEventListener('click', () => {
+        values.total += 5000;
+        values.wei += 5000;
+        animateValue('total', values.total);
+        animateValue('wei', values.wei);
+        updatePool();
+        addActivity('Wei: card spending +5,000');
+      });
+
+      document.getElementById('parent-top-up').addEventListener('click', () => {
+        values.total += 10000;
+        values.erien += 10000;
+        animateValue('total', values.total);
+        animateValue('erien', values.erien);
+        updatePool();
+        addActivity('Erien: parent top-up +10,000');
+      });
+    })();
+  </script>
 </body>
 </html>
