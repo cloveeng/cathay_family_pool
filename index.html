@@ -137,52 +137,384 @@ button,input,select { font:inherit; } button { cursor:pointer; }
 @media(max-width:430px) { body{padding:12px 0}.demo-heading{padding:0 10px}.device-label-row{margin-right:12px;margin-left:12px}.phone{height:88vh;min-height:610px;border-right:0;border-left:0;border-radius:0} }
 @media(max-width:350px) { .screen-content{padding-right:10px;padding-left:10px}.role-actions{gap:4px}.action-button{padding-right:4px;padding-left:4px;font-size:9px}.member{gap:6px;padding-right:7px;padding-left:7px}.account-switch{gap:3px}.account-switch select{max-width:90px} }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important} }
+.gear-button[hidden],.header-spacer[hidden]{display:none}
+button.destination-card{display:block;width:100%;font:inherit;cursor:pointer}
+.traveller{cursor:pointer}
+.destination-card:focus-visible,.traveller:focus-visible{outline:3px solid #7bc8b8;outline-offset:2px}
+.destination-card.seoul{background:linear-gradient(125deg,#d9eee8,#f5eddb 57%,#dce7f0)}
+.activity-item{animation:none}
+
+.hero{position:relative;overflow:hidden;padding:16px 16px 14px;border-radius:22px;background:linear-gradient(150deg,#00705e 0%,#004a52 55%,#002745 100%);color:#fff;box-shadow:0 12px 28px rgb(0 39 69 / 24%)}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:70px;background:radial-gradient(140px 70px at 88% 100%,rgb(223 167 68 / 24%),transparent);pointer-events:none}
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.hero-eyebrow{color:rgb(255 255 255 / 70%);font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.hero-tag{padding:3px 8px;border:1px solid rgb(223 167 68 / 45%);border-radius:99px;background:rgb(223 167 68 / 20%);color:#f4d99a;font-size:8px;font-weight:800}
+.hero-title{margin:8px 0 0;font-size:20px;font-weight:800;letter-spacing:-.03em}
+.hero-number{margin-top:2px;font-size:36px;font-weight:850;letter-spacing:-.05em;line-height:1.1;font-variant-numeric:tabular-nums}
+.hero-number small{color:rgb(255 255 255 / 70%);font-size:12px;font-weight:600;letter-spacing:0}
+.route{position:relative;margin-top:4px}.route-svg{display:block;width:100%;height:auto;overflow:visible}
+.route-track{fill:none;stroke:rgb(255 255 255 / 30%);stroke-width:2;stroke-dasharray:2 4;stroke-linecap:round}
+.route-progress{fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round}
+.route-dot{fill:#fff}.route-dot.end{fill:none;stroke:#fff;stroke-width:2}
+.route-labels{display:flex;justify-content:space-between;margin-top:-2px;color:rgb(255 255 255 / 82%);font-size:10px;font-weight:800;letter-spacing:.1em}
+.hero-foot{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}
+.hero-remaining{font-size:12px;font-weight:700}.hero-remaining span{color:var(--gold);font-weight:850}
+.avatar-stack{display:flex}.avatar-stack i{display:grid;width:24px;height:24px;margin-left:-7px;place-items:center;border:2px solid #0a4a4c;border-radius:50%;font-size:8px;font-style:normal;font-weight:850}
+.quick-actions{display:flex;justify-content:space-around;gap:6px;margin:14px 0 4px}
+.qa{position:relative;display:flex;min-width:58px;flex-direction:column;align-items:center;gap:6px;padding:0;border:0;background:transparent;color:var(--navy);font-size:10px;font-weight:750}
+.qa-icon{display:grid;width:48px;height:48px;place-items:center;border:1px solid #e6e3dc;border-radius:16px;background:#fffefa;box-shadow:0 4px 12px rgb(35 48 43 / 8%);color:var(--teal);transition:transform .15s ease,background .15s ease}
+.qa:hover .qa-icon{background:#eef5f1}.qa:active .qa-icon{transform:scale(.93)}.qa:focus-visible{outline:3px solid #7bc8b8;outline-offset:3px;border-radius:12px}
+.qa-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.qa-dot{position:absolute;top:-2px;right:8px;width:11px;height:11px;border:2px solid var(--paper);border-radius:50%;background:#e0554a}
+.segmented{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin:12px 0 10px;padding:3px;border-radius:12px;background:#e9e7e0}
+.segmented button{padding:8px 4px;border:0;border-radius:9px;background:transparent;color:var(--muted);font-size:10px;font-weight:750;transition:background .18s,color .18s,box-shadow .18s}
+.segmented button[aria-selected="true"]{background:#fff;color:var(--navy);box-shadow:0 2px 6px rgb(0 0 0 / 10%)}
+.panel{padding:12px;border:1px solid #e6e3dc;border-radius:16px;background:var(--surface);box-shadow:0 4px 14px rgb(35 48 43 / 5%)}
+.panel h4{margin:0 0 10px;color:var(--navy);font-size:12px;font-weight:800}
+.stack{display:flex;height:16px;gap:2px;overflow:hidden;border-radius:99px}
+.stack .seg{min-width:6px;padding:0;border:0;transition:opacity .2s,filter .2s}.stack .seg:hover{filter:brightness(1.08)}.stack .seg.dim{opacity:.28}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:4px 9px 4px 4px;border:1px solid #e6e3dc;border-radius:99px;background:#fff;color:var(--ink);font-size:10px;font-weight:700;transition:border-color .15s,background .15s}
+.chip.on{border-color:var(--teal);background:#eef6f2}.chip i{display:grid;width:18px;height:18px;place-items:center;border-radius:50%;font-size:8px;font-style:normal;font-weight:850}
+.focus-detail{min-height:28px;margin:10px 0 0;color:var(--muted);font-size:10px;line-height:1.45}.focus-detail strong{color:var(--navy)}
+.moves{display:flex;gap:9px;margin:0 -13px;padding:2px 13px 8px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.moves::-webkit-scrollbar{display:none}
+.move{flex:0 0 80%;scroll-snap-align:start;padding:13px;border:1px solid #e6e3dc;border-radius:16px;background:var(--surface);box-shadow:0 4px 14px rgb(35 48 43 / 6%)}
+.move-kicker{display:inline-block;margin-bottom:7px;padding:2px 7px;border-radius:99px;background:#fbf0d9;color:#78520f;font-size:8px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+.move p{margin:0 0 10px;color:var(--ink);font-size:11px;line-height:1.5}.move p strong{color:var(--navy)}.move .action-button{width:100%}
+.timeline{padding:0}.tl-item{display:flex;align-items:center;gap:10px;padding:8px 0}.tl-item+.tl-item{border-top:1px solid #eeece6}
+.tl-icon{display:grid;width:30px;height:30px;flex:0 0 auto;place-items:center;border-radius:50%;background:#e4f0ea;color:var(--teal);font-size:14px;font-weight:800}.tl-icon.out{background:#fcebea;color:#a13e37}
+.tl-main{min-width:0;flex:1;color:var(--ink);font-size:11px;line-height:1.35}.tl-main small{display:block;color:var(--muted);font-size:9px}
+.tl-amt{font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}.tl-amt.in{color:var(--teal)}.tl-amt.out{color:#a13e37}
+.mcard{margin-bottom:8px;padding:11px;border:1px solid #e6e3dc;border-radius:16px;background:var(--surface);box-shadow:0 3px 10px rgb(35 48 43 / 5%)}
+.mcard-top{display:flex;align-items:center;gap:10px}.mcard .member-avatar{width:38px;height:38px}
+.mbar{height:6px;margin-top:10px;overflow:hidden;border-radius:99px;background:#eceae4}.mbar span{display:block;height:100%;border-radius:inherit;transition:width .4s ease}
+.mcard-foot{display:flex;min-height:16px;align-items:center;justify-content:space-between;margin-top:7px;color:var(--muted);font-size:9px}
+.member-info{min-width:0;flex:1}.member-name{color:var(--ink);font-size:12px;font-weight:760}
+.activity-item{animation:none}
+
+.welcome-hero{position:relative;overflow:hidden;padding:20px 18px 16px;border-radius:22px;background:linear-gradient(150deg,#00705e 0%,#004a52 55%,#002745 100%);color:#fff;box-shadow:0 12px 28px rgb(0 39 69 / 24%)}
+.welcome-hero::after{content:"";position:absolute;inset:auto 0 0 0;height:80px;background:radial-gradient(150px 80px at 88% 100%,rgb(223 167 68 / 24%),transparent);pointer-events:none}
+.welcome-hero h3{margin:12px 0 5px;font-size:25px;font-weight:800;letter-spacing:-.04em;line-height:1.12}
+.welcome-hero p{margin:0;color:rgb(255 255 255 / 78%);font-size:12px;line-height:1.5}
+.welcome-route{display:block;width:100%;height:auto;margin-top:8px;overflow:visible}
+.welcome-avatars{position:relative;z-index:1;display:flex;justify-content:center;margin-top:2px}
+.welcome-avatars i{display:grid;width:30px;height:30px;margin-left:-8px;place-items:center;border:2px solid #0a4a4c;border-radius:50%;font-size:10px;font-style:normal;font-weight:850}
+.perks{display:grid;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.perk{display:flex;align-items:flex-start;gap:11px;padding:11px;border:1px solid #e6e3dc;border-radius:14px;background:var(--surface)}
+.perk-icon{display:grid;width:34px;height:34px;flex:0 0 auto;place-items:center;border-radius:11px;background:#e6f0ec;color:var(--teal)}
+.perk-icon svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.perk strong{display:block;color:var(--navy);font-size:12px;font-weight:780}.perk span:not(.perk-icon){display:block;margin-top:2px;color:var(--muted);font-size:10px;line-height:1.45}
+.welcome>.action-button{width:100%;min-height:46px;margin-top:14px;font-size:12px}
+.join-or{margin:14px 0 0;color:var(--muted);font-size:10px;text-align:center}
+.code-row{display:flex;gap:8px;margin-top:8px}
+.code-row input{min-width:0;flex:1;min-height:44px;padding:8px 12px;border:1px solid #d9ddd7;border-radius:12px;background:#fff;color:var(--navy);font-size:14px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+.code-row .action-button{width:auto;min-height:44px;padding:0 20px}
+.header-row[hidden]{display:none}
+.mine{margin-bottom:10px}.mine-row{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.mine-label{display:block;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.mine-value{color:var(--navy);font-size:22px;font-weight:850;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.mine .action-button{min-height:36px;padding:0 14px}
+.auto-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px;padding-top:10px;border-top:1px solid #eeece6;color:var(--ink);font-size:10px;line-height:1.4}
+.mine-hint{color:var(--muted);font-size:9px;font-weight:700}
 </style>
 </head>
 <body>
 <header class="demo-heading"><h1>One family, one miles pool</h1><p>Shared demo · Changes on either phone update both</p></header>
 <main class="phones" id="phones" aria-label="Shared family miles pool demo"></main>
-<div class="demo-tools"><button class="demo-link" type="button" data-global-action="reset">Reset demo</button><button class="demo-link" id="view-toggle" type="button" data-global-action="toggle-view">Demo: show a non-member's view</button></div>
+<div class="demo-tools"><button class="demo-link" type="button" data-global-action="reset">Reset demo</button><button class="demo-link" type="button" data-global-action="sim-purchase">Demo: simulate a student purchase</button><button class="demo-link" id="view-toggle" type="button" data-global-action="toggle-view">Demo: show a non-member's view</button></div>
 <script>
 (()=>{
 const initialMembers=[{id:'erien',name:'Erien',role:'Organiser',miles:40000},{id:'naarie',name:'Naarie',role:'Adult member',miles:22000},{id:'wei',name:'Wei',role:'Adult member',miles:12000},{id:'chen',name:'Chen',role:'Adult member',miles:6000},{id:'lin',name:'Lin',role:'Junior member',miles:2000}];
 const initialActivity=[{source:'Wei',destination:'everyday spending → pool',miles:45},{source:'Naarie',destination:'card rewards → pool',miles:320},{source:'Chen',destination:'everyday spending → pool',miles:500},{source:'Erien',destination:'family transfer → pool',miles:800},{source:'Wei',destination:'everyday spending → pool',miles:735}];
-const trips=[{id:'seoul',name:'Seoul',rate:20000},{id:'osaka',name:'Osaka',rate:25000},{id:'tokyo',name:'Tokyo',rate:30000}],defaultTravellers=['naarie','wei','chen','lin'];
-const state={members:initialMembers.map(m=>({...m})),activity:initialActivity.map(a=>({...a})),earnedThisMonth:2400,used:{erien:0,naarie:0,wei:0,chen:0,lin:0},cap:20000,approvals:true,accounts:{left:'erien',right:'wei'},tabs:{left:'Family',right:'Family'},sheets:{left:null,right:null},feedback:{left:'',right:''},request:null,notice:'',nonMember:false,inviteCode:'',pinned:{tripId:'tokyo',memberIds:[...defaultTravellers]},plan:{tripId:'tokyo',memberIds:[...defaultTravellers]},toast:{left:'',right:''},toastTimers:{}};
+const trips=[{id:'seoul',name:'Seoul',code:'ICN',rate:20000},{id:'osaka',name:'Osaka',code:'KIX',rate:25000},{id:'tokyo',name:'Tokyo',code:'NRT',rate:30000}];
+const colours=['#005B4D','#DFA744','#8a6bbf','#4f7fae','#d66b6b'];
+const tints=[['#e6f0ec','#005B4D'],['#f5eddb','#795414'],['#f0eafa','#644a94'],['#e9eff7','#315577'],['#fcebea','#a84642']];
+const shown={left:null,right:null},tw={left:0,right:0};
+const defaultTravellers=['naarie','wei','chen','lin'];
+const fresh=()=>({members:initialMembers.map(m=>({...m})),activity:initialActivity.map(a=>({...a})),earnedThisMonth:2400,usedThisMonth:{erien:0,naarie:0,wei:0,chen:0,lin:0},personal:{erien:35000,naarie:12000,wei:800,chen:400,lin:0},autoAdd:{wei:true,chen:true},monthlyCap:20000,approvalsRequired:true,accounts:{left:'erien',right:'wei'},tabs:{left:'Family',right:'Family'},sheets:{left:null,right:null},feedback:{left:'',right:''},request:null,notice:'',nonMember:false,views:{left:'overview',right:'overview'},focus:{left:null,right:null},inviteCode:'',pinned:{tripId:'tokyo',memberIds:[...defaultTravellers]},plan:{left:{tripId:'tokyo',memberIds:[...defaultTravellers]},right:{tripId:'tokyo',memberIds:[...defaultTravellers]}}});
+let state=fresh();
 const phones=document.getElementById('phones');
 const fmt=n=>Math.round(n).toLocaleString('en-US');
-const total=()=>state.members.reduce((sum,m)=>sum+m.miles,0);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const total=()=>state.members.reduce((s,m)=>s+m.miles,0);
 const getMember=id=>state.members.find(m=>m.id===id);
 const nameOf=id=>getMember(id)?.name||'Member';
-const initials=name=>name.split(/\s+/).map(s=>s[0]).join('').toUpperCase();
-const isOrganiser=m=>m?.id==='erien'; const isJunior=m=>m?.role==='Junior member';
+const initials=name=>name.split(/\s+/).map(s=>s[0]).join('').toUpperCase().slice(0,2);
+const isOrganiser=m=>m?.id==='erien';
+const isJunior=m=>m?.role==='Junior member';
 const tripFor=id=>trips.find(t=>t.id===id)||trips[2];
-const planCost=plan=>tripFor(plan.tripId).rate*plan.memberIds.length;
-const pinnedCost=()=>planCost(state.pinned);
+const planCost=p=>tripFor(p.tripId).rate*p.memberIds.length;
+const planName=p=>`${tripFor(p.tripId).name} for ${p.memberIds.length}`;
+const goalInfo=()=>({name:planName(state.pinned),cost:Math.max(planCost(state.pinned),1)});
 const icon={Home:'⌂',Offers:'◇',Earn:'＋',Redeem:'✈',Family:'♡'};
 const skyline=`<svg viewBox="0 0 150 70" aria-hidden="true"><path fill="currentColor" opacity=".14" d="M0 68V42h17V28h15v40h8V18h18v50h9V34h16v34h9V10h17v58h7V27h20v41z"/><path fill="currentColor" opacity=".28" d="M4 68V49h8v19m14 0V37h7v31m16 0V27h8v41m17 0V43h8v25m17 0V19h8v49m16 0V36h8v32m12 0V45h8v23"/></svg>`;
-function phoneMarkup(side,label,defaultId){return `<section class="device-column"><div class="device-label-row"><p class="device-label">${label}</p><div class="account-switch"><label for="account-${side}">Demo: switch account</label><select id="account-${side}" data-account-select data-default="${defaultId}"></select></div></div><article class="phone" data-phone="${side}" aria-label="Cathay app"><header class="app-header"><div class="header-row"><h2 class="header-title" data-page-title>Family</h2><button class="gear-button" type="button" data-action="settings" aria-label="Pool settings" hidden>⚙</button><span class="header-spacer" data-gear-spacer></span></div><div class="header-row"><div class="pool-pill"><span>Pool <span data-pool-total></span></span><small>family pool</small></div><button class="protected-chip" type="button" data-action="protected"><span aria-hidden="true">●</span> Protected pool</button></div></header><div class="screen-content" data-screen></div><nav class="tab-bar" aria-label="Main navigation">${['Home','Offers','Earn','Redeem','Family'].map(name=>`<button class="tab" type="button" data-tab="${name}" aria-label="${name}"><span class="tab-icon" aria-hidden="true">${icon[name]}</span><span class="tab-label">${name}</span></button>`).join('')}</nav><div class="phone-overlay" data-overlay aria-hidden="true"><section class="bottom-sheet" role="dialog" aria-modal="true" aria-label="Family pool action" data-sheet></section></div><div data-toast-host></div></article></section>`;}
-function actionButtons(member){if(isJunior(member))return '';if(isOrganiser(member))return `<div class="role-actions organiser-actions"><button class="action-button" data-action="transfer">Transfer miles</button><button class="action-button secondary" data-action="redeem">Redeem</button><button class="action-button secondary" data-action="review">Review redemption</button></div>`;return `<div class="role-actions adult-actions"><button class="action-button" data-action="spending">Everyday spending</button><button class="action-button secondary" data-action="transfer">Transfer miles</button><button class="action-button secondary" data-action="redeem">Redeem</button></div>`;}
-function membersMarkup(member){return state.members.map(item=>{if(isJunior(member)&&item.id!==member.id)return '';const roleClass=item.role==='Adult member'?'adult':item.role==='Junior member'?'junior':'';const tools=isOrganiser(member)&&item.id!=='erien'?`<div class="contribution"><span class="used-month">Used this month ${fmt(state.usedThisMonth[item.id]||0)}</span><button class="remove-member" data-action="remove-member" data-member="${item.id}">Remove</button></div>`:`<div class="contribution"><strong>${fmt(item.miles)}</strong><span>pool miles</span>${isOrganiser(member)?`<span class="used-month">Used this month ${fmt(state.usedThisMonth[item.id]||0)}</span>`:''}</div>`;return `<article class="member"><div class="member-avatar" aria-hidden="true">${initials(item.name)}</div><div class="member-info"><div class="member-name">${item.name}</div><div class="member-meta"><span class="member-role">${item.role}</span><span class="role-chip ${roleClass}">${item.role}</span></div></div>${tools}</article>`;}).join('');}
-function activityMarkup(){return state.activity.map(a=>a.miles<0?`<div class="activity-item"><strong>${a.description}</strong> <span class="activity-minus">−${fmt(Math.abs(a.miles))}</span></div>`:`<div class="activity-item"><strong>${a.source}</strong> · ${a.destination} <span class="activity-plus">+${fmt(a.miles)}</span></div>`).join('');}
-function dynamicSuggestion(){const pool=total(),seoul=trips[0].cost,tokyo=trips[2].cost;return pool>=tokyo?'Your pool covers Tokyo today, with miles to spare.':pool>=seoul?`Your pool covers Seoul for 3 today. Tokyo needs ${fmt(tokyo-pool)} more.`:`Seoul needs ${fmt(seoul-pool)} more. Tokyo needs ${fmt(tokyo-pool)} more.`;}
-function familyView(side,member){const pool=total(),goal=pinned(),remaining=Math.max(goal.cost-pool,0),percent=Math.min(pool/goal.cost*100,100),junior=isJunior(member);const request=state.request?.status==='pending'?`<div class="pending-request" role="status">${state.request.name} requested ${state.request.destination}, waiting for organiser. Waiting for organiser approval.</div>`:state.request?.status==='approved'?`<div class="success-banner" role="status">${state.request.message}</div>`:'';return `${pool>=goal.cost?`<div class="goal-banner" role="status"><span>Goal reached! Redeem for the family</span>${Array.from({length:8},()=>'<i class="confetti" aria-hidden="true"></i>').join('')}</div>`:''}${state.notice?`<div class="success-banner" role="status">${state.notice}</div>`:''}<section class="card goal-card" aria-label="Family goal progress"><p class="eyebrow">Family miles goal</p><p class="goal-name">${goal.name}</p><div class="progress-ring" role="progressbar" aria-label="${fmt(pool)} of ${fmt(goal.cost)} miles" aria-valuemin="0" aria-valuemax="${goal.cost}" aria-valuenow="${Math.min(pool,goal.cost)}" style="--progress:${percent}%"><div class="ring-inner"><span class="miles-total">${fmt(pool)}</span><span class="miles-caption">of ${fmt(goal.cost)} miles</span></div></div><p class="goal-remaining">${remaining?`${fmt(remaining)} miles to go`:'Goal reached'}</p><span class="gold-tag">New: two-way family pool</span></section>${actionButtons(member)}${request}${junior?`<p class="junior-note">Parental consent required to join</p><div class="section-heading"><h3>Your contribution</h3></div><div class="member-list">${membersMarkup(member)}</div>`:`<section><div class="section-heading"><h3>Activity</h3><span class="small-meta">Earned this month +${fmt(state.earnedThisMonth)}</span></div><div class="activity-list" aria-live="polite" aria-relevant="additions">${activityMarkup()}</div></section><section><div class="section-heading"><h3>Family members</h3><span class="small-meta">${state.members.length} members</span></div><div class="member-list">${membersMarkup(member)}</div></section><section><div class="section-heading"><h3>Suggested for your family</h3></div><div class="suggestions"><article class="card suggestion-card"><p><strong>At +2,400 a month you'll reach Tokyo in about 16 months.</strong> Adding a weekly grocery shop (about HK$1,000) through your linked card could get you there about 4 months sooner.</p><button class="text-button" data-action="suggestion">See how</button></article><article class="card suggestion-card"><p>${dynamicSuggestion()}</p></article></div></section>`}`;}
-function nonMemberView(){return `<section class="card nonmember"><div class="nonmember-mark" aria-hidden="true">♡</div><p class="eyebrow">Cathay family</p><h3>Bring your miles together</h3><p>Share miles with the people you travel with and make your next family trip closer.</p><button class="action-button" data-action="start-pool">Start a family pool</button><form data-form="join"><label class="form-label">Have an invite code?<input name="code" type="text" placeholder="Enter invite code" required></label><button class="action-button secondary" type="submit">Join with invite code</button></form><p class="nonmember-note" data-join-message></p></section>`;}
-function redemptionSheet(){const pool=total();return `<div class="sheet-handle"></div><h3>Plan a trip</h3><div class="trip-plans">${trips.map(t=>`<article class="trip-option"><strong class="trip-title">${t.name}</strong><span class="trip-cost">${fmt(t.rate)} miles per person</span></article>`).join('')}</div>`;}
-function sheetContent(side,kind){const member=current(state.accounts[side]),used=state.usedThisMonth[member.id]||0;if(kind==='transfer')return `<div class="sheet-handle"></div><h3>Transfer miles</h3><p>Add miles from ${member.name} to the family pool.</p><p><strong>Used ${fmt(used)} of ${fmt(state.monthlyCap)} miles this month</strong></p><form data-form="transfer" data-side="${side}"><label class="form-label">Miles to transfer<input class="form-input" name="amount" type="number" min="1" step="1" placeholder="e.g. 5,000" inputmode="numeric" required></label><p class="sheet-error" data-sheet-error>${state.feedback[side]||''}</p><button class="action-button" type="submit">Add miles to pool</button></form>`;if(kind==='spending')return `<div class="sheet-handle"></div><h3>Everyday spending</h3><p>HK$6 = 1 mile. Miles are added directly to your family pool.</p><form data-form="spending" data-side="${side}"><label class="form-label">Amount in HK$<input class="form-input" name="amount" type="number" min="6" step="1" placeholder="e.g. 300" inputmode="decimal" required></label><p class="sheet-error" data-sheet-error>${state.feedback[side]||''}</p><button class="action-button" type="submit">Add spending miles</button></form><p>Your family sees what you add to the pool, not what you buy.</p>`;if(kind==='review')return `<div class="sheet-handle"></div><h3>Review redemption</h3>${!state.request||state.request.status!=='pending'?'<p>There are no pending redemption requests.</p>':`<p>${state.request.name} requested Tokyo trip. Approving redeems ${fmt(state.goal)} miles from the pool.</p><div class="sheet-actions"><button class="action-button secondary" data-action="decline">Decline</button><button class="action-button" data-action="approve">Approve</button></div>`}`;if(kind==='protected')return `<div class="sheet-handle"></div><h3>Protected pool</h3><p>Only the organiser approves redemptions. Each member has a monthly transfer cap. Members join by invite, with parental consent for minors.</p><button class="action-button secondary sheet-link-button" data-action="close-sheet">Done</button>`;if(kind==='settings')return `<div class="sheet-handle"></div><h3>Pool settings</h3><div class="settings-row"><label for="cap-setting">Monthly cap per member</label><input id="cap-setting" class="cap-input" type="number" min="1" step="1" value="${state.monthlyCap}" data-cap-setting></div><div class="settings-row"><span>Organiser approves redemptions</span><label class="switch" aria-label="Organiser approves redemptions"><input type="checkbox" data-approval-toggle ${state.approvalsRequired?'checked':''}><span class="switch-track"></span></label></div><button class="action-button sheet-link-button" data-action="show-invite-code">Invite a member</button>${state.inviteCode?`<div class="invite-code" role="status"><small>Share this invite code</small><strong>${state.inviteCode}</strong><p>Parental consent required for anyone under 18.</p><button class="text-button" data-action="add-invited">Add invited member</button></div>`:''}<p class="sheet-error" data-settings-error></p>`;if(kind==='invite')return `<div class="sheet-handle"></div><h3>Invite a member</h3><p>Joining is by invite only. Parental consent required for junior members.</p><form data-form="invite" data-side="${side}"><label class="form-label">Member name<input class="form-input" name="name" type="text" placeholder="Name" required></label><label class="form-label">Role<select class="form-input" name="role"><option value="adult">Adult member</option><option value="junior">Junior member (under 18)</option></select></label><p class="sheet-error" data-sheet-error></p><button class="action-button" type="submit">Create invite</button></form>`;return '';}
-function render(){if(!phones.children.length)phones.innerHTML=phoneMarkup('left',"Parent's phone · Erien",'erien')+phoneMarkup('right',"Student's phone · Wei",'wei');document.querySelectorAll('.phone').forEach(phone=>{const side=phone.dataset.phone;let account=state.accounts[side];if(!current(account)){account='erien';state.accounts[side]=account;}const member=current(account),tab=state.tabs[side];phone.querySelector('[data-pool-total]').textContent=fmt(total());const select=phone.parentElement.querySelector('[data-account-select]');select.innerHTML=state.members.map(m=>`<option value="${m.id}">${m.name}</option>`).join('');select.value=account;phone.querySelector('[data-page-title]').textContent=tab;const gear=phone.querySelector('[data-action="settings"]');gear.hidden=!isOrganiser(member);phone.querySelector('[data-gear-spacer]').hidden=isOrganiser(member);phone.querySelectorAll('[data-tab]').forEach(btn=>btn.dataset.tab===tab?btn.setAttribute('aria-current','page'):btn.removeAttribute('aria-current'));const screen=phone.querySelector('[data-screen]');if(tab!=='Family')screen.innerHTML=`<section class="card nonmember"><div class="nonmember-mark">${icon[tab]}</div><h3>${tab}</h3><p>Choose Family to view your shared miles pool.</p></section>`;else if(state.nonMember&&side==='right')screen.innerHTML=nonMemberView();else screen.innerHTML=familyView(side,member);const overlay=phone.querySelector('[data-overlay]'),sheet=phone.querySelector('[data-sheet]'),kind=state.sheets[side];if(kind){sheet.innerHTML=sheetContent(side,kind);overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');}else{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');sheet.innerHTML='';}const toastHost=phone.querySelector('[data-toast-host]');toastHost.innerHTML=state.toast[side]?`<div class="toast" role="status">${state.toast[side]}</div>`:'';});document.getElementById('view-toggle').textContent=state.nonMember?'Return to family view':"Demo: show a non-member's view";}
+
+function phoneMarkup(side,label,defaultId){return `<section class="device-column"><div class="device-label-row"><p class="device-label">${label}</p><div class="account-switch"><label for="account-${side}">Demo: switch account</label><select id="account-${side}" data-account-select data-default="${defaultId}"></select></div></div><article class="phone" data-phone="${side}" aria-label="Cathay app"><header class="app-header"><div class="header-row"><h2 class="header-title" data-page-title>Family</h2><button class="gear-button" type="button" data-action="settings" aria-label="Pool settings" hidden>⚙</button><span class="header-spacer" data-gear-spacer></span></div><div class="header-row"><div class="pool-pill"><span>Pool <span data-pool-total></span></span><small>family pool</small></div><button class="protected-chip" type="button" data-action="protected"><span aria-hidden="true">●</span> Protected pool</button></div></header><div class="screen-content" data-screen></div><nav class="tab-bar" aria-label="Main navigation">${['Home','Offers','Earn','Redeem','Family'].map(n=>`<button class="tab" type="button" data-tab="${n}" aria-label="${n}"><span class="tab-icon" aria-hidden="true">${icon[n]}</span><span class="tab-label">${n}</span></button>`).join('')}</nav><div class="phone-overlay" data-overlay aria-hidden="true"><section class="bottom-sheet" role="dialog" aria-modal="true" aria-label="Family pool action" data-sheet></section></div></article></section>`;}
+
+const mIndex=id=>Math.max(state.members.findIndex(m=>m.id===id),0);
+const col=i=>colours[i%colours.length];
+const tint=i=>tints[i%tints.length];
+const ic={
+  transfer:'<svg viewBox="0 0 24 24"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg>',
+  spending:'<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10.5h18M7 15h3"/></svg>',
+  redeem:'<svg viewBox="0 0 24 24"><path d="M3 12l18-8-6 16-3.5-6.5z"/></svg>',
+  review:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg>'
+};
+function quickActions(member){
+  if(isJunior(member))return '';
+  const pending=state.request?.status==='pending';
+  const items=[['transfer','Add to pool'],['redeem','Redeem']];
+  if(isOrganiser(member))items.push(['review','Review']);
+  return `<div class="quick-actions">${items.map(([a,l])=>`<button class="qa" type="button" data-action="${a}"><span class="qa-icon">${ic[a]}</span>${l}${a==='review'&&pending?'<i class="qa-dot" aria-label="Pending request"></i>':''}</button>`).join('')}</div>`;
+}
+function heroMarkup(g,pool){
+  const t=tripFor(state.pinned.tripId),remaining=Math.max(g.cost-pool,0),pct=Math.min(pool/g.cost*100,100);
+  const stack=state.pinned.memberIds.map(id=>{const i=mIndex(id),[bg,fg]=tint(i);return `<i style="background:${bg};color:${fg}">${esc(initials(nameOf(id)))}</i>`;}).join('');
+  const d='M24 74 C 90 -4, 230 -4, 296 74';
+  return `<section class="hero" data-hero data-pool="${pool}" data-cost="${g.cost}" aria-label="Family goal progress"><div class="hero-top"><span class="hero-eyebrow">Family goal</span><span class="hero-tag">New: two-way family pool</span></div><h3 class="hero-title">${esc(g.name)}</h3><div class="hero-number"><span data-hero-count>${fmt(pool)}</span><small> / ${fmt(g.cost)} miles</small></div><div class="route"><svg class="route-svg" viewBox="0 0 320 96" aria-hidden="true"><path class="route-track" d="${d}" pathLength="100"/><path class="route-progress" data-route-progress d="${d}" pathLength="100" stroke-dasharray="0 100"/><circle class="route-dot" cx="24" cy="74" r="5"/><circle class="route-dot end" cx="296" cy="74" r="5"/><g data-plane><path d="M-9 -6 L10 0 L-9 6 L-5 0Z" fill="#DFA744" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></g></svg><div class="route-labels"><span>HKG</span><span>${t.code}</span></div></div><div class="hero-foot"><div class="hero-remaining">${remaining?`<span>${fmt(remaining)}</span> miles to go · ${Math.round(pct)}%`:'Goal reached'}</div><div class="avatar-stack" title="Travellers">${stack}</div></div></section>`;
+}
+function contributionPanel(viewer,side){
+  const pool=total()||1,junior=isJunior(viewer);
+  const list=junior?state.members.filter(m=>m.id===viewer.id):state.members;
+  const f=state.focus[side]&&getMember(state.focus[side])?state.focus[side]:null;
+  const segs=list.map(m=>`<button type="button" class="seg${f&&f!==m.id?' dim':''}" data-action="focus-member" data-member="${m.id}" style="flex:${Math.max(m.miles,1)};background:${col(mIndex(m.id))}" aria-label="${esc(m.name)} ${fmt(m.miles)} miles"></button>`).join('');
+  const chips=list.map(m=>{const i=mIndex(m.id),[bg,fg]=tint(i);return `<button type="button" class="chip${f===m.id?' on':''}" data-action="focus-member" data-member="${m.id}"><i style="background:${bg};color:${fg}">${esc(initials(m.name))}</i>${esc(m.name)}</button>`;}).join('');
+  let detail='Tap a name or a colour to see their share.';
+  if(f){const m=getMember(f);detail=`<strong>${esc(m.name)}</strong> · ${fmt(m.miles)} miles · ${Math.round(m.miles/pool*100)}% of the pool${isOrganiser(viewer)?` · used ${fmt(state.usedThisMonth[m.id]||0)} of ${fmt(state.monthlyCap)} this month`:''}`;}
+  return `<section class="panel"><h4>${junior?'Your contribution':"Who's in the pool"}</h4><div class="stack">${segs}</div><div class="legend">${chips}</div><p class="focus-detail">${detail}</p></section>`;
+}
+function movesMarkup(g,member){
+  if(isJunior(member))return '';
+  const pool=total(),remaining=Math.max(g.cost-pool,0),seoul=trips[0],count=Math.min(state.members.length,Math.floor(pool/seoul.rate));
+  const cards=[];
+  if(remaining>0){
+    const m1=Math.max(Math.round(remaining/2400),1),m2=Math.max(Math.round(remaining/(2400+Math.round(4333/6))),1),saved=m1-m2;
+    cards.push(`<article class="move"><span class="move-kicker">Fly sooner</span><p><strong>At +2,400 a month you'll reach ${esc(g.name)} in about ${m1} months.</strong>${saved>=1?` A weekly grocery shop (about HK$1,000) through your linked card could save about ${saved} month${saved>1?'s':''}.`:''}</p><button class="action-button" type="button" data-action="demo-shop">Try a HK$1,000 shop (+166)</button></article>`);
+  }
+  if(pool>=g.cost)cards.push(`<article class="move"><span class="move-kicker">Ready</span><p><strong>Your pool covers ${esc(g.name)}.</strong> Pick who is flying and send it for approval.</p><button class="action-button gold" type="button" data-action="redeem">Redeem for the family</button></article>`);
+  else if(count>=1)cards.push(`<article class="move"><span class="move-kicker">Where next</span><p><strong>Your pool covers Seoul for ${count} today.</strong> ${esc(g.name)} needs ${fmt(g.cost-pool)} more.</p><button class="action-button secondary" type="button" data-action="plan-seoul">Plan Seoul</button></article>`);
+  else cards.push(`<article class="move"><span class="move-kicker">Where next</span><p><strong>Seoul for 1 needs ${fmt(seoul.rate-pool)} more.</strong> Keep adding to the pool.</p></article>`);
+  return `<section><div class="section-heading"><h3>Next moves</h3><span class="small-meta">Based on your family's goal</span></div><div class="moves">${cards.join('')}</div></section>`;
+}
+function timelineMarkup(){
+  return `<div class="panel"><div class="timeline">${state.activity.map(a=>a.miles<0?`<div class="tl-item"><span class="tl-icon out">✈</span><div class="tl-main"><strong>${esc(a.description)}</strong><small>Redeemed from the pool</small></div><span class="tl-amt out">−${fmt(Math.abs(a.miles))}</span></div>`:`<div class="tl-item"><span class="tl-icon">+</span><div class="tl-main"><strong>${esc(a.source)}</strong><small>${a.destination}</small></div><span class="tl-amt in">+${fmt(a.miles)}</span></div>`).join('')}</div></div>`;
+}
+function memberCards(viewer){
+  const pool=total()||1,org=isOrganiser(viewer);
+  return state.members.map((m,i)=>{
+    const chip=m.role==='Adult member'?'adult':m.role==='Junior member'?'junior':'',[bg,fg]=tint(i),pct=Math.round(m.miles/pool*100);
+    const remove=org&&m.id!=='erien'?`<button class="remove-member" type="button" data-action="remove-member" data-member="${m.id}">Remove</button>`:'<span></span>';
+    return `<article class="mcard"><div class="mcard-top"><div class="member-avatar" style="background:${bg};color:${fg}" aria-hidden="true">${esc(initials(m.name))}</div><div class="member-info"><div class="member-name">${esc(m.name)}</div><div class="member-meta"><span class="role-chip ${chip}">${m.role}</span></div></div><div class="contribution"><strong>${fmt(m.miles)}</strong><span>${pct}% of pool</span></div></div><div class="mbar"><span style="width:${pct}%;background:${col(i)}"></span></div><div class="mcard-foot"><span>${org?`Used this month ${fmt(state.usedThisMonth[m.id]||0)} of ${fmt(state.monthlyCap)}`:'Contribution'}</span>${remove}</div></article>`;
+  }).join('')+(org?`<button class="action-button secondary sheet-link-button" type="button" data-action="invite-open">Invite a member</button>`:'');
+}
+function minePanel(member){
+  const on=!!state.autoAdd[member.id];
+  return `<section class="panel mine"><div class="mine-row"><div><span class="mine-label">Your miles</span><strong class="mine-value">${fmt(state.personal[member.id]||0)}</strong></div><span class="mine-hint">Only you can see this</span></div><label class="auto-row"><span>Auto-add my everyday-spending miles to the pool</span><span class="switch"><input type="checkbox" data-auto-toggle ${on?'checked':''}><span class="switch-track"></span></span></label></section>`;
+}
+function familyView(side,member){
+  const pool=total(),g=goalInfo(),junior=isJunior(member),view=junior?'overview':state.views[side];
+  const r=state.request;
+  const pending=r?.status==='pending'?`<div class="pending-request" role="status">${esc(r.name)} requested ${esc(r.label)} (${r.members.map(id=>esc(nameOf(id))).join(', ')}), waiting for organiser approval.</div>`:'';
+  const banner=pool>=g.cost?`<div class="goal-banner" role="status"><span>Goal reached! Redeem for the family</span>${Array.from({length:8},()=>'<i class="confetti" aria-hidden="true"></i>').join('')}</div>`:'';
+  const notice=state.notice?`<div class="success-banner" role="status">${esc(state.notice)}</div>`:'';
+  const head=`${banner}${notice}${heroMarkup(g,pool)}${quickActions(member)}${pending}`;
+  if(junior)return `${head}<p class="junior-note">Parental consent required to join</p>${contributionPanel(member,side)}`;
+  const seg=`<div class="segmented" role="tablist">${[['overview','Overview'],['activity','Activity'],['members','Members']].map(([v,l])=>`<button type="button" role="tab" aria-selected="${v===view}" data-action="view" data-view="${v}">${l}</button>`).join('')}</div>`;
+  let body='';
+  if(view==='overview')body=`${minePanel(member)}${contributionPanel(member,side)}${movesMarkup(g,member)}`;
+  else if(view==='activity')body=`<div class="section-heading"><h3>Recent activity</h3><span class="small-meta">Earned this month +${fmt(state.earnedThisMonth)}</span></div>${timelineMarkup()}`;
+  else body=`<div class="section-heading"><h3>Family members</h3><span class="small-meta">${state.members.length} members</span></div>${memberCards(member)}`;
+  return `${head}${seg}${body}`;
+}
+
+function nonMemberView(){
+  const av=['Erien','Naarie','Wei','Chen','Lin'].map((n,i)=>{const [bg,fg]=tint(i);return `<i style="background:${bg};color:${fg}">${n[0]}</i>`;}).join('');
+  const perk=(svg,t,d)=>`<li class="perk"><span class="perk-icon">${svg}</span><div><strong>${t}</strong><span>${d}</span></div></li>`;
+  return `<section class="welcome"><div class="welcome-hero"><span class="hero-tag">New: two-way family pool</span><h3>Bring your miles together</h3><p>One shared pool for the people you travel with.</p><svg class="welcome-route" viewBox="0 0 320 96" aria-hidden="true"><path class="route-track" d="M24 74 C 90 -4, 230 -4, 296 74" pathLength="100"/><circle class="route-dot" cx="24" cy="74" r="5"/><circle class="route-dot end" cx="296" cy="74" r="5"/><g transform="translate(160 15.5)"><path d="M-9 -6 L10 0 L-9 6 L-5 0Z" fill="#DFA744" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></g></svg><div class="welcome-avatars">${av}</div></div><ul class="perks">${perk(ic.transfer,'Miles flow both ways','Parents add miles. Students add just by spending.')}${perk(ic.redeem,'Plan trips together','Pick a destination and who is flying.')}${perk('<svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2.2 2.2L15 10"/></svg>','Protected by design','Organiser approval, monthly caps, invite only.')}</ul><button class="action-button gold" type="button" data-action="start-pool">Start a family pool</button><p class="join-or">or join a pool you've been invited to</p><form data-form="join" data-side="right"><div class="code-row"><input name="code" type="text" maxlength="6" placeholder="INVITE CODE" autocomplete="off" aria-label="Invite code" required><button class="action-button secondary" type="submit">Join</button></div><p class="sheet-error" data-join-error>${esc(state.feedback.right||'')}</p></form></section>`;
+}
+function planSheet(side){
+  const plan=state.plan[side],trip=tripFor(plan.tripId),n=plan.memberIds.length,cost=trip.rate*n,pool=total(),short=Math.max(cost-pool,0),ok=n>0&&short===0,member=getMember(state.accounts[side]);
+  const direct=isOrganiser(member)||!state.approvalsRequired;
+  return `<div class="sheet-handle"></div><h3>Plan a trip</h3><p>Pick a destination and who is travelling.</p><p class="plan-step-label">1. Destination</p><div class="trip-plans">${trips.map(t=>`<button type="button" class="destination-card ${t.id}${t.id===plan.tripId?' selected':''}" data-action="select-trip" data-trip="${t.id}" aria-pressed="${t.id===plan.tripId}">${skyline}<span class="destination-content"><span><span class="destination-name">${t.name}</span><span class="destination-rate">${fmt(t.rate)} miles per person</span></span><span class="destination-check" aria-hidden="true">✓</span></span></button>`).join('')}</div><p class="plan-step-label">2. Who is going?</p><div class="traveller-list">${state.members.map(m=>`<button type="button" class="traveller${plan.memberIds.includes(m.id)?' selected':''}" data-action="toggle-traveller" data-member="${m.id}" aria-pressed="${plan.memberIds.includes(m.id)}"><span class="traveller-avatar">${esc(initials(m.name))}</span><span class="traveller-check" aria-hidden="true">✓</span><span>${esc(m.name)}</span></button>`).join('')}</div><div class="plan-summary"><div class="plan-total-row"><span>${trip.name} for ${n}</span><span>${fmt(cost)} miles</span></div><div class="plan-availability${ok?'':' short'}">${n===0?'Choose at least one traveller':ok?'Available: your pool covers this trip':`${fmt(short)} more to go`}</div><div class="plan-progress"><span style="width:${n?Math.min(pool/cost*100,100):0}%"></span></div></div><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><div class="plan-buttons"><button class="action-button secondary" type="button" data-action="pin-plan" ${n?'':'disabled'}>Pin as goal</button><button class="action-button" type="button" data-action="request-trip" ${ok?'':'disabled'}>${direct?'Redeem now':'Request trip'}</button></div>`;
+}
+
+function sheetContent(side,kind){
+  const member=getMember(state.accounts[side]);
+  const used=state.usedThisMonth[member.id]||0;
+  if(kind==='plan')return planSheet(side);
+  if(kind==='transfer')return `<div class="sheet-handle"></div><h3>Transfer miles</h3><p>Move miles from your own balance into the family pool.</p><p><strong>Your miles: ${fmt(state.personal[member.id]||0)}</strong></p><p><strong>Used ${fmt(used)} of ${fmt(state.monthlyCap)} miles this month</strong></p><form data-form="transfer" data-side="${side}"><label class="form-label">Miles to transfer<input class="form-input" name="amount" type="number" min="1" step="1" placeholder="e.g. 5000" inputmode="numeric" required></label><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><button class="action-button" type="submit">Add miles to pool</button></form>`;
+  if(kind==='spending')return `<div class="sheet-handle"></div><h3>Simulate everyday spending</h3><p>Demo: in the real app this happens automatically when you pay with your linked card or at partners like foodpanda. Enter an amount to simulate a purchase. HK$6 = 1 mile. If auto-add is on (the default for students), the miles go straight to the family pool. If you turn it off, they stay in your own balance until you add them.</p><form data-form="spending" data-side="${side}"><label class="form-label">Amount in HK$<input class="form-input" name="amount" type="number" min="6" step="1" placeholder="e.g. 300" inputmode="decimal" required></label><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><button class="action-button" type="submit">Simulate purchase</button></form><p>Your family sees what you add to the pool, not what you buy or what you hold.</p>`;
+  if(kind==='review'){const r=state.request;return `<div class="sheet-handle"></div><h3>Review redemption</h3>${!r||r.status!=='pending'?'<p>There are no pending redemption requests.</p>':`<p>${esc(r.name)} requested <strong>${esc(r.label)}</strong> for ${r.members.map(id=>esc(nameOf(id))).join(', ')}. Approving redeems ${fmt(r.cost)} miles from the pool.</p><div class="sheet-actions"><button class="action-button secondary" type="button" data-action="decline">Decline</button><button class="action-button" type="button" data-action="approve">Approve</button></div>`}`;}
+  if(kind==='protected')return `<div class="sheet-handle"></div><h3>Protected pool</h3><p>Only the organiser approves redemptions. Each member has a monthly transfer cap. Members join by invite, with parental consent for minors. Anyone who leaves takes back their unspent miles.</p><button class="action-button secondary sheet-link-button" type="button" data-action="close-sheet">Done</button>`;
+  if(kind==='settings')return `<div class="sheet-handle"></div><h3>Pool settings</h3><div class="settings-row"><label for="cap-setting">Monthly cap per member</label><input id="cap-setting" class="cap-input" type="number" min="1" step="1" value="${state.monthlyCap}" data-cap-setting></div><div class="settings-row"><span>Organiser approves redemptions</span><label class="switch" aria-label="Organiser approves redemptions"><input type="checkbox" data-approval-toggle ${state.approvalsRequired?'checked':''}><span class="switch-track"></span></label></div><button class="action-button sheet-link-button" type="button" data-action="show-invite-code">Invite a member</button>${state.inviteCode?`<div class="invite-code" role="status"><small>Share this invite code</small><strong>${state.inviteCode}</strong><p>Parental consent required for anyone under 18.</p><button class="text-button" type="button" data-action="add-invited">Add invited member</button></div>`:''}<p class="sheet-error" data-settings-error></p>`;
+  if(kind==='invite')return `<div class="sheet-handle"></div><h3>Invite a member</h3><p>Joining is by invite only. Parental consent required for junior members.</p><form data-form="invite" data-side="${side}"><label class="form-label">Member name<input class="form-input" name="name" type="text" placeholder="Name" required></label><label class="form-label">Role<select class="form-input" name="role"><option value="adult">Adult member</option><option value="junior">Junior member (under 18)</option></select></label><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><button class="action-button" type="submit">Create invite</button></form>`;
+  return '';
+}
+
+function hydrate(phone,side){
+  const hero=phone.querySelector('[data-hero]');if(!hero)return;
+  const pool=Number(hero.dataset.pool),cost=Number(hero.dataset.cost),pct=Math.min(pool/cost*100,100);
+  const cnt=hero.querySelector('[data-hero-count]'),prog=hero.querySelector('[data-route-progress]'),plane=hero.querySelector('[data-plane]'),track=hero.querySelector('.route-track');
+  const len=track.getTotalLength();
+  const apply=(p,q)=>{
+    cnt.textContent=fmt(p);prog.setAttribute('stroke-dasharray',`${q} 100`);
+    const a=track.getPointAtLength(len*q/100),b=track.getPointAtLength(Math.min(len,len*q/100+2)),c=track.getPointAtLength(Math.max(0,len*q/100-2));
+    plane.setAttribute('transform',`translate(${a.x} ${a.y}) rotate(${Math.atan2(b.y-c.y,b.x-c.x)*180/Math.PI})`);
+  };
+  const id=++tw[side],from=shown[side]||{pool:0,pct:0};shown[side]={pool,pct};
+  if((from.pool===pool&&from.pct===pct)||matchMedia('(prefers-reduced-motion: reduce)').matches){apply(pool,pct);return;}
+  apply(from.pool,from.pct);
+  const t0=performance.now(),dur=700;
+  const step=now=>{if(id!==tw[side])return;const k=Math.min((now-t0)/dur,1),e=1-Math.pow(1-k,3);apply(from.pool+(pool-from.pool)*e,from.pct+(pct-from.pct)*e);if(k<1)requestAnimationFrame(step);};
+  requestAnimationFrame(step);
+}
+
+function render(){
+  if(!phones.children.length)phones.innerHTML=phoneMarkup('left',"Parent's phone · Erien",'erien')+phoneMarkup('right',"Student's phone · Wei",'wei');
+  document.querySelectorAll('.phone').forEach(phone=>{
+    const side=phone.dataset.phone;
+    if(!getMember(state.accounts[side]))state.accounts[side]='erien';
+    const account=state.accounts[side],member=getMember(account),tab=state.tabs[side];
+    phone.querySelector('[data-pool-total]').textContent=fmt(total());
+    const select=phone.parentElement.querySelector('[data-account-select]');
+    select.innerHTML=state.members.map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join('');select.value=account;
+    phone.querySelector('[data-page-title]').textContent=tab;phone.querySelectorAll('.header-row')[1].hidden=(state.nonMember&&side==='right'&&tab==='Family');
+    phone.querySelector('[data-action="settings"]').hidden=!isOrganiser(member);
+    phone.querySelector('[data-gear-spacer]').hidden=isOrganiser(member);
+    phone.querySelectorAll('[data-tab]').forEach(b=>b.dataset.tab===tab?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current'));
+    const screen=phone.querySelector('[data-screen]'),top=screen.scrollTop;
+    if(tab!=='Family')screen.innerHTML=`<section class="card nonmember"><div class="nonmember-mark">${icon[tab]}</div><h3>${tab}</h3><p>Choose Family to view your shared miles pool.</p></section>`;
+    else if(state.nonMember&&side==='right')screen.innerHTML=nonMemberView();
+    else screen.innerHTML=familyView(side,member);
+    screen.scrollTop=top;hydrate(phone,side);
+    const overlay=phone.querySelector('[data-overlay]'),sheet=phone.querySelector('[data-sheet]'),kind=state.sheets[side];
+    if(kind){sheet.innerHTML=sheetContent(side,kind);overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');}
+    else{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');sheet.innerHTML='';}
+  });
+  document.getElementById('view-toggle').textContent=state.nonMember?'Return to family view':"Demo: show a non-member's view";
+}
+
 function addActivity(name,destination,miles){state.activity.unshift({source:name,destination,miles});state.earnedThisMonth+=miles;}
-function openSheet(side,kind){state.feedback[side]='';state.sheets[side]=kind;render();}
+function openSheet(side,kind){state.feedback[side]='';state.notice='';state.sheets[side]=kind;render();}
 function closeSheet(side){state.sheets[side]=null;state.feedback[side]='';render();}
-function showToast(message){['left','right'].forEach(side=>{state.toast[side]=message;clearTimeout(state.toastTimers[side]);state.toastTimers[side]=setTimeout(()=>{state.toast[side]='';render();},3200);});render();}
 function makeInviteCode(){return Math.random().toString(36).slice(2,8).toUpperCase();}
-function deductProportionally(cost){const balance=total();if(cost>balance||balance<=0)return false;const portions=state.members.map(m=>({member:m,exact:cost*m.miles/balance}));let assigned=0;portions.forEach(p=>{p.deduction=Math.floor(p.exact);assigned+=p.deduction;});portions.sort((a,b)=>(b.exact-Math.floor(b.exact))-(a.exact-Math.floor(a.exact)));for(let i=0;i<cost-assigned;i++)portions[i].deduction++;portions.forEach(p=>p.member.miles-=p.deduction);return true;}
-function createRequest(side,trip,travellers=[]){const member=current(state.accounts[side]);if(total()<trip.cost){showToast(`Not enough miles yet: you need ${fmt(trip.cost-total())} more.`);return;}if(state.request?.status==='pending'){state.feedback[side]='A redemption request is already waiting for the organiser.';render();return;}state.request={name:member.name,tripId:trip.id,label:trip.label,destination:trip.name,cost:trip.cost,members:travellers,status:'pending'};state.sheets[side]=null;state.selectedTrip=null;state.selectedMembers=[];state.notice='';render();}
-function approveRequest(){const request=state.request;if(!request||request.status!=='pending')return;if(!deductProportionally(request.cost))return;state.activity.unshift({description:`${request.label} redeemed, pool`,miles:-request.cost});state.request={...request,status:'approved',message:`${request.label} redeemed for ${fmt(request.cost)} miles.`};state.notice=`${request.label} redeemed for ${fmt(request.cost)} miles.`;}
-phones.addEventListener('change',event=>{const select=event.target.closest('[data-account-select]');if(select){const side=select.closest('.device-column').querySelector('.phone').dataset.phone;state.accounts[side]=select.value;state.sheets[side]=null;state.feedback[side]='';render();return;}if(event.target.matches('[data-approval-toggle]')){state.approvalsRequired=event.target.checked;return;}if(event.target.matches('[data-cap-setting]')){const value=Number(event.target.value),sheet=event.target.closest('[data-sheet]');if(!Number.isInteger(value)||value<1){const err=sheet.querySelector('[data-settings-error]');if(err)err.textContent='Enter a whole number greater than zero.';return;}state.monthlyCap=value;render();}});
-phones.addEventListener('submit',event=>{const form=event.target.closest('form');if(!form)return;event.preventDefault();const kind=form.dataset.form,side=form.dataset.side,data=new FormData(form),member=current(state.accounts[side]);if(kind==='join'){state.nonMember=false;state.tabs.right='Family';state.notice='Invite accepted. Welcome to the family pool.';render();return;}if(kind==='transfer'){const amount=Number(data.get('amount')),used=state.usedThisMonth[member.id]||0;if(!Number.isInteger(amount)||amount<=0)state.feedback[side]='Enter a whole number of miles greater than zero.';else if(used+amount>state.monthlyCap)state.feedback[side]=`Transfer blocked: this would exceed your ${fmt(state.monthlyCap)}-mile monthly cap. You have ${fmt(Math.max(state.monthlyCap-used,0))} miles remaining.`;else{member.miles+=amount;state.usedThisMonth[member.id]=used+amount;addActivity(member.name,'transfer → pool',amount);state.feedback[side]='';state.notice=`${fmt(amount)} miles added to the pool by ${member.name}.`;state.sheets[side]=null;}render();return;}if(kind==='spending'){const hkd=Number(data.get('amount'));if(!Number.isFinite(hkd)||hkd<6)state.feedback[side]='Enter at least HK$6 to earn a mile.';else{const miles=Math.floor(hkd/6);member.miles+=miles;addActivity(member.name,'everyday spending → pool',miles);state.notice=`${fmt(miles)} miles added from everyday spending.`;state.sheets[side]=null;state.feedback[side]='';}render();return;}if(kind==='invite'){const name=String(data.get('name')||'').trim(),role=data.get('role');if(!name){state.feedback[side]='Enter a member name.';render();return;}const id=`member-${Date.now()}`;state.members.push({id,name,role:role==='junior'?'Junior member':'Adult member',miles:0});state.usedThisMonth[id]=0;state.inviteCode=makeInviteCode();state.sheets[side]='settings';render();}});
-phones.addEventListener('click',event=>{const phone=event.target.closest('.phone');if(!phone)return;const side=phone.dataset.phone,member=current(state.accounts[side]);const overlay=event.target.closest('[data-overlay]');if(overlay&&event.target===overlay){closeSheet(side);return;}const tab=event.target.closest('[data-tab]');if(tab){state.tabs[side]=tab.dataset.tab;state.sheets[side]=null;render();return;}const button=event.target.closest('[data-action]');if(!button)return;const action=button.dataset.action;if(action==='transfer'&&!isJunior(member))openSheet(side,'transfer');else if(action==='spending'&&!isJunior(member)&&!isOrganiser(member))openSheet(side,'spending');else if(action==='request'&&!isJunior(member))openSheet(side,'request');else if(action==='review'&&isOrganiser(member))openSheet(side,'review');else if(action==='settings'&&isOrganiser(member))openSheet(side,'settings');else if(action==='protected')openSheet(side,'protected');else if(action==='close-sheet')closeSheet(side);else if(action==='approve'&&isOrganiser(member)){approveRequest();state.sheets[side]=null;render();}else if(action==='decline'&&isOrganiser(member)){state.request=null;state.notice='Redemption request declined.';state.sheets[side]=null;render();}else if(action==='show-invite-code'&&isOrganiser(member)){state.inviteCode=state.inviteCode||makeInviteCode();render();}else if(action==='add-invited'&&isOrganiser(member))openSheet(side,'invite');else if(action==='invite'&&isOrganiser(member))openSheet(side,'invite');else if(action==='remove-member'&&isOrganiser(member)){const id=button.dataset.member;if(id==='erien')return;const removed=current(id);if(removed){state.members=state.members.filter(m=>m.id!==id);delete state.usedThisMonth[id];state.notice=`${removed.name} was removed from the pool.`;}render();}else if(action==='suggestion')button.textContent='See how';else if(action==='start-pool'){state.nonMember=false;state.tabs.right='Family';state.notice='Your family pool is ready to view.';render();}});
-document.addEventListener('click',event=>{const action=event.target.closest('[data-global-action]')?.dataset.globalAction;if(!action)return;if(action==='toggle-view'){state.nonMember=!state.nonMember;state.tabs.right='Family';render();return;}if(action==='reset'){state.members=initialMembers.map(m=>({...m}));state.activity=initialActivity.map(a=>({...a}));state.earnedThisMonth=2400;state.usedThisMonth={erien:0,naarie:0,wei:0,chen:0,lin:0};state.monthlyCap=20000;state.approvalsRequired=true;state.accounts={left:'erien',right:'wei'};state.tabs={left:'Family',right:'Family'};state.sheets={left:null,right:null};state.feedback={left:'',right:''};state.request=null;state.notice='';state.nonMember=false;state.inviteCode='';render();}});
+function deductProportionally(cost){
+  const balance=total();if(cost>balance||balance<=0)return false;
+  const parts=state.members.map(m=>({m,exact:cost*m.miles/balance}));let assigned=0;
+  parts.forEach(p=>{p.d=Math.floor(p.exact);assigned+=p.d;});
+  parts.sort((a,b)=>(b.exact-Math.floor(b.exact))-(a.exact-Math.floor(a.exact)));
+  for(let i=0;i<cost-assigned;i++)parts[i].d++;
+  parts.forEach(p=>{p.m.miles-=p.d;});return true;
+}
+function earnMiles(member,miles){
+  if(state.autoAdd[member.id]){member.miles+=miles;addActivity(member.name,'everyday spending → pool',miles);state.notice=`${fmt(miles)} miles earned and added to the pool automatically.`;}
+  else{state.personal[member.id]=(state.personal[member.id]||0)+miles;state.notice=`${fmt(miles)} miles earned. They stay in your own balance until you add them to the pool.`;}
+}
+function approveRequest(){
+  const r=state.request;if(!r||r.status!=='pending')return;
+  if(!deductProportionally(r.cost)){state.notice='Not enough miles to approve this request.';state.request=null;return;}
+  state.activity.unshift({description:`${r.label} redeemed · pool`,miles:-r.cost});
+  state.notice=`${r.label} redeemed for ${fmt(r.cost)} miles (${r.members.map(nameOf).join(', ')}).`;state.request=null;
+}
+function createRequest(side){
+  const member=getMember(state.accounts[side]),plan=state.plan[side],trip=tripFor(plan.tripId),n=plan.memberIds.length,cost=trip.rate*n;
+  if(!n)return;
+  if(cost>total()){state.feedback[side]=`Not enough miles yet: you need ${fmt(cost-total())} more.`;render();return;}
+  if(state.request?.status==='pending'){state.feedback[side]='A redemption request is already waiting for the organiser.';render();return;}
+  state.request={name:member.name,tripId:trip.id,label:`${trip.name} for ${n}`,destination:trip.name,cost,members:[...plan.memberIds],status:'pending'};
+  state.sheets[side]=null;state.feedback[side]='';state.notice='';
+  if(isOrganiser(member)||!state.approvalsRequired)approveRequest();
+  render();
+}
+
+phones.addEventListener('change',e=>{
+  const select=e.target.closest('[data-account-select]');
+  if(select){const side=select.closest('.device-column').querySelector('.phone').dataset.phone;state.accounts[side]=select.value;state.sheets[side]=null;state.feedback[side]='';render();return;}
+  if(e.target.matches('[data-auto-toggle]')){const sd=e.target.closest('.phone').dataset.phone;state.autoAdd[state.accounts[sd]]=e.target.checked;render();return;}
+  if(e.target.matches('[data-approval-toggle]')){state.approvalsRequired=e.target.checked;render();return;}
+  if(e.target.matches('[data-cap-setting]')){
+    const v=Number(e.target.value),sheet=e.target.closest('[data-sheet]');
+    if(!Number.isInteger(v)||v<1){const err=sheet.querySelector('[data-settings-error]');if(err)err.textContent='Enter a whole number greater than zero.';return;}
+    state.monthlyCap=v;render();
+  }
+});
+
+phones.addEventListener('submit',e=>{
+  const form=e.target.closest('form');if(!form)return;e.preventDefault();
+  const kind=form.dataset.form,side=form.dataset.side,data=new FormData(form);
+  if(kind==='join'){const code=String(data.get('code')||'').trim();if(!/^[A-Za-z0-9]{6}$/.test(code)){state.feedback.right='Enter the 6-character code from your organiser.';render();return;}state.feedback.right='';state.nonMember=false;state.tabs.right='Family';state.notice='Invite accepted. Welcome to the family pool.';render();return;}
+  const member=getMember(state.accounts[side]);
+  if(kind==='transfer'){
+    const amount=Number(data.get('amount')),used=state.usedThisMonth[member.id]||0;
+    if(!Number.isInteger(amount)||amount<=0)state.feedback[side]='Enter a whole number of miles greater than zero.';
+    else if(amount>(state.personal[member.id]||0))state.feedback[side]=`You only have ${fmt(state.personal[member.id]||0)} miles in your own balance.`;else if(used+amount>state.monthlyCap)state.feedback[side]=`Transfer blocked: this would exceed your ${fmt(state.monthlyCap)}-mile monthly cap. You have ${fmt(Math.max(state.monthlyCap-used,0))} miles remaining.`;
+    else{state.personal[member.id]-=amount;member.miles+=amount;state.usedThisMonth[member.id]=used+amount;addActivity(member.name,'transfer → pool',amount);state.feedback[side]='';state.notice=`${fmt(amount)} miles added to the pool by ${member.name}.`;state.sheets[side]=null;}
+    render();return;
+  }
+  if(kind==='spending'){
+    const hkd=Number(data.get('amount'));
+    if(!Number.isFinite(hkd)||hkd<6)state.feedback[side]='Enter at least HK$6 to earn a mile.';
+    else{const miles=Math.floor(hkd/6);earnMiles(member,miles);state.sheets[side]=null;state.feedback[side]='';}
+    render();return;
+  }
+  if(kind==='invite'){
+    const name=String(data.get('name')||'').trim(),role=data.get('role');
+    if(!name){state.feedback[side]='Enter a member name.';render();return;}
+    const id=`member-${Date.now()}`;
+    state.members.push({id,name,role:role==='junior'?'Junior member':'Adult member',miles:0});state.usedThisMonth[id]=0;state.personal[id]=0;
+    state.inviteCode=makeInviteCode();state.feedback[side]='';state.sheets[side]='settings';render();
+  }
+});
+
+phones.addEventListener('click',e=>{
+  const phone=e.target.closest('.phone');if(!phone)return;
+  const side=phone.dataset.phone,member=getMember(state.accounts[side]);
+  const overlay=e.target.closest('[data-overlay]');
+  if(overlay&&e.target===overlay){closeSheet(side);return;}
+  const tab=e.target.closest('[data-tab]');
+  if(tab){state.tabs[side]=tab.dataset.tab;state.sheets[side]=null;render();return;}
+  const button=e.target.closest('[data-action]');if(!button)return;
+  const action=button.dataset.action,junior=isJunior(member),org=isOrganiser(member);
+  if(action==='transfer'&&!junior)openSheet(side,'transfer');
+  else if(action==='spending'&&!junior)openSheet(side,'spending');
+  else if(action==='redeem'&&!junior){state.plan[side]={tripId:state.pinned.tripId,memberIds:[...state.pinned.memberIds]};openSheet(side,'plan');}
+  else if(action==='view'){state.views[side]=button.dataset.view;render();}
+  else if(action==='focus-member'){state.focus[side]=state.focus[side]===button.dataset.member?null:button.dataset.member;render();}
+  else if(action==='demo-shop'&&!junior){earnMiles(member,166);render();}
+  else if(action==='plan-seoul'&&!junior){const n=Math.min(state.members.length,Math.floor(total()/trips[0].rate));state.plan[side]={tripId:'seoul',memberIds:state.members.slice(0,Math.max(n,1)).map(m=>m.id)};openSheet(side,'plan');}
+  else if(action==='invite-open'&&org){state.inviteCode=state.inviteCode||makeInviteCode();openSheet(side,'settings');}
+  else if(action==='select-trip'){state.plan[side].tripId=button.dataset.trip;state.feedback[side]='';render();}
+  else if(action==='toggle-traveller'){const ids=state.plan[side].memberIds,id=button.dataset.member,i=ids.indexOf(id);if(i>=0)ids.splice(i,1);else ids.push(id);state.feedback[side]='';render();}
+  else if(action==='pin-plan'&&state.plan[side].memberIds.length){state.pinned={tripId:state.plan[side].tripId,memberIds:[...state.plan[side].memberIds]};state.notice=`Goal set: ${planName(state.pinned)}.`;state.sheets[side]=null;render();}
+  else if(action==='request-trip'&&!junior)createRequest(side);
+  else if(action==='review'&&org)openSheet(side,'review');
+  else if(action==='settings'&&org)openSheet(side,'settings');
+  else if(action==='protected')openSheet(side,'protected');
+  else if(action==='close-sheet')closeSheet(side);
+  else if(action==='approve'&&org){approveRequest();state.sheets[side]=null;render();}
+  else if(action==='decline'&&org){state.request=null;state.notice='Redemption request declined.';state.sheets[side]=null;render();}
+  else if(action==='show-invite-code'&&org){state.inviteCode=state.inviteCode||makeInviteCode();render();}
+  else if(action==='add-invited'&&org)openSheet(side,'invite');
+  else if(action==='remove-member'&&org){
+    const id=button.dataset.member;if(id==='erien')return;
+    const removed=getMember(id);
+    if(removed){
+      state.members=state.members.filter(m=>m.id!==id);delete state.usedThisMonth[id];
+      state.pinned.memberIds=state.pinned.memberIds.filter(x=>x!==id);if(!state.pinned.memberIds.length)state.pinned.memberIds=[state.members[0].id];
+      ['left','right'].forEach(s=>{state.plan[s].memberIds=state.plan[s].memberIds.filter(x=>x!==id);});
+      if(state.request&&state.request.members.includes(id))state.request=null;
+      state.notice=`${removed.name} left the pool and took back ${fmt(removed.miles)} unspent miles.`;
+    }
+    render();
+  }
+  else if(action==='start-pool'){state.nonMember=false;state.tabs.right='Family';state.feedback.right='';state.notice='Your family pool is ready. You are the organiser, so invite your family from Members.';render();}
+});
+
+document.addEventListener('click',e=>{
+  const action=e.target.closest('[data-global-action]')?.dataset.globalAction;if(!action)return;
+  if(action==='toggle-view'){state.nonMember=!state.nonMember;state.tabs.right='Family';render();return;}
+  if(action==='reset'){state=fresh();render();}if(action==='sim-purchase'){const side=(state.nonMember||isJunior(getMember(state.accounts.right)))?'left':'right';if(isJunior(getMember(state.accounts[side])))return;state.tabs[side]='Family';openSheet(side,'spending');}
+});
 render();
 })();
 </script>
