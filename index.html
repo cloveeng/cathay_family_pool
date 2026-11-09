@@ -4,268 +4,492 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#005B4D">
-  <title>Family | Cathay</title>
+  <title>Family miles pool | Cathay</title>
   <style>
-    @property --progress { syntax: "<percentage>"; inherits: false; initial-value: 81.6667%; }
+    @property --progress { syntax: "<percentage>"; inherits: false; initial-value: 68.3333%; }
     :root {
       color-scheme: light;
-      --teal: #005B4D; --teal-dark: #00463B; --paper: #F5F3EE;
-      --page: #e8e8e6; --ink: #20302d; --muted: #59645f;
-      --line: #e8e6e0; --surface: #fffefa;
+      --teal: #005B4D;
+      --teal-dark: #00463B;
+      --navy: #002745;
+      --gold: #DFA744;
+      --paper: #F5F3EE;
+      --ink: #20302d;
+      --muted: #65716c;
+      --line: #e8e6e0;
+      --surface: #fffefa;
     }
     * { box-sizing: border-box; }
-    html, body { min-height: 100%; }
     body {
-      margin: 0; min-width: 320px; min-height: 100vh; min-height: 100dvh;
-      display: grid; place-items: center; padding: 24px;
-      background: var(--page); color: var(--ink);
+      margin: 0;
+      min-width: 320px;
+      min-height: 100vh;
+      padding: 28px 20px 20px;
+      background: #e8e8e6;
+      color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased;
     }
-    button { font: inherit; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .demo-heading { max-width: 900px; margin: 0 auto 20px; color: var(--navy); text-align: center; }
+    .demo-heading h1 { margin: 0; font-size: 22px; letter-spacing: -.03em; }
+    .demo-heading p { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+    .phones { display: flex; justify-content: center; align-items: flex-start; gap: 26px; }
+    .device-column { width: min(390px, 100%); }
+    .device-label { margin: 0 0 9px 5px; color: var(--navy); font-size: 13px; font-weight: 750; }
     .phone {
-      position: relative; display: flex; width: min(390px, 100%);
-      height: min(844px, calc(100dvh - 48px)); min-height: 620px;
-      flex-direction: column; overflow: hidden; border: 1px solid rgb(29 44 39 / 8%);
-      border-radius: 34px; background: var(--paper);
-      box-shadow: 0 24px 70px rgb(26 39 34 / 18%), 0 4px 12px rgb(26 39 34 / 8%);
+      position: relative; display: flex; width: 100%; height: min(844px, calc(100vh - 100px)); min-height: 620px;
+      flex-direction: column; overflow: hidden; border: 1px solid rgb(29 44 39 / 8%); border-radius: 32px;
+      background: var(--paper); box-shadow: 0 22px 60px rgb(26 39 34 / 16%), 0 4px 12px rgb(26 39 34 / 7%);
     }
-    .app-header {
-      flex: 0 0 auto; padding: max(20px, env(safe-area-inset-top)) 22px 22px;
-      background: var(--teal); color: #fff;
-    }
-    .miles-chip {
-      display: inline-flex; min-height: 34px; align-items: center; gap: 8px;
-      padding: 6px 12px; border: 1px solid rgb(255 255 255 / 28%);
-      border-radius: 999px; background: rgb(255 255 255 / 12%); color: #fff;
-      font-size: 13px; font-weight: 650; font-variant-numeric: tabular-nums;
-    }
-    .miles-icon {
-      display: grid; width: 20px; height: 20px; place-items: center;
-      border-radius: 50%; background: #fff; color: var(--teal); font-size: 11px; font-weight: 800;
-    }
-    .app-header h1 { margin: 17px 0 0; font-size: 29px; font-weight: 650; line-height: 1.15; letter-spacing: -.035em; }
-    .screen-content {
-      flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
-      padding: 16px 16px 100px; scrollbar-width: thin; scrollbar-color: #c8cec9 transparent;
-    }
-    .card { border: 1px solid #e6e3dc; border-radius: 19px; background: var(--surface); box-shadow: 0 5px 16px rgb(35 48 43 / 5%); }
-    .goal-card { padding: 17px 15px 16px; text-align: center; }
-    .eyebrow { margin: 0; color: var(--muted); font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
-    .progress-ring {
-      --progress: 81.6667%; display: grid; width: 154px; aspect-ratio: 1; margin: 14px auto 11px;
-      place-items: center; border-radius: 50%; background: conic-gradient(var(--teal) var(--progress), #e8e9e3 0);
-      transform: rotate(-90deg); transition: --progress 500ms cubic-bezier(.2, .75, .25, 1);
-    }
-    .ring-inner {
-      display: flex; width: calc(100% - 24px); aspect-ratio: 1; flex-direction: column;
-      align-items: center; justify-content: center; border-radius: 50%; background: var(--surface); transform: rotate(90deg);
-    }
-    .miles-total { color: var(--ink); font-size: 28px; font-weight: 750; letter-spacing: -.045em; line-height: 1.1; font-variant-numeric: tabular-nums; }
-    .miles-caption { margin-top: 4px; color: var(--muted); font-size: 12px; }
-    .goal-caption { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.45; font-variant-numeric: tabular-nums; }
-    .goal-caption strong { color: var(--ink); }
-    .actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 14px; }
-    .action-button {
-      min-height: 46px; padding: 9px 10px; border: 0; border-radius: 12px;
-      background: var(--teal); color: #fff; font-size: 12px; font-weight: 700; line-height: 1.25;
-      cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
-      transition: background-color 150ms ease, transform 150ms ease;
-    }
-    .action-button:hover { background: var(--teal-dark); }
-    .action-button:active { transform: scale(.98); }
-    .action-button:focus-visible { outline: 3px solid #7bc8b8; outline-offset: 2px; }
-    .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 20px 2px 10px; }
-    .section-heading h2 { margin: 0; font-size: 16px; font-weight: 750; letter-spacing: -.02em; line-height: 1.25; }
-    .small-meta { color: var(--muted); font-size: 11px; white-space: nowrap; }
-    .member-list, .activity-list { overflow: hidden; border: 1px solid #e6e3dc; border-radius: 16px; background: var(--surface); }
-    .member { display: flex; min-height: 61px; align-items: center; gap: 10px; padding: 9px 12px; }
+    .app-header { flex: 0 0 auto; padding: max(20px, env(safe-area-inset-top)) 21px 18px; background: var(--teal); color: #fff; }
+    .header-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .miles-chip { display: inline-flex; min-height: 32px; align-items: center; gap: 8px; padding: 5px 11px; border: 1px solid rgb(255 255 255 / 27%); border-radius: 999px; background: rgb(255 255 255 / 12%); color: #fff; font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .miles-icon { display: grid; width: 19px; height: 19px; place-items: center; border-radius: 50%; background: #fff; color: var(--teal); font-size: 10px; font-weight: 850; }
+    .identity { color: rgb(255 255 255 / 82%); font-size: 11px; font-weight: 600; }
+    .app-header h2 { margin: 14px 0 0; font-size: 27px; font-weight: 680; line-height: 1.15; letter-spacing: -.035em; }
+    .screen-content { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 14px 14px 94px; scrollbar-width: thin; scrollbar-color: #c8cec9 transparent; }
+    .card { border: 1px solid #e6e3dc; border-radius: 18px; background: var(--surface); box-shadow: 0 4px 14px rgb(35 48 43 / 5%); }
+    .goal-card { position: relative; padding: 15px 14px 14px; text-align: center; }
+    .eyebrow { margin: 0; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .goal-name { margin: 5px 0 0; color: var(--navy); font-size: 16px; font-weight: 750; }
+    .progress-ring { --progress: 68.3333%; display: grid; width: 137px; aspect-ratio: 1; margin: 12px auto 9px; place-items: center; border-radius: 50%; background: conic-gradient(var(--teal) var(--progress), #e5e8e2 0); transform: rotate(-90deg); transition: --progress 450ms cubic-bezier(.2, .75, .25, 1); }
+    .ring-inner { display: flex; width: calc(100% - 19px); aspect-ratio: 1; flex-direction: column; align-items: center; justify-content: center; border-radius: 50%; background: var(--surface); transform: rotate(90deg); }
+    .miles-total { color: var(--navy); font-size: 27px; font-weight: 800; letter-spacing: -.05em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+    .miles-caption { margin-top: 4px; color: var(--muted); font-size: 11px; }
+    .goal-remaining { margin: 0; color: var(--teal); font-size: 14px; font-weight: 750; font-variant-numeric: tabular-nums; }
+    .gold-tag { display: inline-block; margin-top: 10px; padding: 5px 9px; border-radius: 99px; background: #fbf0d9; color: #78520f; font-size: 10px; font-weight: 750; }
+    .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 18px 2px 9px; }
+    .section-heading h3 { margin: 0; color: var(--navy); font-size: 15px; font-weight: 780; letter-spacing: -.02em; line-height: 1.25; }
+    .small-meta { color: var(--muted); font-size: 10px; white-space: nowrap; }
+    .member-list, .activity-list { overflow: hidden; border: 1px solid #e6e3dc; border-radius: 15px; background: var(--surface); }
+    .member { display: flex; min-height: 54px; align-items: center; gap: 9px; padding: 7px 10px; }
     .member + .member, .activity-item + .activity-item { border-top: 1px solid #eeece6; }
-    .member-avatar { display: grid; width: 38px; height: 38px; flex: 0 0 auto; place-items: center; border-radius: 13px; background: #e6f0ec; color: var(--teal); font-size: 12px; font-weight: 750; }
+    .member-avatar { display: grid; width: 34px; height: 34px; flex: 0 0 auto; place-items: center; border-radius: 12px; background: #e6f0ec; color: var(--teal); font-size: 10px; font-weight: 800; }
     .member:nth-child(2) .member-avatar { background: #f5eddb; color: #795414; }
     .member:nth-child(3) .member-avatar { background: #f0eafa; color: #644a94; }
-    .member:nth-child(4) .member-avatar { background: #fcebea; color: #a84642; }
+    .member:nth-child(4) .member-avatar { background: #e9eff7; color: #315577; }
+    .member:nth-child(5) .member-avatar { background: #fcebea; color: #a84642; }
     .member-info { min-width: 0; flex: 1; }
-    .member-name { font-size: 13px; font-weight: 700; line-height: 1.25; }
-    .member-role { margin-top: 3px; color: var(--muted); font-size: 11px; line-height: 1.25; }
+    .member-name { color: var(--ink); font-size: 12px; font-weight: 750; line-height: 1.25; }
+    .member-role { margin-top: 2px; color: var(--muted); font-size: 10px; line-height: 1.25; }
     .contribution { flex: 0 0 auto; text-align: right; }
-    .contribution strong { display: block; font-size: 13px; font-weight: 750; font-variant-numeric: tabular-nums; }
-    .contribution span { display: block; margin-top: 2px; color: var(--muted); font-size: 10px; }
-    .fare-card { margin-top: 16px; padding: 14px 12px 13px; }
-    .fare-card .section-heading { margin: 0 0 11px; }
-    .current-label { flex: 0 0 auto; padding: 4px 7px; border-radius: 99px; background: #e6f0ec; color: var(--teal); font-size: 10px; font-weight: 750; }
-    .fare-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
-    .fare-step { min-width: 0; padding: 9px 3px; border: 1px solid #e8e6e0; border-radius: 11px; background: #faf9f5; text-align: center; }
-    .fare-step.current { padding: 8px 2px; border: 2px solid var(--teal); background: #edf4f0; }
-    .fare-trip { display: block; color: var(--muted); font-size: 11px; font-weight: 650; }
-    .fare-discount { display: block; margin-top: 3px; color: var(--ink); font-size: 14px; font-weight: 750; white-space: nowrap; }
-    .fare-step.current .fare-trip, .fare-step.current .fare-discount { color: var(--teal); }
-    .fare-step.current::after { content: "CURRENT"; display: block; margin-top: 4px; color: var(--teal); font-size: 8px; font-weight: 800; letter-spacing: .06em; }
-    .fare-progress-heading { display: flex; justify-content: space-between; gap: 8px; margin-top: 12px; color: var(--muted); font-size: 11px; }
-    .fare-progress-heading strong { color: var(--ink); }
-    .fare-progress-track { height: 7px; margin-top: 6px; overflow: hidden; border-radius: 99px; background: #e8e9e3; }
-    .fare-progress-fill { width: 66.6667%; height: 100%; border-radius: inherit; background: var(--teal); }
-    .activity-item { padding: 11px 12px; color: var(--ink); font-size: 12px; line-height: 1.4; animation: activity-in 240ms ease both; }
-    .activity-empty { color: var(--muted); }
-    .goal-note { margin: 10px 3px 0; color: var(--muted); font-size: 11px; line-height: 1.45; text-align: center; }
-    .prototype-label { padding: 15px 0 2px; color: var(--muted); font-size: 10px; letter-spacing: .04em; text-align: center; }
-    .tab-bar {
-      position: absolute; z-index: 5; right: 0; bottom: 0; left: 0;
-      display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
-      padding: 7px 4px max(8px, env(safe-area-inset-bottom));
-      border-top: 1px solid var(--line); background: rgb(255 254 250 / 98%);
-    }
-    .tab { display: flex; min-width: 0; min-height: 53px; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 3px 1px; border: 0; border-radius: 11px; background: transparent; color: var(--muted); cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
-    .tab-icon { display: grid; width: 21px; height: 21px; place-items: center; font-size: 18px; line-height: 1; }
-    .tab-label { font-size: 9px; font-weight: 550; line-height: 1.2; white-space: nowrap; }
+    .contribution strong { display: block; color: var(--navy); font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums; }
+    .contribution span { display: block; margin-top: 2px; color: var(--muted); font-size: 9px; }
+    .activity-item { padding: 10px 11px; color: var(--ink); font-size: 11px; line-height: 1.4; animation: activity-in 220ms ease both; }
+    .activity-source { font-weight: 750; }
+    .activity-destination { color: var(--teal); font-weight: 700; }
+    .suggestions { display: grid; gap: 8px; }
+    .suggestion-card { padding: 11px 11px 10px; }
+    .suggestion-card p { margin: 0; color: var(--ink); font-size: 11px; line-height: 1.48; }
+    .suggestion-card strong { color: var(--navy); }
+    .text-button { margin-top: 7px; padding: 0; border: 0; background: transparent; color: var(--teal); font-size: 10px; font-weight: 800; text-decoration: underline; text-underline-offset: 2px; }
+    .controls-card { padding: 11px 12px; }
+    .control-row { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; color: var(--ink); font-size: 11px; line-height: 1.4; }
+    .control-row + .control-row { border-top: 1px solid #eeece6; }
+    .control-check { flex: 0 0 auto; color: var(--teal); font-weight: 900; }
+    .feature-card { margin-top: 12px; padding: 13px 12px; }
+    .feature-card h3 { margin: 0 0 5px; color: var(--navy); font-size: 14px; }
+    .feature-card p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .action-button { width: 100%; min-height: 42px; margin-top: 9px; padding: 9px 10px; border: 0; border-radius: 11px; background: var(--teal); color: #fff; font-size: 12px; font-weight: 750; line-height: 1.25; touch-action: manipulation; transition: background-color 140ms ease, transform 140ms ease; }
+    .action-button:hover { background: var(--teal-dark); }
+    .action-button:active { transform: scale(.985); }
+    .action-button:focus-visible, .text-button:focus-visible, input:focus-visible { outline: 3px solid #7bc8b8; outline-offset: 2px; }
+    .action-button.secondary { border: 1px solid #d5dfda; background: #edf4f0; color: var(--teal); }
+    .action-button.secondary:hover { background: #e1eee8; }
+    .form-label { display: block; margin-top: 10px; color: var(--muted); font-size: 10px; font-weight: 700; text-align: left; }
+    .amount-input, .invite-input { width: 100%; min-height: 40px; margin-top: 5px; padding: 8px 10px; border: 1px solid #d9ddd7; border-radius: 10px; background: #fff; color: var(--ink); font-size: 13px; font-variant-numeric: tabular-nums; }
+    .feedback { min-height: 0; margin: 7px 0 0; color: #a13e37; font-size: 10px; line-height: 1.4; text-align: left; }
+    .feedback.success { color: var(--teal); }
+    .privacy-note { margin: 8px 2px 0; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .goal-banner { position: relative; overflow: hidden; margin-bottom: 10px; padding: 12px; border: 1px solid #e3bd6e; border-radius: 14px; background: #fff3d7; color: #63430b; font-size: 13px; font-weight: 800; text-align: center; }
+    .goal-banner span { position: relative; z-index: 1; }
+    .confetti { position: absolute; top: -10px; width: 7px; height: 10px; opacity: 0; animation: confetti-fall 1.9s ease-out infinite; }
+    .confetti:nth-child(1) { left: 8%; background: var(--teal); animation-delay: .05s; }
+    .confetti:nth-child(2) { left: 18%; background: #e17a5f; animation-delay: .45s; }
+    .confetti:nth-child(3) { left: 31%; background: #d3a33b; animation-delay: .2s; }
+    .confetti:nth-child(4) { left: 45%; background: #6a93bb; animation-delay: .7s; }
+    .confetti:nth-child(5) { left: 58%; background: #d66b85; animation-delay: .35s; }
+    .confetti:nth-child(6) { left: 71%; background: #538b68; animation-delay: .8s; }
+    .confetti:nth-child(7) { left: 84%; background: #9c79b6; animation-delay: .15s; }
+    .confetti:nth-child(8) { left: 94%; background: #d3a33b; animation-delay: .6s; }
+    @keyframes confetti-fall { 0% { transform: translateY(-12px) rotate(0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateY(57px) rotate(250deg); opacity: 0; } }
+    .tab-bar { position: absolute; z-index: 5; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 6px 5px max(8px, env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: rgb(255 254 250 / 98%); }
+    .tab { display: flex; min-width: 0; min-height: 51px; flex-direction: column; align-items: center; justify-content: center; gap: 3px; padding: 3px 1px; border: 0; border-radius: 10px; background: transparent; color: #68716d; }
+    .tab-icon { display: grid; width: 20px; height: 20px; place-items: center; font-size: 17px; line-height: 1; }
+    .tab-label { font-size: 9px; font-weight: 600; line-height: 1.2; white-space: nowrap; }
     .tab[aria-current="page"] { color: var(--teal); }
-    .tab[aria-current="page"] .tab-label { font-weight: 800; }
+    .tab[aria-current="page"] .tab-label { font-weight: 850; }
     .tab:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
-    @keyframes activity-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    .nonmember { padding: 20px 15px; text-align: center; }
+    .nonmember-mark { display: grid; width: 58px; height: 58px; margin: 4px auto 12px; place-items: center; border-radius: 19px; background: #e5f0eb; color: var(--teal); font-size: 26px; }
+    .nonmember h3 { margin: 0; color: var(--navy); font-size: 18px; }
+    .nonmember p { margin: 8px 0 15px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .demo-tools { margin: 17px auto 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .demo-link { padding: 3px; border: 0; background: transparent; color: var(--teal); font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
+    .dialog { width: min(340px, calc(100% - 32px)); padding: 0; border: 1px solid #e4e1d9; border-radius: 20px; background: var(--surface); color: var(--ink); box-shadow: 0 20px 60px rgb(0 0 0 / 24%); }
+    .dialog::backdrop { background: rgb(0 25 37 / 48%); backdrop-filter: blur(2px); }
+    .dialog-content { padding: 20px; }
+    .dialog h2 { margin: 0; color: var(--navy); font-size: 19px; }
+    .dialog p { color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .dialog-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 12px; }
+    .dialog-actions .action-button { margin-top: 0; }
+    .dialog .feedback { min-height: 14px; }
+    @keyframes activity-in { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 850px) {
+      body { padding: 20px 12px; }
+      .phones { flex-direction: column; align-items: center; gap: 20px; }
+      .device-column { width: min(390px, 100%); }
+      .phone { height: min(844px, 88vh); min-height: 620px; }
+    }
     @media (max-width: 430px) {
-      body { display: block; padding: 0; }
-      .phone { width: 100%; height: 100vh; height: 100dvh; min-height: 560px; border: 0; border-radius: 0; box-shadow: none; }
+      body { padding: 14px 0; }
+      .demo-heading { padding: 0 12px; }
+      .device-label { margin-left: 13px; }
+      .phone { height: 88vh; min-height: 610px; border-right: 0; border-left: 0; border-radius: 0; }
     }
-    @media (max-height: 700px) and (min-width: 431px) { body { padding: 12px; } .phone { height: calc(100dvh - 24px); min-height: 560px; } }
-    @media (max-width: 350px) {
-      .screen-content { padding-right: 11px; padding-left: 11px; }
-      .actions { gap: 7px; }
-      .action-button { padding-right: 6px; padding-left: 6px; font-size: 11px; }
-      .member { gap: 8px; padding-right: 9px; padding-left: 9px; }
-      .fare-card { padding-right: 9px; padding-left: 9px; }
-    }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+    @media (max-width: 350px) { .screen-content { padding-right: 11px; padding-left: 11px; } .goal-card { padding-right: 10px; padding-left: 10px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
   </style>
 </head>
 <body>
-  <main class="phone" aria-label="Cathay mobile app">
-    <header class="app-header">
-      <div class="miles-chip" aria-label="Available miles: 245,000"><span class="miles-icon" aria-hidden="true">A</span><span id="header-miles">245,000</span></div>
-      <h1 id="page-title">Family</h1>
-    </header>
-
-    <div class="screen-content" id="family-content">
-      <section class="card goal-card" aria-labelledby="goal-title">
-        <p class="eyebrow" id="goal-title">Family miles goal</p>
-        <div class="progress-ring" id="progress-ring" role="img" aria-label="245,000 of 300,000 miles, 82 percent of goal">
-          <div class="ring-inner"><span class="miles-total" id="total-miles" aria-live="polite">245,000</span><span class="miles-caption">miles collected</span></div>
-        </div>
-        <p class="goal-caption" id="goal-caption"><strong>245,000</strong> of 300,000 miles · 82% there</p>
-        <div class="actions" aria-label="Add miles to family pool">
-          <button class="action-button" id="student-spending" type="button">Add student spending</button>
-          <button class="action-button" id="parent-top-up" type="button">Parent tops up</button>
-        </div>
-      </section>
-
-      <section aria-labelledby="members-title">
-        <div class="section-heading"><h2 id="members-title">Family members</h2><span class="small-meta">4 contributors</span></div>
-        <div class="member-list">
-          <article class="member"><div class="member-avatar" aria-hidden="true">AL</div><div class="member-info"><div class="member-name">Alex Lee</div><div class="member-role">Pool organizer</div></div><div class="contribution"><strong>82,000</strong><span>miles</span></div></article>
-          <article class="member"><div class="member-avatar" aria-hidden="true">ER</div><div class="member-info"><div class="member-name">Erien</div><div class="member-role">Family member</div></div><div class="contribution"><strong id="erien-miles">65,000</strong><span>miles</span></div></article>
-          <article class="member"><div class="member-avatar" aria-hidden="true">ML</div><div class="member-info"><div class="member-name">Morgan Lee</div><div class="member-role">Family member</div></div><div class="contribution"><strong>54,000</strong><span>miles</span></div></article>
-          <article class="member"><div class="member-avatar" aria-hidden="true">WE</div><div class="member-info"><div class="member-name">Wei</div><div class="member-role">Student</div></div><div class="contribution"><strong id="wei-miles">44,000</strong><span>miles</span></div></article>
-        </div>
-        <p class="goal-note" id="goal-note">Together, you’re just 55,000 miles away from your family goal.</p>
-      </section>
-
-      <section class="card fare-card" aria-labelledby="fare-title">
-        <div class="section-heading"><h2 id="fare-title">Student fare ladder</h2><span class="current-label">Trip 2 · Current</span></div>
-        <div class="fare-steps" aria-label="Student fare discounts">
-          <div class="fare-step"><span class="fare-trip">Trip 1</span><span class="fare-discount">5% off</span></div>
-          <div class="fare-step current" aria-current="step"><span class="fare-trip">Trip 2</span><span class="fare-discount">7% off</span></div>
-          <div class="fare-step"><span class="fare-trip">Trip 3</span><span class="fare-discount">10% off</span></div>
-        </div>
-        <div class="fare-progress-heading"><span>Progress to Trip 3</span><strong>2 of 3 trips</strong></div>
-        <div class="fare-progress-track" role="progressbar" aria-label="Progress to Trip 3" aria-valuemin="0" aria-valuemax="3" aria-valuenow="2"><div class="fare-progress-fill"></div></div>
-      </section>
-
-      <section aria-labelledby="activity-title">
-        <div class="section-heading"><h2 id="activity-title">Recent activity</h2></div>
-        <div class="activity-list" id="activity-list" aria-live="polite" aria-relevant="additions"><div class="activity-item activity-empty" id="activity-empty">No activity yet. Add miles to get started.</div></div>
-      </section>
-      <footer class="prototype-label">Prototype</footer>
+  <header class="demo-heading">
+    <h1>One family, one miles pool</h1>
+    <p>Shared demo · Changes on either phone update both</p>
+  </header>
+  <main class="phones" id="phones" aria-label="Shared family miles pool demo"></main>
+  <div class="demo-tools">
+    <button class="demo-link" type="button" data-action="reset">Reset demo</button>
+    <button class="demo-link" id="view-toggle" type="button" data-action="toggle-view">Demo: show a non-member's view</button>
+  </div>
+  <dialog class="dialog" id="approval-dialog" aria-labelledby="approval-title">
+    <div class="dialog-content">
+      <h2 id="approval-title">Approve family redemption?</h2>
+      <p>Choose how many miles to redeem from the shared pool.</p>
+      <label class="form-label" for="redeem-amount">Miles to redeem</label>
+      <input class="amount-input" id="redeem-amount" type="number" min="1" step="1" value="10000" inputmode="numeric">
+      <p class="feedback" id="dialog-error" aria-live="polite"></p>
+      <div class="dialog-actions">
+        <button class="action-button secondary" type="button" data-action="decline">Decline</button>
+        <button class="action-button" type="button" data-action="approve">Approve</button>
+      </div>
     </div>
-
-    <nav class="tab-bar" aria-label="Main navigation">
-      <button class="tab" type="button" data-title="Home" aria-label="Home"><span class="tab-icon" aria-hidden="true">⌂</span><span class="tab-label">Home</span></button>
-      <button class="tab" type="button" data-title="Offers" aria-label="Offers"><span class="tab-icon" aria-hidden="true">◇</span><span class="tab-label">Offers</span></button>
-      <button class="tab" type="button" data-title="Earn" aria-label="Earn"><span class="tab-icon" aria-hidden="true">＋</span><span class="tab-label">Earn</span></button>
-      <button class="tab" type="button" data-title="Redeem" aria-label="Redeem"><span class="tab-icon" aria-hidden="true">✈</span><span class="tab-label">Redeem</span></button>
-      <button class="tab" type="button" data-title="Family" aria-label="Family" aria-current="page"><span class="tab-icon" aria-hidden="true">♡</span><span class="tab-label">Family</span></button>
-      <button class="tab" type="button" data-title="Profile" aria-label="Profile"><span class="tab-icon" aria-hidden="true">○</span><span class="tab-label">Profile</span></button>
-    </nav>
-  </main>
-
+  </dialog>
   <script>
     (() => {
-      const goal = 300000;
-      const values = { total: 245000, wei: 44000, erien: 65000 };
-      const nodes = { total: document.getElementById('total-miles'), wei: document.getElementById('wei-miles'), erien: document.getElementById('erien-miles') };
-      const headerMiles = document.getElementById('header-miles');
-      const ring = document.getElementById('progress-ring');
-      const caption = document.getElementById('goal-caption');
-      const goalNote = document.getElementById('goal-note');
-      const activityList = document.getElementById('activity-list');
-      const animationFrames = {};
+      const initialMembers = [
+        { id: 'erien', name: 'Erien', role: 'Pool organiser', miles: 40000 },
+        { id: 'naarie', name: 'Naarie', role: 'Parent', miles: 22000 },
+        { id: 'wei', name: 'Wei', role: 'Student', miles: 12000 },
+        { id: 'chen', name: 'Chen', role: 'Student', miles: 6000 },
+        { id: 'lin', name: 'Lin', role: 'Child', miles: 2000 }
+      ];
+      const initialActivity = [
+        { source: 'Wei', destination: 'everyday spending → pool', miles: 45 },
+        { source: 'Naarie', destination: 'card rewards → pool', miles: 320 },
+        { source: 'Erien', destination: 'family transfer → pool', miles: 800 }
+      ];
+      const state = {
+        goal: 120000,
+        members: initialMembers.map(member => ({ ...member })),
+        activity: initialActivity.map(item => ({ ...item })),
+        earnedThisMonth: 2400,
+        transfersThisMonth: { erien: 0 },
+        feedback: { parent: '', student: '' },
+        feedbackType: { parent: '', student: '' },
+        nonMember: false,
+        tabs: { parent: 'Family', student: 'Family' },
+        goalWasReached: false
+      };
+      const phones = document.getElementById('phones');
+      const dialog = document.getElementById('approval-dialog');
       const formatMiles = value => Math.round(value).toLocaleString('en-US');
+      const totalMiles = () => state.members.reduce((sum, member) => sum + member.miles, 0);
+      const initials = name => name.split(' ').map(part => part[0]).join('').toUpperCase();
+      const iconMap = { Home: '⌂', Offers: '◇', Earn: '＋', Redeem: '✈', Family: '♡' };
 
-      function animateValue(key, target) {
-        if (animationFrames[key]) cancelAnimationFrame(animationFrames[key]);
-        const node = nodes[key];
-        const start = Number(node.textContent.replace(/,/g, '')) || 0;
-        const startTime = performance.now();
-        const duration = 420;
-        const ease = t => 1 - Math.pow(1 - t, 3);
-        function step(now) {
-          const progress = Math.min((now - startTime) / duration, 1);
-          node.textContent = formatMiles(start + (target - start) * ease(progress));
-          if (progress < 1) animationFrames[key] = requestAnimationFrame(step);
-          else delete animationFrames[key];
+      function makePhone(role) {
+        const isParent = role === 'parent';
+        const label = isParent ? "Parent's phone" : "Student's phone";
+        const person = isParent ? 'Erien' : 'Wei';
+        return `
+          <section class="device-column" aria-label="${label}, ${person}">
+            <p class="device-label">${label} <span class="small-meta">· ${person}</span></p>
+            <article class="phone" data-phone="${role}" aria-label="Cathay app for ${person}">
+              <header class="app-header">
+                <div class="header-top"><div class="miles-chip" aria-label="Family pool miles"><span class="miles-icon" aria-hidden="true">A</span><span data-header-miles></span></div><span class="identity">${person}</span></div>
+                <h2 data-page-title>Family</h2>
+              </header>
+              <div class="screen-content" data-screen></div>
+              <nav class="tab-bar" aria-label="Main navigation">
+                ${['Home', 'Offers', 'Earn', 'Redeem', 'Family'].map(name => `<button class="tab" type="button" data-tab="${name}" aria-label="${name}"><span class="tab-icon" aria-hidden="true">${iconMap[name]}</span><span class="tab-label">${name}</span></button>`).join('')}
+              </nav>
+            </article>
+          </section>`;
+      }
+
+      function familyView(role) {
+        const isParent = role === 'parent';
+        const total = totalMiles();
+        const percent = Math.min(total / state.goal * 100, 100);
+        const remaining = Math.max(state.goal - total, 0);
+        const reached = total >= state.goal;
+        const feedback = state.feedback[role] || '';
+        const feedbackClass = state.feedbackType[role] === 'success' ? 'feedback success' : 'feedback';
+        const members = state.members.map(member => `
+          <article class="member">
+            <div class="member-avatar" aria-hidden="true">${initials(member.name)}</div>
+            <div class="member-info"><div class="member-name">${member.name}</div><div class="member-role">${member.role}</div></div>
+            <div class="contribution"><strong>${formatMiles(member.miles)}</strong><span>miles in pool</span></div>
+          </article>`).join('');
+        const activities = state.activity.map(item => `
+          <div class="activity-item"><span class="activity-source">${item.source}</span> · ${item.destination} <span class="activity-destination">+${formatMiles(item.miles)}</span></div>`).join('');
+        const personalActions = isParent ? `
+          <section class="card feature-card">
+            <h3>Transfer miles</h3>
+            <p>Move your miles into the family pool. Monthly cap: 20,000 miles per member. Used this month: ${formatMiles(state.transfersThisMonth.erien || 0)}.</p>
+            <form data-form="transfer" data-role="parent">
+              <label class="form-label">Miles to transfer<input class="amount-input" name="amount" type="number" min="1" step="1" placeholder="e.g. 5,000" inputmode="numeric" required></label>
+              <button class="action-button" type="submit">Add miles to pool</button>
+            </form>
+            <p class="${feedbackClass}" data-feedback="parent" aria-live="polite">${feedback}</p>
+          </section>
+          <section class="card feature-card">
+            <h3>Redeem for the family</h3>
+            <p>As pool organiser, you can review and approve family redemptions.</p>
+            <button class="action-button secondary" type="button" data-action="redeem-parent">Review redemption</button>
+          </section>` : `
+          <section class="card feature-card">
+            <h3>Everyday spending</h3>
+            <p>Earn 1 mile for every HK$6 spent, added directly to your family pool.</p>
+            <form data-form="spending" data-role="student">
+              <label class="form-label">Amount in HK$<input class="amount-input" name="amount" type="number" min="6" step="1" placeholder="e.g. 300" inputmode="decimal" required></label>
+              <button class="action-button" type="submit">Add spending miles</button>
+            </form>
+            <p class="${feedbackClass}" data-feedback="student" aria-live="polite">${feedback}</p>
+            <p class="privacy-note">Your family sees what you add to the pool, not what you buy.</p>
+          </section>
+          <section class="card feature-card">
+            <h3>Redeem for the family</h3>
+            <p>Request a family redemption. The organiser will review it.</p>
+            <button class="action-button secondary" type="button" data-action="redeem-student">Request redemption</button>
+          </section>`;
+        return `
+          ${reached ? `<div class="goal-banner" role="status"><span>Goal reached! Redeem for the family</span>${Array.from({ length: 8 }, () => '<i class="confetti" aria-hidden="true"></i>').join('')}</div>` : ''}
+          <section class="card goal-card" aria-label="Family goal progress">
+            <p class="eyebrow">Family miles goal</p><p class="goal-name">Tokyo Family Trip</p>
+            <div class="progress-ring" role="progressbar" aria-label="${formatMiles(total)} of ${formatMiles(state.goal)} miles" aria-valuemin="0" aria-valuemax="${state.goal}" aria-valuenow="${Math.min(total, state.goal)}" style="--progress:${percent}%">
+              <div class="ring-inner"><span class="miles-total">${formatMiles(total)}</span><span class="miles-caption">of ${formatMiles(state.goal)} miles</span></div>
+            </div>
+            <p class="goal-remaining">${reached ? 'Goal reached' : `${formatMiles(remaining)} miles to go`}</p>
+            <span class="gold-tag">New: two-way family pool</span>
+          </section>
+          <section aria-labelledby="members-${role}">
+            <div class="section-heading"><h3 id="members-${role}">Family members</h3><span class="small-meta">${state.members.length} members</span></div>
+            <div class="member-list">${members}</div>
+          </section>
+          <section aria-labelledby="activity-${role}">
+            <div class="section-heading"><h3 id="activity-${role}">Activity</h3><span class="small-meta">Earned this month +${formatMiles(state.earnedThisMonth)}</span></div>
+            <div class="activity-list" aria-live="polite" aria-relevant="additions">${activities}</div>
+          </section>
+          <section aria-labelledby="suggestions-${role}">
+            <div class="section-heading"><h3 id="suggestions-${role}">Suggested for your family</h3></div>
+            <div class="suggestions">
+              <article class="card suggestion-card"><p><strong>You're ${formatMiles(remaining)} miles from Tokyo.</strong> Routing your weekly groceries through your linked card could close the gap in about 5 months.</p><button class="text-button" type="button" data-action="suggestion">See how</button></article>
+              <article class="card suggestion-card"><p><strong>Your pool covers Seoul for 3 today,</strong> with miles to spare.</p><button class="text-button" type="button" data-action="suggestion">See how</button></article>
+            </div>
+          </section>
+          <section aria-labelledby="controls-${role}">
+            <div class="section-heading"><h3 id="controls-${role}">Pool controls</h3></div>
+            <div class="card controls-card">
+              <div class="control-row"><span class="control-check" aria-hidden="true">✓</span><span>Organiser approves redemptions</span></div>
+              <div class="control-row"><span class="control-check" aria-hidden="true">✓</span><span>Monthly cap per member: 20,000 miles</span></div>
+              <div class="control-row"><span class="control-check" aria-hidden="true">✓</span><span>Join by invite only (parental consent for minors)</span></div>
+            </div>
+          </section>
+          ${personalActions}`;
+      }
+
+      function nonMemberView() {
+        return `<section class="card nonmember">
+          <div class="nonmember-mark" aria-hidden="true">♡</div>
+          <p class="eyebrow">Cathay family</p>
+          <h3>Bring your miles together</h3>
+          <p>Share miles with the people you travel with and make your next family trip closer.</p>
+          <button class="action-button" type="button" data-action="start-pool">Start a family pool</button>
+          <form data-form="join" data-role="student">
+            <label class="form-label">Have an invite code?<input class="invite-input" name="code" type="text" placeholder="Enter invite code" autocomplete="off" required></label>
+            <button class="action-button secondary" type="submit">Join with invite code</button>
+          </form>
+          <p class="feedback" data-feedback="join" aria-live="polite"></p>
+        </section>`;
+      }
+
+      function render() {
+        if (!phones.children.length) phones.innerHTML = makePhone('parent') + makePhone('student');
+        document.querySelectorAll('.phone').forEach(phone => {
+          const role = phone.dataset.phone;
+          const title = state.tabs[role];
+          phone.querySelector('[data-header-miles]').textContent = formatMiles(totalMiles());
+          phone.querySelector('[data-page-title]').textContent = title;
+          phone.querySelectorAll('[data-tab]').forEach(tab => {
+            if (tab.dataset.tab === title) tab.setAttribute('aria-current', 'page');
+            else tab.removeAttribute('aria-current');
+          });
+          const screen = phone.querySelector('[data-screen]');
+          if (title !== 'Family') {
+            screen.innerHTML = `<section class="card nonmember"><div class="nonmember-mark" aria-hidden="true">${iconMap[title]}</div><h3>${title}</h3><p>Choose Family to view your shared miles pool.</p></section>`;
+          } else if (role === 'student' && state.nonMember) {
+            screen.innerHTML = nonMemberView();
+          } else {
+            screen.innerHTML = familyView(role);
+          }
+        });
+        const toggle = document.getElementById('view-toggle');
+        toggle.textContent = state.nonMember ? 'Return to family view' : "Demo: show a non-member's view";
+      }
+
+      function addActivity(source, destination, miles) {
+        state.activity.unshift({ source, destination, miles });
+        state.earnedThisMonth += miles;
+      }
+
+      function updatePoolFromMembers() {
+        state.goalWasReached = totalMiles() >= state.goal;
+        render();
+      }
+
+      function setFeedback(role, message, type = '') {
+        state.feedback[role] = message;
+        state.feedbackType[role] = type;
+      }
+
+      phones.addEventListener('submit', event => {
+        const form = event.target.closest('form');
+        if (!form) return;
+        event.preventDefault();
+        const kind = form.dataset.form;
+        const role = form.dataset.role;
+        const data = new FormData(form);
+        if (kind === 'transfer') {
+          const amount = Number(data.get('amount'));
+          const used = state.transfersThisMonth.erien || 0;
+          if (!Number.isInteger(amount) || amount <= 0) setFeedback('parent', 'Enter a whole number of miles greater than zero.');
+          else if (used + amount > 20000) setFeedback('parent', `Monthly cap exceeded. You can transfer ${formatMiles(20000 - used)} more miles this month.`);
+          else {
+            const organiser = state.members.find(member => member.id === 'erien');
+            organiser.miles += amount;
+            state.transfersThisMonth.erien = used + amount;
+            addActivity('Erien', 'family transfer → pool', amount);
+            setFeedback('parent', `${formatMiles(amount)} miles added to the family pool.`, 'success');
+          }
+          render();
+        } else if (kind === 'spending') {
+          const hkd = Number(data.get('amount'));
+          if (!Number.isFinite(hkd) || hkd < 6) setFeedback('student', 'Enter at least HK$6 to earn a mile.');
+          else {
+            const earned = Math.floor(hkd / 6);
+            if (earned < 1) setFeedback('student', 'This spend is not enough to earn a whole mile.');
+            else {
+              const wei = state.members.find(member => member.id === 'wei');
+              wei.miles += earned;
+              addActivity('Wei', 'everyday spending → pool', earned);
+              setFeedback('student', `${formatMiles(earned)} miles added from HK$${hkd.toLocaleString('en-HK')}.`, 'success');
+            }
+          }
+          render();
+        } else if (kind === 'join') {
+          const code = String(data.get('code') || '').trim();
+          if (!code) {
+            const feedback = form.parentElement.querySelector('[data-feedback="join"]');
+            feedback.textContent = 'Enter an invite code to continue.';
+          } else {
+            state.nonMember = false;
+            state.tabs.student = 'Family';
+            state.feedback.join = '';
+            render();
+          }
         }
-        animationFrames[key] = requestAnimationFrame(step);
-      }
-
-      function updatePool() {
-        const percent = Math.min(values.total / goal * 100, 100);
-        const roundedPercent = Math.round(percent);
-        const total = formatMiles(values.total);
-        ring.style.setProperty('--progress', `${percent}%`);
-        ring.setAttribute('aria-label', `${total} of ${formatMiles(goal)} miles, ${roundedPercent} percent of goal`);
-        headerMiles.textContent = total;
-        caption.innerHTML = `<strong>${total}</strong> of ${formatMiles(goal)} miles · ${roundedPercent}% there`;
-        const remaining = Math.max(goal - values.total, 0);
-        goalNote.textContent = remaining ? `Together, you’re just ${formatMiles(remaining)} miles away from your family goal.` : 'Family goal reached — great work, everyone!';
-      }
-
-      function addActivity(text) {
-        const empty = document.getElementById('activity-empty');
-        if (empty) empty.remove();
-        const item = document.createElement('div');
-        item.className = 'activity-item';
-        item.textContent = text;
-        activityList.prepend(item);
-      }
-
-      document.getElementById('student-spending').addEventListener('click', () => {
-        values.total += 5000; values.wei += 5000;
-        animateValue('total', values.total); animateValue('wei', values.wei);
-        updatePool(); addActivity('Wei: card spending +5,000');
-      });
-      document.getElementById('parent-top-up').addEventListener('click', () => {
-        values.total += 10000; values.erien += 10000;
-        animateValue('total', values.total); animateValue('erien', values.erien);
-        updatePool(); addActivity('Erien: parent top-up +10,000');
       });
 
-      const tabs = document.querySelectorAll('.tab');
-      const pageTitle = document.getElementById('page-title');
-      const familyContent = document.getElementById('family-content');
-      tabs.forEach(tab => tab.addEventListener('click', () => {
-        tabs.forEach(item => item.removeAttribute('aria-current'));
-        tab.setAttribute('aria-current', 'page');
-        pageTitle.textContent = tab.dataset.title;
-        familyContent.hidden = tab.dataset.title !== 'Family';
-      }));
+      phones.addEventListener('click', event => {
+        const tab = event.target.closest('[data-tab]');
+        if (tab) {
+          const role = tab.closest('.phone').dataset.phone;
+          state.tabs[role] = tab.dataset.tab;
+          render();
+          return;
+        }
+        const action = event.target.closest('[data-action]')?.dataset.action;
+        if (!action) return;
+        if (action === 'redeem-parent') {
+          document.getElementById('dialog-error').textContent = '';
+          document.getElementById('redeem-amount').value = Math.min(10000, totalMiles());
+          if (typeof dialog.showModal === 'function') dialog.showModal(); else dialog.setAttribute('open', '');
+        } else if (action === 'redeem-student') {
+          setFeedback('student', 'Waiting for organiser approval.');
+          render();
+        } else if (action === 'start-pool') {
+          state.nonMember = false;
+          state.tabs.student = 'Family';
+          state.feedback.student = 'Your family pool is ready to view.';
+          state.feedbackType.student = 'success';
+          render();
+        } else if (action === 'suggestion') {
+          event.target.closest('button').textContent = 'Coming soon';
+        }
+      });
+
+      document.addEventListener('click', event => {
+        const action = event.target.closest('[data-action]')?.dataset.action;
+        if (!action) return;
+        if (action === 'reset') {
+          state.members = initialMembers.map(member => ({ ...member }));
+          state.activity = initialActivity.map(item => ({ ...item }));
+          state.earnedThisMonth = 2400;
+          state.transfersThisMonth = { erien: 0 };
+          state.feedback = { parent: '', student: '' };
+          state.feedbackType = { parent: '', student: '' };
+          state.nonMember = false;
+          state.tabs = { parent: 'Family', student: 'Family' };
+          render();
+          return;
+        }
+        if (action === 'toggle-view') {
+          state.nonMember = !state.nonMember;
+          state.tabs.student = 'Family';
+          render();
+          return;
+        }
+        if (action === 'decline') {
+          if (dialog.open) dialog.close(); else dialog.removeAttribute('open');
+          return;
+        }
+        if (action === 'approve') {
+          const amount = Number(document.getElementById('redeem-amount').value);
+          if (!Number.isInteger(amount) || amount <= 0) {
+            document.getElementById('dialog-error').textContent = 'Enter a whole number of miles greater than zero.';
+            return;
+          }
+          if (amount > totalMiles()) {
+            document.getElementById('dialog-error').textContent = `The pool has only ${formatMiles(totalMiles())} miles available.`;
+            return;
+          }
+          let remaining = amount;
+          for (const member of state.members) {
+            const deduction = Math.min(member.miles, remaining);
+            member.miles -= deduction;
+            remaining -= deduction;
+            if (remaining === 0) break;
+          }
+          state.activity.unshift({ source: 'Erien', destination: 'family redemption ← pool', miles: amount });
+          if (dialog.open) dialog.close(); else dialog.removeAttribute('open');
+          render();
+        }
+      });
+
+      render();
     })();
   </script>
 </body>
