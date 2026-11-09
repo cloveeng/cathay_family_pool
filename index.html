@@ -6,12 +6,11 @@
   <meta name="theme-color" content="#005B4D">
   <title>Family miles pool | Cathay</title>
   <style>
-    @property --progress { syntax: "<percentage>"; inherits: false; initial-value: 68.3333%; }
-    :root { color-scheme: light; --teal:#005B4D; --teal-dark:#00463B; --navy:#002745; --gold:#DFA744; --paper:#F5F3EE; --ink:#20302d; --muted:#65716c; --line:#e8e6e0; --surface:#fffefa; }
+    @property --progress { syntax:"<percentage>"; inherits:false; initial-value:68.3333%; }
+    :root { color-scheme:light; --teal:#005B4D; --teal-dark:#00463B; --navy:#002745; --gold:#DFA744; --paper:#F5F3EE; --ink:#20302d; --muted:#65716c; --line:#e8e6e0; --surface:#fffefa; }
     * { box-sizing:border-box; }
     body { margin:0; min-width:320px; min-height:100vh; padding:24px 16px 18px; background:#e8e8e6; color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
-    button,input,select { font:inherit; }
-    button { cursor:pointer; }
+    button,input,select { font:inherit; } button { cursor:pointer; }
     .demo-heading { margin:0 auto 18px; color:var(--navy); text-align:center; }
     .demo-heading h1 { margin:0; font-size:22px; letter-spacing:-.03em; }
     .demo-heading p { margin:5px 0 0; color:var(--muted); font-size:12px; }
@@ -19,15 +18,19 @@
     .device-column { width:min(390px,100%); }
     .device-label { margin:0 0 8px 5px; color:var(--navy); font-size:13px; font-weight:750; }
     .phone { position:relative; display:flex; width:100%; height:min(850px,calc(100vh - 95px)); min-height:620px; flex-direction:column; overflow:hidden; border:1px solid rgb(29 44 39 / 8%); border-radius:32px; background:var(--paper); box-shadow:0 22px 60px rgb(26 39 34 / 16%),0 4px 12px rgb(26 39 34 / 7%); }
-    .app-header { z-index:1; flex:0 0 auto; padding:max(15px,env(safe-area-inset-top)) 19px 15px; background:var(--teal); color:#fff; }
-    .header-top { display:flex; align-items:center; justify-content:space-between; gap:8px; }
-    .pool-pill { display:inline-flex; align-items:center; gap:7px; padding:5px 10px; border:1px solid rgb(255 255 255 / 27%); border-radius:999px; background:rgb(255 255 255 / 12%); font-size:12px; font-weight:750; font-variant-numeric:tabular-nums; }
+    .app-header { z-index:1; flex:0 0 auto; padding:max(15px,env(safe-area-inset-top)) 19px 12px; background:var(--teal); color:#fff; }
+    .header-top { display:flex; align-items:center; justify-content:space-between; gap:7px; }
+    .header-left,.header-right { display:flex; align-items:center; gap:7px; min-width:0; }
+    .pool-pill { display:inline-flex; align-items:center; gap:7px; padding:5px 10px; border:1px solid rgb(255 255 255 / 27%); border-radius:999px; background:rgb(255 255 255 / 12%); font-size:12px; font-weight:750; font-variant-numeric:tabular-nums; white-space:nowrap; }
     .pool-pill small { color:rgb(255 255 255 / 75%); font-size:9px; font-weight:550; }
-    .account-switch { display:flex; align-items:center; gap:5px; min-width:0; color:rgb(255 255 255 / 88%); font-size:9px; }
+    .account-switch { display:flex; align-items:center; gap:4px; min-width:0; color:rgb(255 255 255 / 88%); font-size:9px; }
     .account-switch label { white-space:nowrap; }
-    .account-switch select { max-width:90px; padding:4px 18px 4px 6px; border:1px solid rgb(255 255 255 / 33%); border-radius:8px; background:var(--teal); color:#fff; font-size:10px; }
-    .app-header h2 { margin:12px 0 0; font-size:26px; font-weight:680; line-height:1.15; letter-spacing:-.035em; }
-    .screen-content { flex:1 1 auto; min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:12px 13px 110px; scrollbar-width:thin; scrollbar-color:#c8cec9 transparent; }
+    .account-switch select { max-width:82px; padding:4px 16px 4px 5px; border:1px solid rgb(255 255 255 / 33%); border-radius:8px; background:var(--teal); color:#fff; font-size:10px; }
+    .gear-button { display:grid; width:30px; height:30px; flex:0 0 auto; place-items:center; padding:0; border:1px solid rgb(255 255 255 / 35%); border-radius:9px; background:rgb(255 255 255 / 12%); color:#fff; font-size:17px; }
+    .app-header h2 { margin:11px 0 0; font-size:26px; font-weight:680; line-height:1.15; letter-spacing:-.035em; }
+    .protected-chip { display:inline-flex; align-items:center; gap:5px; margin-top:8px; padding:4px 8px; border:1px solid rgb(255 255 255 / 25%); border-radius:99px; background:rgb(255 255 255 / 11%); color:#fff; font-size:9px; font-weight:650; }
+    .protected-chip span { color:#f1d08a; }
+    .screen-content { flex:1 1 auto; min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:12px 13px 112px; scrollbar-width:thin; scrollbar-color:#c8cec9 transparent; }
     .card { border:1px solid #e6e3dc; border-radius:17px; background:var(--surface); box-shadow:0 4px 14px rgb(35 48 43 / 5%); }
     .goal-card { padding:13px 12px 12px; text-align:center; }
     .eyebrow { margin:0; color:var(--muted); font-size:10px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
@@ -41,8 +44,7 @@
     .role-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; margin-top:9px; }
     .role-actions.adult-actions { grid-template-columns:repeat(3,minmax(0,1fr)); }
     .action-button { min-height:40px; padding:8px 7px; border:0; border-radius:10px; background:var(--teal); color:#fff; font-size:10px; font-weight:760; line-height:1.25; touch-action:manipulation; transition:background-color 140ms ease,transform 140ms ease; }
-    .action-button:hover { background:var(--teal-dark); }
-    .action-button:active { transform:scale(.985); }
+    .action-button:hover { background:var(--teal-dark); } .action-button:active { transform:scale(.985); }
     .action-button:focus-visible,.text-button:focus-visible,input:focus-visible,select:focus-visible { outline:3px solid #7bc8b8; outline-offset:2px; }
     .action-button.secondary { border:1px solid #d5dfda; background:#edf4f0; color:var(--teal); }
     .section-heading { display:flex; align-items:center; justify-content:space-between; gap:8px; margin:16px 2px 8px; }
@@ -52,77 +54,64 @@
     .member { display:flex; min-height:51px; align-items:center; gap:8px; padding:6px 9px; }
     .member + .member,.activity-item + .activity-item { border-top:1px solid #eeece6; }
     .member-avatar { display:grid; width:32px; height:32px; flex:0 0 auto; place-items:center; border-radius:11px; background:#e6f0ec; color:var(--teal); font-size:10px; font-weight:800; }
-    .member:nth-child(2) .member-avatar { background:#f5eddb; color:#795414; }
-    .member:nth-child(3) .member-avatar { background:#f0eafa; color:#644a94; }
-    .member:nth-child(4) .member-avatar { background:#e9eff7; color:#315577; }
-    .member:nth-child(5) .member-avatar { background:#fcebea; color:#a84642; }
-    .member-info { min-width:0; flex:1; }
-    .member-name { color:var(--ink); font-size:11px; font-weight:760; line-height:1.2; }
+    .member:nth-child(2) .member-avatar { background:#f5eddb; color:#795414; } .member:nth-child(3) .member-avatar { background:#f0eafa; color:#644a94; } .member:nth-child(4) .member-avatar { background:#e9eff7; color:#315577; } .member:nth-child(5) .member-avatar { background:#fcebea; color:#a84642; }
+    .member-info { min-width:0; flex:1; } .member-name { color:var(--ink); font-size:11px; font-weight:760; line-height:1.2; }
     .member-meta { display:flex; align-items:center; gap:5px; flex-wrap:wrap; margin-top:3px; }
     .member-role { color:var(--muted); font-size:9px; line-height:1.2; }
     .role-chip { padding:2px 6px; border-radius:99px; background:#e4f0ea; color:var(--teal); font-size:8px; font-weight:800; }
-    .role-chip.adult { background:#e9eff7; color:#315577; }
-    .role-chip.junior { background:#fbf0d9; color:#78520f; }
-    .contribution { flex:0 0 auto; text-align:right; }
-    .contribution strong { display:block; color:var(--navy); font-size:11px; font-weight:800; font-variant-numeric:tabular-nums; }
-    .contribution span { display:block; margin-top:2px; color:var(--muted); font-size:8px; }
-    .member-tools { display:flex; flex-direction:column; align-items:flex-end; gap:2px; }
-    .used-month { color:var(--muted); font-size:8px; white-space:nowrap; }
+    .role-chip.adult { background:#e9eff7; color:#315577; } .role-chip.junior { background:#fbf0d9; color:#78520f; }
+    .contribution { flex:0 0 auto; text-align:right; } .contribution strong { display:block; color:var(--navy); font-size:11px; font-weight:800; font-variant-numeric:tabular-nums; }
+    .contribution span,.used-month { display:block; margin-top:2px; color:var(--muted); font-size:8px; white-space:nowrap; }
     .remove-member { padding:2px 0; border:0; background:transparent; color:#a13e37; font-size:8px; text-decoration:underline; }
     .activity-item { padding:8px 10px; color:var(--ink); font-size:10px; line-height:1.4; animation:activity-in 200ms ease both; }
-    .activity-item strong { font-weight:760; }
-    .activity-plus { color:var(--teal); font-weight:780; white-space:nowrap; }
+    .activity-item strong { font-weight:760; } .activity-plus { color:var(--teal); font-weight:780; white-space:nowrap; }
     .pending-request { margin-top:10px; padding:10px; border:1px solid #e3bd6e; border-radius:12px; background:#fff3d7; color:#63430b; font-size:10px; font-weight:700; line-height:1.4; }
     .success-banner { margin-top:9px; padding:9px 10px; border-radius:11px; background:#e5f0eb; color:var(--teal); font-size:10px; font-weight:750; }
-    .suggestions { display:grid; gap:7px; }
-    .suggestion-card { padding:10px; }
-    .suggestion-card p { margin:0; color:var(--ink); font-size:10px; line-height:1.45; }
-    .suggestion-card strong { color:var(--navy); }
+    .suggestions { display:grid; gap:7px; } .suggestion-card { padding:10px; }
+    .suggestion-card p { margin:0; color:var(--ink); font-size:10px; line-height:1.45; } .suggestion-card strong { color:var(--navy); }
     .text-button { margin-top:6px; padding:0; border:0; background:transparent; color:var(--teal); font-size:9px; font-weight:800; text-decoration:underline; text-underline-offset:2px; }
-    .controls-card { padding:8px 11px; }
-    .control-row { display:flex; align-items:flex-start; gap:7px; padding:6px 0; color:var(--ink); font-size:10px; line-height:1.35; }
-    .control-row + .control-row { border-top:1px solid #eeece6; }
-    .control-check { flex:0 0 auto; color:var(--teal); font-weight:900; }
     .junior-note { margin:10px 2px; padding:10px; border-radius:12px; background:#fbf0d9; color:#78520f; font-size:10px; font-weight:700; line-height:1.4; text-align:center; }
-    .privacy-note { margin:6px 2px 0; color:var(--muted); font-size:9px; line-height:1.4; }
     .goal-banner { position:relative; overflow:hidden; margin-bottom:9px; padding:10px; border:1px solid #e3bd6e; border-radius:13px; background:#fff3d7; color:#63430b; font-size:12px; font-weight:800; text-align:center; }
-    .goal-banner span { position:relative; z-index:1; }
-    .confetti { position:absolute; top:-10px; width:6px; height:9px; opacity:0; animation:confetti-fall 1.8s ease-out infinite; }
+    .goal-banner span { position:relative; z-index:1; } .confetti { position:absolute; top:-10px; width:6px; height:9px; opacity:0; animation:confetti-fall 1.8s ease-out infinite; }
     .confetti:nth-child(1){left:8%;background:var(--teal);animation-delay:.05s}.confetti:nth-child(2){left:18%;background:#e17a5f;animation-delay:.45s}.confetti:nth-child(3){left:31%;background:#d3a33b;animation-delay:.2s}.confetti:nth-child(4){left:45%;background:#6a93bb;animation-delay:.7s}.confetti:nth-child(5){left:58%;background:#d66b85;animation-delay:.35s}.confetti:nth-child(6){left:71%;background:#538b68;animation-delay:.8s}.confetti:nth-child(7){left:84%;background:#9c79b6;animation-delay:.15s}.confetti:nth-child(8){left:94%;background:#d3a33b;animation-delay:.6s}
     @keyframes confetti-fall { 0%{transform:translateY(-12px) rotate(0);opacity:0}15%{opacity:1}100%{transform:translateY(55px) rotate(250deg);opacity:0} }
     .tab-bar { position:absolute; z-index:5; right:0; bottom:0; left:0; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); padding:6px 5px max(8px,env(safe-area-inset-bottom)); border-top:1px solid var(--line); background:#fff; }
     .tab { display:flex; min-width:0; min-height:49px; flex-direction:column; align-items:center; justify-content:center; gap:3px; padding:3px 1px; border:0; border-radius:10px; background:transparent; color:#68716d; }
-    .tab-icon { display:grid; width:19px; height:19px; place-items:center; font-size:16px; line-height:1; }
-    .tab-label { font-size:9px; font-weight:600; line-height:1.2; white-space:nowrap; }
-    .tab[aria-current="page"] { color:var(--teal); }
-    .tab[aria-current="page"] .tab-label { font-weight:850; }
+    .tab-icon { display:grid; width:19px; height:19px; place-items:center; font-size:16px; line-height:1; } .tab-label { font-size:9px; font-weight:600; line-height:1.2; white-space:nowrap; }
+    .tab[aria-current="page"] { color:var(--teal); } .tab[aria-current="page"] .tab-label { font-weight:850; }
     .phone-overlay { position:absolute; z-index:8; inset:0; display:flex; align-items:flex-end; background:rgb(0 26 37 / 48%); opacity:0; visibility:hidden; transition:opacity 180ms ease,visibility 180ms ease; }
     .phone-overlay.open { opacity:1; visibility:visible; }
     .bottom-sheet { width:100%; max-height:86%; overflow-y:auto; padding:19px 18px max(20px,env(safe-area-inset-bottom)); border-radius:22px 22px 0 0; background:var(--surface); box-shadow:0 -12px 34px rgb(0 0 0 / 14%); transform:translateY(105%); transition:transform 240ms cubic-bezier(.2,.75,.25,1); }
     .phone-overlay.open .bottom-sheet { transform:translateY(0); }
     .sheet-handle { width:36px; height:4px; margin:-8px auto 13px; border-radius:5px; background:#d9ddd7; }
-    .bottom-sheet h3 { margin:0; color:var(--navy); font-size:17px; }
-    .bottom-sheet p { color:var(--muted); font-size:11px; line-height:1.45; }
+    .bottom-sheet h3 { margin:0; color:var(--navy); font-size:17px; } .bottom-sheet p { color:var(--muted); font-size:11px; line-height:1.45; }
     .form-label { display:block; margin-top:11px; color:var(--muted); font-size:10px; font-weight:700; }
     .form-input { width:100%; min-height:42px; margin-top:5px; padding:8px 10px; border:1px solid #d9ddd7; border-radius:10px; background:#fff; color:var(--ink); font-size:13px; }
     .sheet-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; }
     .sheet-actions .action-button { min-height:42px; font-size:11px; }
-    .sheet-error { min-height:14px; margin:7px 0 0 !important; color:#a13e37 !important; font-size:10px !important; }
-    .sheet-error.success { color:var(--teal) !important; }
-    .sheet-options { display:grid; gap:8px; margin-top:12px; }
+    .sheet-error { min-height:14px; margin:7px 0 0!important; color:#a13e37!important; font-size:10px!important; }
+    .sheet-error.success { color:var(--teal)!important; }
+    .sheet-link-button { width:100%; margin-top:10px; }
+    .settings-row { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px; padding-top:12px; border-top:1px solid #eeece6; color:var(--ink); font-size:11px; line-height:1.4; }
+    .cap-input { width:112px; min-height:38px; padding:6px 8px; border:1px solid #d9ddd7; border-radius:9px; color:var(--ink); font-size:12px; }
+    .switch { position:relative; display:inline-flex; width:42px; height:24px; flex:0 0 auto; }
+    .switch input { position:absolute; width:1px; height:1px; opacity:0; }
+    .switch-track { position:absolute; inset:0; border-radius:99px; background:#b9c1bc; cursor:pointer; transition:background .16s ease; }
+    .switch-track::after { position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:#fff; content:""; transition:transform .16s ease; }
+    .switch input:checked + .switch-track { background:var(--teal); } .switch input:checked + .switch-track::after { transform:translateX(18px); }
+    .invite-code { margin-top:11px; padding:11px; border:1px dashed #d7b35c; border-radius:11px; background:#fff8e8; text-align:center; }
+    .invite-code small { display:block; color:var(--muted); font-size:9px; } .invite-code strong { display:block; margin-top:4px; color:#78520f; font-size:19px; letter-spacing:.12em; }
+    .invite-code p { margin:5px 0 0; font-size:9px; }
     .demo-tools { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin:15px auto 0; }
     .demo-link { padding:3px; border:0; background:transparent; color:var(--teal); font-size:11px; text-decoration:underline; text-underline-offset:3px; }
-    .nonmember { padding:20px 14px; text-align:center; }
-    .nonmember-mark { display:grid; width:54px; height:54px; margin:3px auto 12px; place-items:center; border-radius:18px; background:#e5f0eb; color:var(--teal); font-size:25px; }
-    .nonmember h3 { margin:0; color:var(--navy); font-size:17px; }
-    .nonmember p { color:var(--muted); font-size:11px; line-height:1.5; }
-    .nonmember .action-button { width:100%; margin-top:7px; }
-    .nonmember input { width:100%; min-height:40px; margin-top:6px; padding:8px; border:1px solid #d9ddd7; border-radius:9px; }
-    .nonmember-note { min-height:14px; color:#a13e37 !important; }
+    .nonmember { padding:20px 14px; text-align:center; } .nonmember-mark { display:grid; width:54px; height:54px; margin:3px auto 12px; place-items:center; border-radius:18px; background:#e5f0eb; color:var(--teal); font-size:25px; }
+    .nonmember h3 { margin:0; color:var(--navy); font-size:17px; } .nonmember p { color:var(--muted); font-size:11px; line-height:1.5; }
+    .nonmember .action-button { width:100%; margin-top:7px; } .nonmember input { width:100%; min-height:40px; margin-top:6px; padding:8px; border:1px solid #d9ddd7; border-radius:9px; }
+    .nonmember-note { min-height:14px; color:#a13e37!important; }
     @keyframes activity-in { from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)} }
     @media(max-width:850px) { body{padding:18px 10px}.phones{flex-direction:column;align-items:center;gap:18px}.phone{height:min(850px,88vh);min-height:620px} }
     @media(max-width:430px) { body{padding:12px 0}.demo-heading{padding:0 10px}.device-label{margin-left:12px}.phone{height:88vh;min-height:610px;border-right:0;border-left:0;border-radius:0} }
-    @media(max-width:350px) { .screen-content{padding-right:10px;padding-left:10px}.role-actions.adult-actions{gap:4px}.action-button{padding-right:4px;padding-left:4px;font-size:9px}.member{gap:6px;padding-right:7px;padding-left:7px} }
+    @media(max-width:350px) { .screen-content{padding-right:10px;padding-left:10px}.role-actions.adult-actions{gap:4px}.action-button{padding-right:4px;padding-left:4px;font-size:9px}.member{gap:6px;padding-right:7px;padding-left:7px}.account-switch label{display:none} }
     @media(prefers-reduced-motion:reduce) { *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important} }
   </style>
 </head>
@@ -132,130 +121,116 @@
   <div class="demo-tools"><button class="demo-link" type="button" data-global-action="reset">Reset demo</button><button class="demo-link" id="view-toggle" type="button" data-global-action="toggle-view">Demo: show a non-member's view</button></div>
   <script>
     (() => {
-      const initialMembers = [
-        { id:'erien', name:'Erien', role:'Organiser', miles:40000 },
-        { id:'naarie', name:'Naarie', role:'Adult member', miles:22000 },
-        { id:'wei', name:'Wei', role:'Adult member', miles:12000 },
-        { id:'chen', name:'Chen', role:'Adult member', miles:6000 },
-        { id:'lin', name:'Lin', role:'Junior member', miles:2000 }
+      const initialMembers=[
+        {id:'erien',name:'Erien',role:'Organiser',miles:40000},
+        {id:'naarie',name:'Naarie',role:'Adult member',miles:22000},
+        {id:'wei',name:'Wei',role:'Adult member',miles:12000},
+        {id:'chen',name:'Chen',role:'Adult member',miles:6000},
+        {id:'lin',name:'Lin',role:'Junior member',miles:2000}
       ];
-      const initialActivity = [
-        { source:'Wei', destination:'everyday spending → pool', miles:45 },
-        { source:'Naarie', destination:'card rewards → pool', miles:320 },
-        { source:'Chen', destination:'everyday spending → pool', miles:500 },
-        { source:'Erien', destination:'family transfer → pool', miles:800 },
-        { source:'Wei', destination:'everyday spending → pool', miles:735 }
+      const initialActivity=[
+        {source:'Wei',destination:'everyday spending → pool',miles:45},
+        {source:'Naarie',destination:'card rewards → pool',miles:320},
+        {source:'Chen',destination:'everyday spending → pool',miles:500},
+        {source:'Erien',destination:'family transfer → pool',miles:800},
+        {source:'Wei',destination:'everyday spending → pool',miles:735}
       ];
-      const state = {
-        goal:120000, members:initialMembers.map(item=>({...item})), activity:initialActivity.map(item=>({...item})),
-        earnedThisMonth:2400, usedThisMonth:{erien:0,naarie:0,wei:0,chen:0,lin:0},
-        accounts:{left:'erien',right:'wei'}, tabs:{left:'Family',right:'Family'},
-        sheets:{left:null,right:null}, feedback:{left:'',right:''}, request:null, notice:'', nonMember:false, goalReached:false, inviteMessage:''
-      };
+      const state={goal:120000,members:initialMembers.map(x=>({...x})),activity:initialActivity.map(x=>({...x})),earnedThisMonth:2400,usedThisMonth:{erien:0,naarie:0,wei:0,chen:0,lin:0},monthlyCap:20000,approvalsRequired:true,accounts:{left:'erien',right:'wei'},tabs:{left:'Family',right:'Family'},sheets:{left:null,right:null},feedback:{left:'',right:''},request:null,notice:'',nonMember:false,inviteMessage:'',inviteCode:'',settingsCapDraft:20000};
       const phones=document.getElementById('phones');
       const fmt=n=>Math.round(n).toLocaleString('en-US');
       const total=()=>state.members.reduce((sum,m)=>sum+m.miles,0);
       const current=id=>state.members.find(m=>m.id===id);
       const icon={Home:'⌂',Offers:'◇',Earn:'＋',Redeem:'✈',Family:'♡'};
-      const accounts=['erien','naarie','wei','chen','lin'];
       const initials=name=>name.split(' ').map(part=>part[0]).join('').toUpperCase();
-      const displayName=id=>current(id)?.name||'Member';
-      const isOrganiser=id=>id==='erien';
-      const isJunior=id=>id==='lin';
-      const hasReachedGoal=()=>total()>=state.goal;
+      const isOrganiser=m=>m?.id==='erien';
+      const isJunior=m=>m?.role==='Junior member';
+      const reached=()=>total()>=state.goal;
 
-      function phoneMarkup(side,label,defaultId) {
+      function phoneMarkup(side,label,defaultId){
         return `<section class="device-column"><p class="device-label">${label}</p><article class="phone" data-phone="${side}" aria-label="Cathay app">
-          <header class="app-header"><div class="header-top"><div class="pool-pill"><span>Pool <span data-pool-total></span></span><small>family pool</small></div><div class="account-switch"><label for="account-${side}">Demo: switch account</label><select id="account-${side}" data-account-select>${accounts.map(id=>`<option value="${id}" ${id===defaultId?'selected':''}>${current(id).name}</option>`).join('')}</select></div></div><h2 data-page-title>Family</h2></header>
+          <header class="app-header"><div class="header-top"><div class="header-left"><div class="pool-pill"><span>Pool <span data-pool-total></span></span><small>family pool</small></div></div><div class="header-right"><div class="account-switch"><label for="account-${side}">Demo: switch account</label><select id="account-${side}" data-account-select></select></div><button class="gear-button" type="button" data-action="settings" aria-label="Pool settings" hidden>⚙</button></div></div>
+          <h2 data-page-title>Family</h2><button class="protected-chip" type="button" data-action="protected"><span aria-hidden="true">●</span> Protected pool</button></header>
           <div class="screen-content" data-screen></div>
           <nav class="tab-bar" aria-label="Main navigation">${['Home','Offers','Earn','Redeem','Family'].map(name=>`<button class="tab" type="button" data-tab="${name}" aria-label="${name}"><span class="tab-icon" aria-hidden="true">${icon[name]}</span><span class="tab-label">${name}</span></button>`).join('')}</nav>
           <div class="phone-overlay" data-overlay aria-hidden="true"><section class="bottom-sheet" role="dialog" aria-modal="true" aria-label="Family pool action" data-sheet></section></div>
         </article></section>`;
       }
 
-      function actionsMarkup(side,member) {
-        if (isJunior(member.id)) return '';
-        if (isOrganiser(member.id)) return `<div class="role-actions"><button class="action-button" data-action="open-transfer">Transfer miles</button><button class="action-button secondary" data-action="review">Review redemption</button></div>`;
-        return `<div class="role-actions adult-actions"><button class="action-button" data-action="open-spending">Everyday spending</button><button class="action-button secondary" data-action="open-transfer">Transfer miles</button><button class="action-button secondary" data-action="request">Request redemption</button></div>`;
+      function actionButtons(side,member){
+        if(isJunior(member))return '';
+        if(isOrganiser(member))return `<div class="role-actions"><button class="action-button" data-action="transfer">Transfer miles</button><button class="action-button secondary" data-action="review">Review redemption</button></div>`;
+        return `<div class="role-actions adult-actions"><button class="action-button" data-action="spending">Everyday spending</button><button class="action-button secondary" data-action="transfer">Transfer miles</button><button class="action-button secondary" data-action="request">Request redemption</button></div>`;
       }
-
-      function familyView(side,member) {
-        const pool=total(),remaining=Math.max(state.goal-pool,0),percent=Math.min(pool/state.goal*100,100), reached=hasReachedGoal();
-        const membersHtml=state.members.map(item=>{
+      function membersMarkup(member){
+        return state.members.map(item=>{
+          if(isJunior(member)&&item.id!==member.id)return '';
           const roleClass=item.role==='Adult member'?'adult':item.role==='Junior member'?'junior':'';
-          const organiserTools=isOrganiser(member.id)&&item.id!=='erien'?`<div class="member-tools"><span class="used-month">Used this month ${fmt(state.usedThisMonth[item.id]||0)}</span><button class="remove-member" data-action="remove-member" data-member="${item.id}">Remove</button></div>`:`<div class="contribution"><strong>${fmt(item.miles)}</strong><span>pool miles</span>${isOrganiser(member.id)?`<span class="used-month">Used this month ${fmt(state.usedThisMonth[item.id]||0)}</span>`:''}</div>`;
-          if(isJunior(member.id)&&item.id!==member.id) return '';
-          return `<article class="member"><div class="member-avatar" aria-hidden="true">${initials(item.name)}</div><div class="member-info"><div class="member-name">${item.name}</div><div class="member-meta"><span class="member-role">${item.role}</span><span class="role-chip ${roleClass}">${item.role}</span></div></div>${membersHtmlContribution(item,member,organiserTools)}</article>`;
+          const tools=isOrganiser(member)&&item.id!=='erien'?`<div class="contribution"><span class="used-month">Used this month ${fmt(state.usedThisMonth[item.id]||0)}</span><button class="remove-member" data-action="remove-member" data-member="${item.id}">Remove</button></div>`:`<div class="contribution"><strong>${fmt(item.miles)}</strong><span>pool miles</span>${isOrganiser(member)?`<span class="used-month">Used this month ${fmt(state.usedThisMonth[item.id]||0)}</span>`:''}</div>`;
+          return `<article class="member"><div class="member-avatar" aria-hidden="true">${initials(item.name)}</div><div class="member-info"><div class="member-name">${item.name}</div><div class="member-meta"><span class="member-role">${item.role}</span><span class="role-chip ${roleClass}">${item.role}</span></div></div>${tools}</article>`;
         }).join('');
+      }
+      function familyView(side,member){
+        const pool=total(),remaining=Math.max(state.goal-pool,0),percent=Math.min(pool/state.goal*100,100),isJuniorRole=isJunior(member);
         const activity=state.activity.map(a=>`<div class="activity-item"><strong>${a.source}</strong> · ${a.destination} <span class="activity-plus">+${fmt(a.miles)}</span></div>`).join('');
-        const canSeeFull=!isJunior(member.id);
-        const self=member;
-        return `${reached?`<div class="goal-banner" role="status"><span>Goal reached! Redeem for the family</span>${Array.from({length:8},()=>'<i class="confetti" aria-hidden="true"></i>').join('')}</div>`:''}
-          ${state.notice?`<div class="success-banner" role="status">${state.notice}</div>`:''}
-          <section class="card goal-card" aria-label="Family goal progress"><p class="eyebrow">Family miles goal</p><p class="goal-name">Tokyo Family Trip</p>
-            <div class="progress-ring" role="progressbar" aria-label="${fmt(pool)} of ${fmt(state.goal)} miles" aria-valuemin="0" aria-valuemax="${state.goal}" aria-valuenow="${Math.min(pool,state.goal)}" style="--progress:${percent}%"><div class="ring-inner"><span class="miles-total">${fmt(pool)}</span><span class="miles-caption">of ${fmt(state.goal)} miles</span></div></div>
-            <p class="goal-remaining">${reached?'Goal reached':`${fmt(remaining)} miles to go`}</p><span class="gold-tag">New: two-way family pool</span>
-          </section>
-          ${actionsMarkup(side,member)}
-          ${isJunior(member.id)?`<p class="junior-note">Parental consent required to join</p><div class="section-heading"><h3>Your contribution</h3></div><div class="member-list"><article class="member"><div class="member-avatar" aria-hidden="true">${initials(self.name)}</div><div class="member-info"><div class="member-name">${self.name}</div><div class="member-meta"><span class="member-role">${self.role}</span><span class="role-chip junior">Junior member</span></div></div><div class="contribution"><strong>${fmt(self.miles)}</strong><span>pool miles</span></div></article></div>`:`
-          ${state.request?`<div class="pending-request" role="status">${state.request.status==='pending'?`${state.request.name} requested Tokyo trip, waiting for organiser`:state.request.message}</div>`:''}
-          <section><div class="section-heading"><h3>Activity</h3><span class="small-meta">Earned this month +${fmt(state.earnedThisMonth)}</span></div><div class="activity-list" aria-live="polite" aria-relevant="additions">${activity}</div></section>
-          <section><div class="section-heading"><h3>Family members</h3><span class="small-meta">${state.members.length} members</span></div><div class="member-list">${membersHtml}</div>${isOrganiser(member.id)?'<button class="text-button" data-action="invite">+ Invite member</button>':''}</section>
-          ${state.inviteMessage&&isOrganiser(member.id)?`<p class="success-banner">${state.inviteMessage}</p>`:''}
-          <section><div class="section-heading"><h3>Suggested for your family</h3></div><div class="suggestions">
-            <article class="card suggestion-card"><p><strong>At +2,400 a month you'll reach Tokyo in about 16 months.</strong> Adding a weekly grocery shop (about HK$1,000) through your linked card could get you there about 4 months sooner.</p><button class="text-button" data-action="suggestion">See how</button></article>
-            <article class="card suggestion-card"><p>Your pool covers Seoul for 3 today, with miles to spare.</p><button class="text-button" data-action="suggestion">See how</button></article>
-          </div></section>
-          <section><div class="section-heading"><h3>Pool controls</h3></div><div class="card controls-card"><div class="control-row"><span class="control-check">✓</span><span>Organiser approves redemptions</span></div><div class="control-row"><span class="control-check">✓</span><span>Monthly cap per member: 20,000 miles</span></div><div class="control-row"><span class="control-check">✓</span><span>Join by invite only (parental consent for minors)</span></div></div></section>`}`;
+        const request=state.request?.status==='pending'?`<div class="pending-request" role="status">${state.request.name} requested Tokyo trip, waiting for organiser. Waiting for organiser approval.</div>`:state.request?.status==='approved'?`<div class="success-banner" role="status">${state.request.message}</div>`:'';
+        return `${pool>=state.goal?`<div class="goal-banner" role="status"><span>Goal reached! Redeem for the family</span>${Array.from({length:8},()=>'<i class="confetti" aria-hidden="true"></i>').join('')}</div>`:''}${state.notice?`<div class="success-banner" role="status">${state.notice}</div>`:''}
+          <section class="card goal-card" aria-label="Family goal progress"><p class="eyebrow">Family miles goal</p><p class="goal-name">Tokyo Family Trip</p><div class="progress-ring" role="progressbar" aria-label="${fmt(pool)} of ${fmt(state.goal)} miles" aria-valuemin="0" aria-valuemax="${state.goal}" aria-valuenow="${Math.min(pool,state.goal)}" style="--progress:${percent}%"><div class="ring-inner"><span class="miles-total">${fmt(pool)}</span><span class="miles-caption">of ${fmt(state.goal)} miles</span></div></div><p class="goal-remaining">${pool>=state.goal?'Goal reached':`${fmt(remaining)} miles to go`}</p><span class="gold-tag">New: two-way family pool</span></section>
+          ${actionButtons(side,member)}
+          ${isJuniorRole?`<p class="junior-note">Parental consent required to join</p><div class="section-heading"><h3>Your contribution</h3></div><div class="member-list">${membersMarkup(member)}</div>`:`${request}<section><div class="section-heading"><h3>Activity</h3><span class="small-meta">Earned this month +${fmt(state.earnedThisMonth)}</span></div><div class="activity-list" aria-live="polite" aria-relevant="additions">${activity}</div></section><section><div class="section-heading"><h3>Family members</h3><span class="small-meta">${state.members.length} members</span></div><div class="member-list">${membersMarkup(member)}</div></section><section><div class="section-heading"><h3>Suggested for your family</h3></div><div class="suggestions"><article class="card suggestion-card"><p><strong>At +2,400 a month you'll reach Tokyo in about 16 months.</strong> Adding a weekly grocery shop (about HK$1,000) through your linked card could get you there about 4 months sooner.</p><button class="text-button" data-action="suggestion">See how</button></article><article class="card suggestion-card"><p>Your pool covers Seoul for 3 today, with miles to spare.</p><button class="text-button" data-action="suggestion">See how</button></article></div></section>`}`;
       }
+      function nonMemberView(){return `<section class="card nonmember"><div class="nonmember-mark" aria-hidden="true">♡</div><p class="eyebrow">Cathay family</p><h3>Bring your miles together</h3><p>Share miles with the people you travel with and make your next family trip closer.</p><button class="action-button" data-action="start-pool">Start a family pool</button><form data-form="join"><label class="form-label">Have an invite code?<input name="code" type="text" placeholder="Enter invite code" required></label><button class="action-button secondary" type="submit">Join with invite code</button></form><p class="nonmember-note" data-join-message></p></section>`;}
 
-      function membersHtmlContribution(item,member,organiserTools) {
-        if(isJunior(member.id)) return '';
-        if(isOrganiser(member.id)&&item.id!=='erien') return organiserTools;
-        return organiserTools;
-      }
-
-      function nonMemberView() { return `<section class="card nonmember"><div class="nonmember-mark" aria-hidden="true">♡</div><p class="eyebrow">Cathay family</p><h3>Bring your miles together</h3><p>Share miles with the people you travel with and make your next family trip closer.</p><button class="action-button" data-action="start-pool">Start a family pool</button><form data-form="join"><label class="form-label">Have an invite code?<input name="code" type="text" placeholder="Enter invite code" autocomplete="off" required></label><button class="action-button secondary" type="submit">Join with invite code</button></form><p class="nonmember-note" data-join-message></p></section>`; }
-
-      function sheetContent(side,kind) {
-        const member=current(state.accounts[side]);
-        const used=state.usedThisMonth[member.id]||0;
-        if(kind==='transfer') return `<div class="sheet-handle"></div><h3>Transfer miles</h3><p>Add miles from ${member.name} to the family pool. Monthly cap: 20,000 miles per member. Used this month: ${fmt(used)}.</p><form data-form="transfer" data-side="${side}"><label class="form-label">Miles to transfer<input class="form-input" name="amount" type="number" min="1" step="1" placeholder="e.g. 5,000" inputmode="numeric" required></label><p class="sheet-error" data-sheet-error>${state.feedback[side]||''}</p><button class="action-button" type="submit">Add miles to pool</button></form>`;
-        if(kind==='spending') return `<div class="sheet-handle"></div><h3>Everyday spending</h3><p>Earn 1 mile for every HK$6 spent, added to your family pool.</p><form data-form="spending" data-side="${side}"><label class="form-label">Amount in HK$<input class="form-input" name="amount" type="number" min="6" step="1" placeholder="e.g. 300" inputmode="decimal" required></label><p class="sheet-error" data-sheet-error>${state.feedback[side]||''}</p><button class="action-button" type="submit">Add spending miles</button></form><p>Your family sees what you add to the pool, not what you buy.</p>`;
-        if(kind==='review') return `<div class="sheet-handle"></div><h3>Review redemption</h3>${!hasReachedGoal()?'<p class="sheet-error">Not enough miles yet</p>':!state.request?'<p>There are no pending redemption requests.</p>':`<p>${state.request.name} requested Tokyo trip. Approving redeems ${fmt(state.goal)} miles from the pool.</p><div class="sheet-actions"><button class="action-button secondary" data-action="decline">Decline</button><button class="action-button" data-action="approve">Approve</button></div>`}`;
-        if(kind==='invite') return `<div class="sheet-handle"></div><h3>Invite a family member</h3><p>Join by invite only. Parental consent is required for minors.</p><form data-form="invite" data-side="${side}"><label class="form-label">Member name<input class="form-input" name="name" type="text" placeholder="Name" required></label><label class="form-label">Role<select class="form-input" name="role"><option value="adult">Adult member</option><option value="junior">Junior member</option></select></label><p class="sheet-error" data-sheet-error></p><button class="action-button" type="submit">Create invite</button></form>`;
+      function sheetContent(side,kind){
+        const member=current(state.accounts[side]),used=state.usedThisMonth[member.id]||0;
+        if(kind==='transfer')return `<div class="sheet-handle"></div><h3>Transfer miles</h3><p>Add miles from ${member.name} to the family pool.</p><p><strong>Used ${fmt(used)} of ${fmt(state.monthlyCap)} miles this month</strong></p><form data-form="transfer" data-side="${side}"><label class="form-label">Miles to transfer<input class="form-input" name="amount" type="number" min="1" step="1" placeholder="e.g. 5,000" required></label><p class="sheet-error" data-sheet-error>${state.feedback[side]||''}</p><button class="action-button" type="submit">Add miles to pool</button></form>`;
+        if(kind==='spending')return `<div class="sheet-handle"></div><h3>Everyday spending</h3><p>HK$6 = 1 mile. Miles are added directly to your family pool.</p><form data-form="spending" data-side="${side}"><label class="form-label">Amount in HK$<input class="form-input" name="amount" type="number" min="6" step="1" placeholder="e.g. 300" required></label><p class="sheet-error" data-sheet-error>${state.feedback[side]||''}</p><button class="action-button" type="submit">Add spending miles</button></form><p>Your family sees what you add to the pool, not what you buy.</p>`;
+        if(kind==='review')return `<div class="sheet-handle"></div><h3>Review redemption</h3>${!reached()?'<p class="sheet-error">Not enough miles yet</p>':!state.request||state.request.status!=='pending'?'<p>There are no pending redemption requests.</p>':`<p>${state.request.name} requested a Tokyo family trip. Approving redeems ${fmt(state.goal)} miles.</p><div class="sheet-actions"><button class="action-button secondary" data-action="decline">Decline</button><button class="action-button" data-action="approve">Approve</button></div>`}`;
+        if(kind==='protected')return `<div class="sheet-handle"></div><h3>Protected pool</h3><p>Only the organiser approves redemptions. Each member has a monthly transfer cap. Members join by invite, with parental consent for minors.</p><button class="action-button secondary sheet-link-button" data-action="close-sheet">Done</button>`;
+        if(kind==='settings')return `<div class="sheet-handle"></div><h3>Pool settings</h3><div class="settings-row"><label for="cap-setting">Monthly cap per member</label><input id="cap-setting" class="cap-input" type="number" min="1" step="1" value="${state.monthlyCap}" data-cap-setting></div><div class="settings-row"><span>Organiser approves redemptions</span><label class="switch" aria-label="Organiser approves redemptions"><input type="checkbox" data-approval-toggle ${state.approvalsRequired?'checked':''}><span class="switch-track"></span></label></div><button class="action-button sheet-link-button" data-action="show-invite-code">Invite a member</button>${state.inviteCode?`<div class="invite-code" role="status"><small>Share this invite code</small><strong>${state.inviteCode}</strong><p>Parental consent required for anyone under 18.</p><button class="text-button" data-action="add-invited">Add invited member</button></div>`:''}<p class="sheet-error" data-settings-error></p>`;
+        if(kind==='invite')return `<div class="sheet-handle"></div><h3>Invite a member</h3><p>Joining is by invite only. Parental consent required for junior members.</p><form data-form="invite" data-side="${side}"><label class="form-label">Member name<input class="form-input" name="name" type="text" placeholder="Name" required></label><label class="form-label">Role<select class="form-input" name="role"><option value="adult">Adult member</option><option value="junior">Junior member (under 18)</option></select></label><p class="sheet-error" data-sheet-error></p><button class="action-button" type="submit">Create invite</button></form>`;
         return '';
       }
-
-      function render() {
-        if(!phones.children.length) phones.innerHTML=phoneMarkup('left',"Parent's phone · Erien",'erien')+phoneMarkup('right',"Student's phone · Wei",'wei');
+      function render(){
+        if(!phones.children.length)phones.innerHTML=phoneMarkup('left',"Parent's phone · Erien",'erien')+phoneMarkup('right',"Student's phone · Wei",'wei');
         document.querySelectorAll('.phone').forEach(phone=>{
-          const side=phone.dataset.phone, account=state.accounts[side], member=current(account), tab=state.tabs[side];
+          const side=phone.dataset.phone;let account=state.accounts[side];
+          if(!current(account)){account='erien';state.accounts[side]=account;}
+          const member=current(account),tab=state.tabs[side];
           phone.querySelector('[data-pool-total]').textContent=fmt(total());
-          phone.querySelector('[data-account-select]').value=account;
+          const select=phone.querySelector('[data-account-select]');
+          select.innerHTML=state.members.map(m=>`<option value="${m.id}">${m.name}</option>`).join('');select.value=account;
           phone.querySelector('[data-page-title]').textContent=tab;
-          phone.querySelectorAll('[data-tab]').forEach(button=>button.dataset.tab===tab?button.setAttribute('aria-current','page'):button.removeAttribute('aria-current'));
+          phone.querySelector('[data-action="settings"]').hidden=!isOrganiser(member);
+          phone.querySelectorAll('[data-tab]').forEach(btn=>btn.dataset.tab===tab?btn.setAttribute('aria-current','page'):btn.removeAttribute('aria-current'));
           const screen=phone.querySelector('[data-screen]');
-          if(tab!=='Family') screen.innerHTML=`<section class="card nonmember"><div class="nonmember-mark">${icon[tab]}</div><h3>${tab}</h3><p>Choose Family to view your shared miles pool.</p></section>`;
-          else if(state.nonMember&&side==='right') screen.innerHTML=nonMemberView();
-          else if(isJunior(account)) screen.innerHTML=familyView(side,member);
+          if(tab!=='Family')screen.innerHTML=`<section class="card nonmember"><div class="nonmember-mark">${icon[tab]}</div><h3>${tab}</h3><p>Choose Family to view your shared miles pool.</p></section>`;
+          else if(state.nonMember&&side==='right')screen.innerHTML=nonMemberView();
           else screen.innerHTML=familyView(side,member);
-          const overlay=phone.querySelector('[data-overlay]'), sheet=phone.querySelector('[data-sheet]'), kind=state.sheets[side];
+          const overlay=phone.querySelector('[data-overlay]'),sheet=phone.querySelector('[data-sheet]'),kind=state.sheets[side];
           if(kind){sheet.innerHTML=sheetContent(side,kind);overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');}
-          else {overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');sheet.innerHTML='';}
+          else{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');sheet.innerHTML='';}
         });
         document.getElementById('view-toggle').textContent=state.nonMember?'Return to family view':"Demo: show a non-member's view";
       }
-
       function addActivity(name,destination,miles){state.activity.unshift({source:name,destination,miles});state.earnedThisMonth+=miles;}
-      function closeSheet(side){state.sheets[side]=null;state.feedback[side]='';render();}
       function openSheet(side,kind){state.feedback[side]='';state.sheets[side]=kind;render();}
+      function closeSheet(side){state.sheets[side]=null;state.feedback[side]='';render();}
+      function redeemPool(){let remaining=state.goal;for(const m of state.members){const deduction=Math.min(m.miles,remaining);m.miles-=deduction;remaining-=deduction;if(!remaining)break;}}
 
       phones.addEventListener('change',event=>{
         const select=event.target.closest('[data-account-select]');
-        if(!select)return;
-        const phone=select.closest('.phone'),side=phone.dataset.phone;
-        state.accounts[side]=select.value;state.sheets[side]=null;state.feedback[side]='';render();
+        if(select){const side=select.closest('.phone').dataset.phone;state.accounts[side]=select.value;state.sheets[side]=null;state.feedback[side]='';render();return;}
+        if(event.target.matches('[data-approval-toggle]')){state.approvalsRequired=event.target.checked;render();return;}
+        if(event.target.matches('[data-cap-setting]')){
+          const value=Number(event.target.value),phone=event.target.closest('.phone'),sheet=phone.querySelector('[data-sheet]');
+          if(!Number.isInteger(value)||value<1){const err=sheet.querySelector('[data-settings-error]');if(err)err.textContent='Enter a whole number greater than zero.';return;}
+          state.monthlyCap=value;render();
+        }
+      });
+      phones.addEventListener('input',event=>{
+        if(!event.target.matches('[data-cap-setting]'))return;
+        const value=Number(event.target.value);
+        if(Number.isInteger(value)&&value>0){state.monthlyCap=value;}
       });
       phones.addEventListener('submit',event=>{
         const form=event.target.closest('form');if(!form)return;event.preventDefault();
@@ -264,58 +239,59 @@
         if(kind==='transfer'){
           const amount=Number(data.get('amount')),used=state.usedThisMonth[member.id]||0;
           if(!Number.isInteger(amount)||amount<=0)state.feedback[side]='Enter a whole number of miles greater than zero.';
-          else if(used+amount>20000)state.feedback[side]=`Monthly cap exceeded. You can transfer ${fmt(20000-used)} more miles this month.`;
-          else {member.miles+=amount;state.usedThisMonth[member.id]=used+amount;addActivity(member.name,'transfer → pool',amount);state.feedback[side]='';state.notice=`${fmt(amount)} miles added to the pool by ${member.name}.`;state.sheets[side]=null;}
+          else if(used+amount>state.monthlyCap)state.feedback[side]=`Transfer blocked: this would exceed your ${fmt(state.monthlyCap)}-mile monthly cap. You have ${fmt(Math.max(state.monthlyCap-used,0))} miles remaining.`;
+          else{member.miles+=amount;state.usedThisMonth[member.id]=used+amount;addActivity(member.name,'transfer → pool',amount);state.feedback[side]='';state.notice=`${fmt(amount)} miles added to the pool by ${member.name}.`;state.sheets[side]=null;}
           render();return;
         }
         if(kind==='spending'){
           const hkd=Number(data.get('amount'));
           if(!Number.isFinite(hkd)||hkd<6)state.feedback[side]='Enter at least HK$6 to earn a mile.';
-          else {const miles=Math.floor(hkd/6);member.miles+=miles;addActivity(member.name,'everyday spending → pool',miles);state.notice=`${fmt(miles)} miles added from everyday spending.`;state.sheets[side]=null;state.feedback[side]='';}
+          else{const miles=Math.floor(hkd/6);member.miles+=miles;addActivity(member.name,'everyday spending → pool',miles);state.notice=`${fmt(miles)} miles added from everyday spending.`;state.sheets[side]=null;state.feedback[side]='';}
           render();return;
         }
         if(kind==='invite'){
           const name=String(data.get('name')||'').trim(),role=data.get('role');
           if(!name){state.feedback[side]='Enter a member name.';render();return;}
-          const id=`member-${Date.now()}`;state.members.push({id,name,role:role==='junior'?'Junior member':'Adult member',miles:0});state.usedThisMonth[id]=0;state.inviteMessage=`Invite created for ${name}.`;state.sheets[side]=null;render();
+          const id=`member-${Date.now()}`;state.members.push({id,name,role:role==='junior'?'Junior member':'Adult member',miles:0});state.usedThisMonth[id]=0;state.inviteMessage=`Invite created for ${name}. ${role==='junior'?'Parental consent required.':''}`;state.inviteCode=makeInviteCode();state.sheets[side]='settings';render();
         }
       });
+      function makeInviteCode(){return Math.random().toString(36).slice(2,8).toUpperCase();}
 
       phones.addEventListener('click',event=>{
-        const phone=event.target.closest('.phone');if(!phone)return;const side=phone.dataset.phone;
+        const phone=event.target.closest('.phone');if(!phone)return;const side=phone.dataset.phone,member=current(state.accounts[side]);
         const overlay=event.target.closest('[data-overlay]');if(overlay&&event.target===overlay){closeSheet(side);return;}
         const tab=event.target.closest('[data-tab]');if(tab){state.tabs[side]=tab.dataset.tab;state.sheets[side]=null;render();return;}
-        const selectAction=event.target.closest('[data-action]');if(!selectAction)return;
-        const action=selectAction.dataset.action;
-        if(action==='open-transfer')openSheet(side,'transfer');
-        else if(action==='open-spending')openSheet(side,'spending');
-        else if(action==='review')openSheet(side,'review');
-        else if(action==='invite')openSheet(side,'invite');
-        else if(action==='request'){
-          if(!hasReachedGoal()){state.notice='Not enough miles yet';}
-          else if(state.request?.status==='pending'){state.notice='A redemption request is already waiting for the organiser.';}
-          else {state.request={name:current(state.accounts[side]).name,status:'pending'};state.notice='';}
+        const actionButton=event.target.closest('[data-action]');if(!actionButton)return;const action=actionButton.dataset.action;
+        if(action==='transfer'&&!isJunior(member))openSheet(side,'transfer');
+        else if(action==='spending'&&!isJunior(member)&&!isOrganiser(member))openSheet(side,'spending');
+        else if(action==='review'&&isOrganiser(member))openSheet(side,'review');
+        else if(action==='settings'&&isOrganiser(member))openSheet(side,'settings');
+        else if(action==='protected')openSheet(side,'protected');
+        else if(action==='close-sheet')closeSheet(side);
+        else if(action==='request'&&!isJunior(member)){
+          if(!reached())state.notice='Not enough miles yet';
+          else if(state.request?.status==='pending')state.notice='A redemption request is already waiting for the organiser.';
+          else if(state.approvalsRequired)state.request={name:member.name,status:'pending'};
+          else{redeemPool();state.request={name:member.name,status:'approved',message:`Tokyo trip redemption approved for ${member.name}.`};state.notice='Redemption approved automatically.';}
           render();
-        } else if(action==='approve'){
-          if(!hasReachedGoal()||!state.request){state.notice='Not enough miles yet';state.sheets[side]=null;render();return;}
-          let remaining=state.goal;for(const m of state.members){const deduct=Math.min(m.miles,remaining);m.miles-=deduct;remaining-=deduct;if(!remaining)break;}
-          const requester=state.request.name;state.request={name:requester,status:'approved',message:`Tokyo trip redemption approved for ${requester}.`};state.notice='Redemption approved. Tokyo trip is ready to book.';state.sheets[side]=null;render();
-        } else if(action==='decline'){
-          state.request=null;state.notice='Redemption request declined.';state.sheets[side]=null;render();
-        } else if(action==='remove-member'){
-          const id=selectAction.dataset.member;if(id==='erien')return;
-          const removed=current(id);if(removed){state.members=state.members.filter(m=>m.id!==id);delete state.usedThisMonth[id];state.notice=`${removed.name} was removed from the pool.`;}
+        }else if(action==='approve'&&isOrganiser(member)){
+          if(!reached()||!state.request||state.request.status!=='pending'){state.notice='Not enough miles yet';state.sheets[side]=null;render();return;}
+          const name=state.request.name;redeemPool();state.request={name,status:'approved',message:`Tokyo trip redemption approved for ${name}.`};state.notice='Redemption approved. Tokyo trip is ready to book.';state.sheets[side]=null;render();
+        }else if(action==='decline'&&isOrganiser(member)){state.request=null;state.notice='Redemption request declined.';state.sheets[side]=null;render();}
+        else if(action==='show-invite-code'&&isOrganiser(member)){state.inviteCode=state.inviteCode||makeInviteCode();render();}
+        else if(action==='add-invited'&&isOrganiser(member))openSheet(side,'invite');
+        else if(action==='remove-member'&&isOrganiser(member)){
+          const id=actionButton.dataset.member;if(id==='erien')return;const removed=current(id);
+          if(removed){state.members=state.members.filter(m=>m.id!==id);delete state.usedThisMonth[id];state.notice=`${removed.name} was removed from the pool.`;}
           render();
-        } else if(action==='suggestion') selectAction.textContent='See how';
+        }else if(action==='suggestion')actionButton.textContent='See how';
         else if(action==='start-pool'){state.nonMember=false;state.tabs.right='Family';state.notice='Your family pool is ready to view.';render();}
       });
-
       document.addEventListener('click',event=>{
         const action=event.target.closest('[data-global-action]')?.dataset.globalAction;if(!action)return;
         if(action==='toggle-view'){state.nonMember=!state.nonMember;state.tabs.right='Family';render();return;}
         if(action==='reset'){
-          state.members=initialMembers.map(item=>({...item}));state.activity=initialActivity.map(item=>({...item}));state.earnedThisMonth=2400;
-          state.usedThisMonth={erien:0,naarie:0,wei:0,chen:0,lin:0};state.accounts={left:'erien',right:'wei'};state.tabs={left:'Family',right:'Family'};state.sheets={left:null,right:null};state.feedback={left:'',right:''};state.request=null;state.notice='';state.nonMember=false;state.inviteMessage='';render();
+          state.members=initialMembers.map(x=>({...x}));state.activity=initialActivity.map(x=>({...x}));state.earnedThisMonth=2400;state.usedThisMonth={erien:0,naarie:0,wei:0,chen:0,lin:0};state.monthlyCap=20000;state.approvalsRequired=true;state.accounts={left:'erien',right:'wei'};state.tabs={left:'Family',right:'Family'};state.sheets={left:null,right:null};state.feedback={left:'',right:''};state.request=null;state.notice='';state.nonMember=false;state.inviteMessage='';state.inviteCode='';render();
         }
       });
       render();
