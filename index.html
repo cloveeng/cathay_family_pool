@@ -216,22 +216,62 @@ button.destination-card{display:block;width:100%;font:inherit;cursor:pointer}
 .mine .action-button{min-height:36px;padding:0 14px}
 .auto-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px;padding-top:10px;border-top:1px solid #eeece6;color:var(--ink);font-size:10px;line-height:1.4}
 .mine-hint{color:var(--muted);font-size:9px;font-weight:700}
+
+[hidden]{display:none!important}
+.tab-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.stage{display:flex;justify-content:center;align-items:flex-start;flex-wrap:wrap;gap:24px}.stage .phones{width:804px;max-width:100%;flex:0 0 auto;margin:0}@media(max-width:850px){.stage .phones{width:100%}}
+.demo-tools{gap:8px}.demo-tools .demo-link{padding:7px 12px;border:1px solid #cdd6d1;border-radius:99px;background:#fffefa;color:var(--teal);font-size:11px;font-weight:700;text-decoration:none;transition:background .15s,border-color .15s}
+.demo-tools .demo-link:hover{background:#eef5f1;border-color:var(--teal)}
+.script-card{width:300px;padding:18px;border:1px solid #d9e2dd;border-radius:22px;background:#fffefa;box-shadow:0 14px 34px rgb(26 39 34 / 12%)}
+.script-head{display:flex;align-items:center;justify-content:space-between;color:var(--navy);font-size:12px}.script-head span{color:var(--muted);font-size:10px;font-weight:700}
+.script-dots{display:flex;gap:5px;margin:10px 0 14px}.script-dots i{flex:1;height:4px;border-radius:9px;background:#e4e7e2}.script-dots i.done{background:#7bb7a8}.script-dots i.on{background:var(--teal)}
+.script-card h4{margin:0 0 8px;color:var(--navy);font-size:17px;letter-spacing:-.02em}
+.script-say{margin:0 0 10px;color:var(--ink);font-size:12px;line-height:1.55}.script-do{margin:0 0 12px;padding:8px 10px;border-radius:10px;background:#fbf0d9;color:#63430b;font-size:11px;font-weight:700}
+.script-card>.action-button{width:100%;min-height:44px;font-size:12px}
+.script-nav{display:flex;justify-content:space-between;margin-top:10px}.script-nav .demo-link{border:0;background:transparent;font-size:11px}.script-nav .demo-link:disabled{opacity:.35;cursor:not-allowed}
+.cathay{max-width:880px;margin:0 auto}
+.cathay-card{padding:26px;border:1px solid #dde4df;border-radius:24px;background:#fffefa;box-shadow:0 18px 44px rgb(26 39 34 / 12%)}
+.cathay-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.cathay-card h2{margin:4px 0 4px;color:var(--navy);font-size:26px;letter-spacing:-.035em}.cathay-sub{margin:0;color:var(--muted);font-size:12px}
+.cathay-card h3{margin:24px 0 10px;color:var(--navy);font-size:15px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.kpi{padding:14px;border-radius:16px;background:linear-gradient(150deg,#00705e,#004a52 60%,#002745);color:#fff}
+.kpi span{display:block;color:rgb(255 255 255 / 75%);font-size:10px;font-weight:700}.kpi strong{display:block;margin-top:6px;font-size:26px;letter-spacing:-.04em;font-variant-numeric:tabular-nums}.kpi small{display:block;margin-top:4px;color:rgb(255 255 255 / 55%);font-size:9px}
+.pilot{display:grid;gap:8px;margin:0;padding:0;list-style:none}.pilot li{display:grid;grid-template-columns:200px 1fr;gap:4px 14px;padding:12px 14px;border:1px solid #e6e3dc;border-radius:14px;background:#fff}
+.pilot strong{color:var(--navy);font-size:12px}.pilot span{color:var(--ink);font-size:12px}.pilot em{grid-column:2;color:var(--muted);font-size:10px;font-style:normal}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.why div{padding:14px;border-radius:14px;background:#f3f5f0}.why strong{display:block;color:var(--teal);font-size:13px}.why span{display:block;margin-top:5px;color:var(--ink);font-size:11px;line-height:1.5}
+.fare{margin-bottom:10px}.fare-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.fare-head h4{margin:0}
+.verified{padding:3px 8px;border-radius:99px;background:#e4f0ea;color:var(--teal);font-size:9px;font-weight:800}.unverified{padding:3px 8px;border-radius:99px;background:#fcebea;color:#a13e37;font-size:9px;font-weight:800}
+.ladder{display:flex;gap:6px;margin:0 0 10px;padding:0;list-style:none}
+.ladder-step{display:flex;flex:1;flex-direction:column;align-items:center;gap:2px;padding:9px 4px;border:1px solid #e6e3dc;border-radius:12px;background:#fff;color:var(--muted)}
+.ladder-step strong{color:var(--navy);font-size:15px}.ladder-step small{font-size:9px}
+.ladder-dot{display:grid;width:20px;height:20px;place-items:center;border-radius:50%;background:#eceae4;font-size:10px;font-weight:800}
+.ladder-step.done{background:#eef6f2}.ladder-step.done .ladder-dot{background:var(--teal);color:#fff}
+.ladder-step.next{border-color:var(--gold);box-shadow:0 0 0 2px rgb(223 167 68 / 22%)}.ladder-step.next .ladder-dot{background:var(--gold);color:#34250c}
+.fare-text{margin:0 0 10px;color:var(--ink);font-size:11px;line-height:1.5}.fare-text strong{color:var(--navy)}.fare .action-button{width:100%}
+.tab-text{margin:0 0 10px;color:var(--ink);font-size:11px;line-height:1.5}.tab-text strong{color:var(--navy)}.tab-gap{margin-top:10px}.panel>.action-button{width:100%}
+.offer-list{display:grid;gap:8px;margin:0;padding:0;list-style:none}.offer-list li{display:grid;gap:2px;padding:10px;border:1px solid #eeece6;border-radius:12px}
+.offer-list strong{color:var(--navy);font-size:12px}.offer-list span{color:var(--muted);font-size:10px}.offer-list em{color:var(--teal);font-size:9px;font-style:normal;font-weight:800}
+.consent{display:flex;gap:8px;align-items:flex-start;margin-top:12px;color:var(--ink);font-size:10px;line-height:1.4}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.why{grid-template-columns:1fr}.pilot li{grid-template-columns:1fr}.pilot em{grid-column:1}.script-card{width:min(390px,100%)}}
 </style>
 </head>
 <body>
-<header class="demo-heading"><h1>One family, one miles pool</h1><p>Shared demo · Changes on either phone update both</p></header>
-<main class="phones" id="phones" aria-label="Shared family miles pool demo"></main>
-<div class="demo-tools"><button class="demo-link" type="button" data-global-action="reset">Reset demo</button><button class="demo-link" type="button" data-global-action="sim-purchase">Demo: simulate a student purchase</button><button class="demo-link" id="view-toggle" type="button" data-global-action="toggle-view">Demo: show a non-member's view</button></div>
+<header class="demo-heading"><h1>One family, one miles pool</h1><p>Prototype with sample data · changes on either phone update both</p></header>
+<div class="stage" id="stage"><main class="phones" id="phones" aria-label="Shared family miles pool demo"></main><aside id="script" class="script-card" hidden></aside></div>
+<section id="cathay" class="cathay" hidden></section>
+<div class="demo-tools"><button class="demo-link" type="button" data-global-action="reset">Reset demo</button><button class="demo-link" type="button" data-global-action="toggle-script">Demo script</button><button class="demo-link" type="button" data-global-action="sim-purchase">Simulate a student purchase</button><button class="demo-link" id="view-toggle" type="button" data-global-action="toggle-view">Demo: show a non-member's view</button><button class="demo-link" type="button" data-global-action="toggle-cathay">Cathay's view</button></div>
 <script>
 (()=>{
-const initialMembers=[{id:'erien',name:'Erien',role:'Organiser',miles:40000},{id:'naarie',name:'Naarie',role:'Adult member',miles:22000},{id:'wei',name:'Wei',role:'Adult member',miles:12000},{id:'chen',name:'Chen',role:'Adult member',miles:6000},{id:'lin',name:'Lin',role:'Junior member',miles:2000}];
+const initialMembers=[{id:'erien',name:'Erien',role:'Organiser',miles:40000},{id:'naarie',name:'Naarie',role:'Adult member',miles:22000},{id:'wei',name:'Wei',role:'Adult member',miles:12000,student:true},{id:'chen',name:'Chen',role:'Adult member',miles:6000,student:true},{id:'lin',name:'Lin',role:'Junior member',miles:2000}];
 const initialActivity=[{source:'Wei',destination:'everyday spending → pool',miles:45},{source:'Naarie',destination:'card rewards → pool',miles:320},{source:'Chen',destination:'everyday spending → pool',miles:500},{source:'Erien',destination:'family transfer → pool',miles:800},{source:'Wei',destination:'everyday spending → pool',miles:735}];
 const trips=[{id:'seoul',name:'Seoul',code:'ICN',rate:20000},{id:'osaka',name:'Osaka',code:'KIX',rate:25000},{id:'tokyo',name:'Tokyo',code:'NRT',rate:30000}];
+const ladder=[5,10,15],fare=11000,tripMiles=2500;
 const colours=['#005B4D','#DFA744','#8a6bbf','#4f7fae','#d66b6b'];
 const tints=[['#e6f0ec','#005B4D'],['#f5eddb','#795414'],['#f0eafa','#644a94'],['#e9eff7','#315577'],['#fcebea','#a84642']];
 const shown={left:null,right:null},tw={left:0,right:0};
 const defaultTravellers=['naarie','wei','chen','lin'];
-const fresh=()=>({members:initialMembers.map(m=>({...m})),activity:initialActivity.map(a=>({...a})),earnedThisMonth:2400,usedThisMonth:{erien:0,naarie:0,wei:0,chen:0,lin:0},personal:{erien:35000,naarie:12000,wei:800,chen:400,lin:0},autoAdd:{wei:true,chen:true},monthlyCap:20000,approvalsRequired:true,accounts:{left:'erien',right:'wei'},tabs:{left:'Family',right:'Family'},sheets:{left:null,right:null},feedback:{left:'',right:''},request:null,notice:'',nonMember:false,views:{left:'overview',right:'overview'},focus:{left:null,right:null},inviteCode:'',pinned:{tripId:'tokyo',memberIds:[...defaultTravellers]},plan:{left:{tripId:'tokyo',memberIds:[...defaultTravellers]},right:{tripId:'tokyo',memberIds:[...defaultTravellers]}}});
+const fresh=()=>({members:initialMembers.map(m=>({...m})),activity:initialActivity.map(a=>({...a})),earnedThisMonth:2400,usedThisMonth:{erien:0,naarie:0,wei:0,chen:0,lin:0},personal:{erien:35000,naarie:12000,wei:800,chen:400,lin:0},autoAdd:{wei:true,chen:true},studentTrips:{wei:1,chen:0},verified:{wei:true,chen:false},redemptions:0,view:'app',script:{open:false,i:0},monthlyCap:20000,approvalsRequired:true,accounts:{left:'erien',right:'wei'},tabs:{left:'Family',right:'Family'},sheets:{left:null,right:null},feedback:{left:'',right:''},request:null,notice:'',nonMember:false,views:{left:'overview',right:'overview'},focus:{left:null,right:null},inviteCode:'',pinned:{tripId:'tokyo',memberIds:[...defaultTravellers]},plan:{left:{tripId:'tokyo',memberIds:[...defaultTravellers]},right:{tripId:'tokyo',memberIds:[...defaultTravellers]}}});
 let state=fresh();
 const phones=document.getElementById('phones');
 const fmt=n=>Math.round(n).toLocaleString('en-US');
@@ -246,7 +286,7 @@ const tripFor=id=>trips.find(t=>t.id===id)||trips[2];
 const planCost=p=>tripFor(p.tripId).rate*p.memberIds.length;
 const planName=p=>`${tripFor(p.tripId).name} for ${p.memberIds.length}`;
 const goalInfo=()=>({name:planName(state.pinned),cost:Math.max(planCost(state.pinned),1)});
-const icon={Home:'⌂',Offers:'◇',Earn:'＋',Redeem:'✈',Family:'♡'};
+const icon={Home:'<svg viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9H4z"/></svg>',Offers:'<svg viewBox="0 0 24 24"><path d="M3 12V4h8l9 9-8 8z"/><circle cx="7.5" cy="8.5" r="1.2"/></svg>',Earn:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>',Redeem:'<svg viewBox="0 0 24 24"><path d="M3 12l18-8-6 16-3.5-6.5z"/></svg>',Family:'<svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/></svg>'};
 const skyline=`<svg viewBox="0 0 150 70" aria-hidden="true"><path fill="currentColor" opacity=".14" d="M0 68V42h17V28h15v40h8V18h18v50h9V34h16v34h9V10h17v58h7V27h20v41z"/><path fill="currentColor" opacity=".28" d="M4 68V49h8v19m14 0V37h7v31m16 0V27h8v41m17 0V43h8v25m17 0V19h8v49m16 0V36h8v32m12 0V45h8v23"/></svg>`;
 
 function phoneMarkup(side,label,defaultId){return `<section class="device-column"><div class="device-label-row"><p class="device-label">${label}</p><div class="account-switch"><label for="account-${side}">Demo: switch account</label><select id="account-${side}" data-account-select data-default="${defaultId}"></select></div></div><article class="phone" data-phone="${side}" aria-label="Cathay app"><header class="app-header"><div class="header-row"><h2 class="header-title" data-page-title>Family</h2><button class="gear-button" type="button" data-action="settings" aria-label="Pool settings" hidden>⚙</button><span class="header-spacer" data-gear-spacer></span></div><div class="header-row"><div class="pool-pill"><span>Pool <span data-pool-total></span></span><small>family pool</small></div><button class="protected-chip" type="button" data-action="protected"><span aria-hidden="true">●</span> Protected pool</button></div></header><div class="screen-content" data-screen></div><nav class="tab-bar" aria-label="Main navigation">${['Home','Offers','Earn','Redeem','Family'].map(n=>`<button class="tab" type="button" data-tab="${n}" aria-label="${n}"><span class="tab-icon" aria-hidden="true">${icon[n]}</span><span class="tab-label">${n}</span></button>`).join('')}</nav><div class="phone-overlay" data-overlay aria-hidden="true"><section class="bottom-sheet" role="dialog" aria-modal="true" aria-label="Family pool action" data-sheet></section></div></article></section>`;}
@@ -321,7 +361,7 @@ function familyView(side,member){
   if(junior)return `${head}<p class="junior-note">Parental consent required to join</p>${contributionPanel(member,side)}`;
   const seg=`<div class="segmented" role="tablist">${[['overview','Overview'],['activity','Activity'],['members','Members']].map(([v,l])=>`<button type="button" role="tab" aria-selected="${v===view}" data-action="view" data-view="${v}">${l}</button>`).join('')}</div>`;
   let body='';
-  if(view==='overview')body=`${minePanel(member)}${contributionPanel(member,side)}${movesMarkup(g,member)}`;
+  if(view==='overview')body=`${minePanel(member)}${farePanel(member)}${contributionPanel(member,side)}${movesMarkup(g,member)}`;
   else if(view==='activity')body=`<div class="section-heading"><h3>Recent activity</h3><span class="small-meta">Earned this month +${fmt(state.earnedThisMonth)}</span></div>${timelineMarkup()}`;
   else body=`<div class="section-heading"><h3>Family members</h3><span class="small-meta">${state.members.length} members</span></div>${memberCards(member)}`;
   return `${head}${seg}${body}`;
@@ -341,13 +381,15 @@ function planSheet(side){
 function sheetContent(side,kind){
   const member=getMember(state.accounts[side]);
   const used=state.usedThisMonth[member.id]||0;
+  if(kind==='trip'){const done=state.studentTrips[member.id]||0,d=ladder[Math.min(done,2)],pay=Math.round(fare*(1-d/100)),auto=!!state.autoAdd[member.id];return `<div class="sheet-handle"></div><h3>Book a student trip</h3><p>Sample return trip. The fare is illustrative.</p><div class="plan-summary"><div class="plan-total-row"><span>Standard fare</span><span>HK$${fmt(fare)}</span></div><div class="plan-total-row" style="margin-top:6px"><span>Student ladder, trip ${Math.min(done+1,3)}</span><span>−${d}%</span></div><div class="plan-total-row" style="margin-top:6px"><span>You pay</span><span>HK$${fmt(pay)}</span></div></div><p>You earn about ${fmt(tripMiles)} miles, ${auto?'added to your family pool automatically':'kept in your own balance'}.</p><div class="sheet-actions"><button class="action-button secondary" type="button" data-action="close-sheet">Cancel</button><button class="action-button" type="button" data-action="confirm-trip">Confirm booking</button></div>`;}
+  if(kind==='verify')return `<div class="sheet-handle"></div><h3>Verify student status</h3><p>Connect your student ID. No paper upload and no waiting.</p><div class="plan-summary"><div class="plan-total-row"><span>Student ID (sample)</span><span>Connected</span></div></div><button class="action-button sheet-link-button" type="button" data-action="confirm-verify">Verify instantly</button>`;
   if(kind==='plan')return planSheet(side);
   if(kind==='transfer')return `<div class="sheet-handle"></div><h3>Transfer miles</h3><p>Move miles from your own balance into the family pool.</p><p><strong>Your miles: ${fmt(state.personal[member.id]||0)}</strong></p><p><strong>Used ${fmt(used)} of ${fmt(state.monthlyCap)} miles this month</strong></p><form data-form="transfer" data-side="${side}"><label class="form-label">Miles to transfer<input class="form-input" name="amount" type="number" min="1" step="1" placeholder="e.g. 5000" inputmode="numeric" required></label><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><button class="action-button" type="submit">Add miles to pool</button></form>`;
   if(kind==='spending')return `<div class="sheet-handle"></div><h3>Simulate everyday spending</h3><p>Demo: in the real app this happens automatically when you pay with your linked card or at partners like foodpanda. Enter an amount to simulate a purchase. HK$6 = 1 mile. If auto-add is on (the default for students), the miles go straight to the family pool. If you turn it off, they stay in your own balance until you add them.</p><form data-form="spending" data-side="${side}"><label class="form-label">Amount in HK$<input class="form-input" name="amount" type="number" min="6" step="1" placeholder="e.g. 300" inputmode="decimal" required></label><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><button class="action-button" type="submit">Simulate purchase</button></form><p>Your family sees what you add to the pool, not what you buy or what you hold.</p>`;
   if(kind==='review'){const r=state.request;return `<div class="sheet-handle"></div><h3>Review redemption</h3>${!r||r.status!=='pending'?'<p>There are no pending redemption requests.</p>':`<p>${esc(r.name)} requested <strong>${esc(r.label)}</strong> for ${r.members.map(id=>esc(nameOf(id))).join(', ')}. Approving redeems ${fmt(r.cost)} miles from the pool.</p><div class="sheet-actions"><button class="action-button secondary" type="button" data-action="decline">Decline</button><button class="action-button" type="button" data-action="approve">Approve</button></div>`}`;}
   if(kind==='protected')return `<div class="sheet-handle"></div><h3>Protected pool</h3><p>Only the organiser approves redemptions. Each member has a monthly transfer cap. Members join by invite, with parental consent for minors. Anyone who leaves takes back their unspent miles.</p><button class="action-button secondary sheet-link-button" type="button" data-action="close-sheet">Done</button>`;
   if(kind==='settings')return `<div class="sheet-handle"></div><h3>Pool settings</h3><div class="settings-row"><label for="cap-setting">Monthly cap per member</label><input id="cap-setting" class="cap-input" type="number" min="1" step="1" value="${state.monthlyCap}" data-cap-setting></div><div class="settings-row"><span>Organiser approves redemptions</span><label class="switch" aria-label="Organiser approves redemptions"><input type="checkbox" data-approval-toggle ${state.approvalsRequired?'checked':''}><span class="switch-track"></span></label></div><button class="action-button sheet-link-button" type="button" data-action="show-invite-code">Invite a member</button>${state.inviteCode?`<div class="invite-code" role="status"><small>Share this invite code</small><strong>${state.inviteCode}</strong><p>Parental consent required for anyone under 18.</p><button class="text-button" type="button" data-action="add-invited">Add invited member</button></div>`:''}<p class="sheet-error" data-settings-error></p>`;
-  if(kind==='invite')return `<div class="sheet-handle"></div><h3>Invite a member</h3><p>Joining is by invite only. Parental consent required for junior members.</p><form data-form="invite" data-side="${side}"><label class="form-label">Member name<input class="form-input" name="name" type="text" placeholder="Name" required></label><label class="form-label">Role<select class="form-input" name="role"><option value="adult">Adult member</option><option value="junior">Junior member (under 18)</option></select></label><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><button class="action-button" type="submit">Create invite</button></form>`;
+  if(kind==='invite')return `<div class="sheet-handle"></div><h3>Invite a member</h3><p>Joining is by invite only. Parental consent required for junior members.</p><form data-form="invite" data-side="${side}"><label class="form-label">Member name<input class="form-input" name="name" type="text" placeholder="Name" required></label><label class="form-label">Role<select class="form-input" name="role"><option value="adult">Adult member</option><option value="junior">Junior member (under 18)</option></select></label><label class="consent"><input type="checkbox" name="consent"> A parent or guardian has consented (required under 18)</label><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><button class="action-button" type="submit">Create invite</button></form>`;
   return '';
 }
 
@@ -369,6 +411,59 @@ function hydrate(phone,side){
   requestAnimationFrame(step);
 }
 
+function farePanel(member){
+  if(!member.student)return '';
+  const ok=state.verified[member.id],done=state.studentTrips[member.id]||0,cur=Math.min(done,2),next=ladder[cur];
+  const steps=ladder.map((d,i)=>`<li class="ladder-step${i<done?' done':''}${ok&&i===cur&&done<3?' next':''}"><span class="ladder-dot">${i<done?'✓':i+1}</span><strong>${d}%</strong><small>Trip ${i+1}</small></li>`).join('');
+  const text=done>=3?'Top tier unlocked: <strong>15% off</strong> on your next trip.':`Next trip: <strong>${next}% off</strong>${done<2?`, then ${ladder[done+1]}% on trip ${done+2}.`:'.'}`;
+  return `<section class="panel fare"><div class="fare-head"><h4>Your student fare</h4>${ok?'<span class="verified">✓ Verified student</span>':'<span class="unverified">Not verified</span>'}</div>${ok?`<ol class="ladder">${steps}</ol><p class="fare-text">${text} Every trip also earns miles for your family pool.</p><button class="action-button" type="button" data-action="book-trip">Book a student trip (demo)</button>`:`<p class="fare-text">Verify once to unlock a student fare that grows with every trip: 5%, then 10%, then 15%.</p><button class="action-button" type="button" data-action="verify">Verify with student ID</button>`}</section>`;
+}
+function tabView(tab,side,member){
+  const pool=fmt(total()),junior=isJunior(member);
+  if(tab==='Home')return `<section class="panel"><h4>Good evening, ${esc(member.name)}</h4><p class="tab-text">Your family pool is at <strong>${pool}</strong> miles.</p><button class="action-button" type="button" data-action="goto-family">Open Family</button></section><section class="panel tab-gap"><h4>Asia Miles</h4><p class="tab-text">Prototype screen. The Family tab is the new feature.</p></section>`;
+  if(tab==='Offers')return `<section class="panel"><h4>Partner offers</h4><p class="tab-text">Partners are already in the app. Now the miles can feed your family goal.</p><ul class="offer-list"><li><strong>Dining</strong><span>Earn miles on dinners out</span><em>Feeds family pool</em></li><li><strong>Food delivery</strong><span>Earn miles on every order</span><em>Feeds family pool</em></li><li><strong>Cathay Shop</strong><span>Care packages and gifts</span><em>Feeds family pool</em></li></ul></section>`;
+  if(tab==='Earn')return `<section class="panel"><h4>Where your miles go</h4><p class="tab-text">Miles from everyday spending go to your own balance, or straight into the family pool if auto-add is on.</p></section>${junior?'':minePanel(member)}`;
+  if(tab==='Redeem')return `<section class="panel"><h4>Redeem miles</h4><p class="tab-text">Use the family pool for a trip together. Pick a destination and who is flying.</p>${junior?'<p class="tab-text">Juniors can see the pool, and an adult plans the trip.</p>':'<button class="action-button" type="button" data-action="redeem">Plan a family trip</button>'}</section>`;
+  return '';
+}
+function bookTrip(member){
+  const done=state.studentTrips[member.id]||0,d=ladder[Math.min(done,2)];
+  state.studentTrips[member.id]=done+1;earnMiles(member,tripMiles);
+  state.notice=`Trip booked at ${d}% off. ${state.notice}`;
+}
+function contribute(member,amount){
+  const used=state.usedThisMonth[member.id]||0;
+  if(amount>(state.personal[member.id]||0))return 'balance';
+  if(used+amount>state.monthlyCap)return 'cap';
+  state.personal[member.id]-=amount;member.miles+=amount;state.usedThisMonth[member.id]=used+amount;
+  addActivity(member.name,'transfer → pool',amount);state.notice=`${fmt(amount)} miles added to the pool by ${member.name}.`;return null;
+}
+const steps=[
+ {title:'The problem today',say:'Families fly together, but their miles sit in separate accounts. Students drift away after Year 1.',doText:'Starts from a fresh demo.',runLabel:'Restart demo',run(){const k=state.script;state=fresh();state.script={open:true,i:k.i};}},
+ {title:'Students feed the pool',say:'Wei pays with his linked card. He has auto-add on, so the miles go straight into the family pool.',doText:'Wei spends HK$3,000.',runLabel:'Run: Wei spends',run(){state.view='app';state.nonMember=false;state.accounts.right='wei';state.tabs.right='Family';state.sheets.right=null;state.autoAdd.wei=true;earnMiles(getMember('wei'),500);}},
+ {title:'Parents add miles',say:'Parents move their own miles into the pool. Miles flow both ways.',doText:'Erien adds 5,000 miles.',runLabel:'Run: Erien adds 5,000',run(){state.view='app';state.accounts.left='erien';state.tabs.left='Family';state.sheets.left=null;contribute(getMember('erien'),5000);}},
+ {title:'A student fare that grows',say:'Wei is a verified student. Each trip unlocks a bigger discount and also earns miles for the family.',doText:'Wei books his next trip at 10% off.',runLabel:'Run: Wei books a trip',run(){state.view='app';state.verified.wei=true;state.accounts.right='wei';state.sheets.right=null;bookTrip(getMember('wei'));}},
+ {title:'Plan a trip together',say:'The family picks a destination and who is flying. The pool covers it, so Wei sends a request.',doText:'Wei requests Seoul for 4.',runLabel:'Run: Wei requests Seoul',run(){state.view='app';state.accounts.right='wei';state.tabs.right='Family';state.sheets.right=null;state.plan.right={tripId:'seoul',memberIds:['naarie','wei','chen','lin']};createRequest('right');}},
+ {title:'The organiser approves',say:'Only the organiser approves redemptions. The miles come out of the pool.',doText:'Erien approves.',runLabel:'Run: Erien approves',run(){state.view='app';state.accounts.left='erien';state.tabs.left='Family';state.sheets.left=null;approveRequest();}},
+ {title:'Protected by design',say:'There are monthly caps per member. If someone tries to move too much, it is blocked.',doText:'Erien tries to add 20,000 more.',runLabel:'Run: show the cap',run(){state.view='app';state.accounts.left='erien';state.tabs.left='Family';const used=state.usedThisMonth.erien||0;state.sheets.left='transfer';state.feedback.left=`Transfer blocked: this would exceed your ${fmt(state.monthlyCap)}-mile monthly cap. You have ${fmt(Math.max(state.monthlyCap-used,0))} miles remaining.`;}},
+ {title:'Why Cathay wins',say:'Students stay with Cathay beyond Year 1, parents join the same goal, and miles get used toward trips.',doText:'Opens the Cathay dashboard.',runLabel:'Run: open Cathay view',run(){state.sheets={left:null,right:null};state.view='cathay';}}
+];
+function renderScript(){
+  const el=document.getElementById('script');
+  el.hidden=!state.script.open||state.view==='cathay';
+  if(el.hidden)return;
+  const i=state.script.i,st=steps[i];
+  el.innerHTML=`<div class="script-head"><strong>Demo script</strong><span>Step ${i+1} of ${steps.length}</span></div><div class="script-dots">${steps.map((_,k)=>`<i class="${k===i?'on':k<i?'done':''}"></i>`).join('')}</div><h4>${st.title}</h4><p class="script-say">“${st.say}”</p><p class="script-do">${st.doText}</p><button class="action-button" type="button" data-global-action="script-run">${st.runLabel}</button><div class="script-nav"><button type="button" class="demo-link" data-global-action="script-prev" ${i===0?'disabled':''}>← Back</button><button type="button" class="demo-link" data-global-action="script-next" ${i===steps.length-1?'disabled':''}>Next →</button></div>`;
+}
+function renderCathay(){
+  const el=document.getElementById('cathay'),stage=document.getElementById('stage'),on=state.view==='cathay';
+  el.hidden=!on;stage.hidden=on;
+  if(!on)return;
+  const contributors=state.members.filter(m=>m.miles>0).length,tripsBooked=Object.values(state.studentTrips).reduce((a,b)=>a+b,0);
+  const tile=(l,v,n)=>`<div class="kpi"><span>${l}</span><strong>${v}</strong><small>${n}</small></div>`;
+  const row=(a,b,c)=>`<li><strong>${a}</strong><span>${b}</span><em>${c}</em></li>`;
+  el.innerHTML=`<div class="cathay-card"><div class="cathay-top"><div><p class="eyebrow">Cathay's view</p><h2>What the family pool tells Cathay</h2><p class="cathay-sub">Illustrative dashboard with demo data. In a real pilot these come from Cathay's CRM.</p></div><button class="demo-link" type="button" data-global-action="close-cathay">← Back to the app</button></div><div class="kpis">${tile('Pooled miles',fmt(total()),'live from this demo')}${tile('Members contributing',`${contributors} of ${state.members.length}`,'live from this demo')}${tile('Student trips booked',tripsBooked,'live from this demo')}${tile('Redemptions approved',state.redemptions,'live from this demo')}</div><h3>What the pilot would measure</h3><ul class="pilot">${row('Family pooling rate','Share of linked families who pool miles within 6 months','Source: CRM data. Target agreed before launch')}${row('Student trip share','Student trips taken with Cathay, pilot group vs control group','Source: pilot vs control. Target agreed before launch')}${row('Year-2 student retention','Students still flying Cathay in their second year, pilot vs control','Source: pilot vs control. Target agreed before launch')}</ul><h3>Why it works for Cathay</h3><div class="why"><div><strong>Students stay</strong><span>A fare that grows with every trip gives them a reason to keep flying Cathay.</span></div><div><strong>Parents join in</strong><span>A shared goal gives the whole family a reason to book together.</span></div><div><strong>Miles get used</strong><span>Pooled miles go toward real trips, with caps and approvals protecting the programme.</span></div></div></div>`;
+}
 function render(){
   if(!phones.children.length)phones.innerHTML=phoneMarkup('left',"Parent's phone · Erien",'erien')+phoneMarkup('right',"Student's phone · Wei",'wei');
   document.querySelectorAll('.phone').forEach(phone=>{
@@ -383,7 +478,7 @@ function render(){
     phone.querySelector('[data-gear-spacer]').hidden=isOrganiser(member);
     phone.querySelectorAll('[data-tab]').forEach(b=>b.dataset.tab===tab?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current'));
     const screen=phone.querySelector('[data-screen]'),top=screen.scrollTop;
-    if(tab!=='Family')screen.innerHTML=`<section class="card nonmember"><div class="nonmember-mark">${icon[tab]}</div><h3>${tab}</h3><p>Choose Family to view your shared miles pool.</p></section>`;
+    if(tab!=='Family')screen.innerHTML=tabView(tab,side,member);
     else if(state.nonMember&&side==='right')screen.innerHTML=nonMemberView();
     else screen.innerHTML=familyView(side,member);
     screen.scrollTop=top;hydrate(phone,side);
@@ -391,7 +486,7 @@ function render(){
     if(kind){sheet.innerHTML=sheetContent(side,kind);overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');}
     else{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');sheet.innerHTML='';}
   });
-  document.getElementById('view-toggle').textContent=state.nonMember?'Return to family view':"Demo: show a non-member's view";
+  document.getElementById('view-toggle').textContent=state.nonMember?'Return to family view':"Demo: show a non-member's view";renderScript();renderCathay();
 }
 
 function addActivity(name,destination,miles){state.activity.unshift({source:name,destination,miles});state.earnedThisMonth+=miles;}
@@ -413,7 +508,7 @@ function earnMiles(member,miles){
 function approveRequest(){
   const r=state.request;if(!r||r.status!=='pending')return;
   if(!deductProportionally(r.cost)){state.notice='Not enough miles to approve this request.';state.request=null;return;}
-  state.activity.unshift({description:`${r.label} redeemed · pool`,miles:-r.cost});
+  state.redemptions++;state.activity.unshift({description:`${r.label} redeemed · pool`,miles:-r.cost});
   state.notice=`${r.label} redeemed for ${fmt(r.cost)} miles (${r.members.map(nameOf).join(', ')}).`;state.request=null;
 }
 function createRequest(side){
@@ -459,7 +554,7 @@ phones.addEventListener('submit',e=>{
   }
   if(kind==='invite'){
     const name=String(data.get('name')||'').trim(),role=data.get('role');
-    if(!name){state.feedback[side]='Enter a member name.';render();return;}
+    if(!name){state.feedback[side]='Enter a member name.';render();return;}if(role==='junior'&&!data.get('consent')){const er=e.target.querySelector('[data-sheet-error]');if(er)er.textContent='Parental consent is required for members under 18.';return;}
     const id=`member-${Date.now()}`;
     state.members.push({id,name,role:role==='junior'?'Junior member':'Adult member',miles:0});state.usedThisMonth[id]=0;state.personal[id]=0;
     state.inviteCode=makeInviteCode();state.feedback[side]='';state.sheets[side]='settings';render();
@@ -483,6 +578,11 @@ phones.addEventListener('click',e=>{
   else if(action==='demo-shop'&&!junior){earnMiles(member,166);render();}
   else if(action==='plan-seoul'&&!junior){const n=Math.min(state.members.length,Math.floor(total()/trips[0].rate));state.plan[side]={tripId:'seoul',memberIds:state.members.slice(0,Math.max(n,1)).map(m=>m.id)};openSheet(side,'plan');}
   else if(action==='invite-open'&&org){state.inviteCode=state.inviteCode||makeInviteCode();openSheet(side,'settings');}
+  else if(action==='book-trip'&&member.student&&state.verified[member.id])openSheet(side,'trip');
+  else if(action==='confirm-trip'&&member.student){bookTrip(member);state.sheets[side]=null;render();}
+  else if(action==='verify'&&member.student)openSheet(side,'verify');
+  else if(action==='confirm-verify'&&member.student){state.verified[member.id]=true;state.notice='Student status verified. Your fare ladder is unlocked.';state.sheets[side]=null;render();}
+  else if(action==='goto-family'){state.tabs[side]='Family';render();}
   else if(action==='select-trip'){state.plan[side].tripId=button.dataset.trip;state.feedback[side]='';render();}
   else if(action==='toggle-traveller'){const ids=state.plan[side].memberIds,id=button.dataset.member,i=ids.indexOf(id);if(i>=0)ids.splice(i,1);else ids.push(id);state.feedback[side]='';render();}
   else if(action==='pin-plan'&&state.plan[side].memberIds.length){state.pinned={tripId:state.plan[side].tripId,memberIds:[...state.plan[side].memberIds]};state.notice=`Goal set: ${planName(state.pinned)}.`;state.sheets[side]=null;render();}
@@ -513,7 +613,13 @@ phones.addEventListener('click',e=>{
 document.addEventListener('click',e=>{
   const action=e.target.closest('[data-global-action]')?.dataset.globalAction;if(!action)return;
   if(action==='toggle-view'){state.nonMember=!state.nonMember;state.tabs.right='Family';render();return;}
-  if(action==='reset'){state=fresh();render();}if(action==='sim-purchase'){const side=(state.nonMember||isJunior(getMember(state.accounts.right)))?'left':'right';if(isJunior(getMember(state.accounts[side])))return;state.tabs[side]='Family';openSheet(side,'spending');}
+  if(action==='reset'){const k=state.script;state=fresh();state.script={open:k.open,i:0};render();return;}
+  if(action==='toggle-script'){state.script.open=!state.script.open;if(state.view==='cathay')state.view='app';render();return;}
+  if(action==='script-prev'){state.script.i=Math.max(0,state.script.i-1);render();return;}
+  if(action==='script-next'){state.script.i=Math.min(steps.length-1,state.script.i+1);render();return;}
+  if(action==='script-run'){steps[state.script.i].run();render();return;}
+  if(action==='toggle-cathay'){state.view=state.view==='cathay'?'app':'cathay';render();return;}
+  if(action==='close-cathay'){state.view='app';render();return;}if(action==='sim-purchase'){const side=(state.nonMember||isJunior(getMember(state.accounts.right)))?'left':'right';if(isJunior(getMember(state.accounts[side])))return;state.tabs[side]='Family';openSheet(side,'spending');}
 });
 render();
 })();
