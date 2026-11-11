@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#005B4D">
+<meta name="theme-color" content="#006564">
 <title>Family miles pool | Cathay</title>
 <style>
 @property --progress { syntax:"<percentage>"; inherits:false; initial-value:68.3333%; }
-:root { color-scheme:light; --teal:#005B4D; --teal-dark:#00463B; --navy:#002745; --gold:#DFA744; --paper:#F5F3EE; --ink:#20302d; --muted:#65716c; --line:#e8e6e0; --surface:#fffefa; }
+:root { color-scheme:light; --teal:#006564; --teal-dark:#004d4c; --navy:#00403f; --gold:#c1b49a; --paper:#F5F3EE; --ink:#20302d; --muted:#65716c; --line:#e8e6e0; --surface:#fffefa; }
 * { box-sizing:border-box; }
-body { margin:0; min-width:320px; min-height:100vh; padding:24px 16px 18px; background:#e8e8e6; color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
+body { margin:0; min-width:320px; min-height:100vh; padding:24px 16px 18px; background:#ebedec; color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
 button,input,select { font:inherit; } button { cursor:pointer; }
 .demo-heading { margin:0 auto 18px; color:var(--navy); text-align:center; }
 .demo-heading h1 { margin:0; font-size:22px; letter-spacing:-.03em; }
@@ -29,7 +29,7 @@ button,input,select { font:inherit; } button { cursor:pointer; }
 .gear-button { display:grid; width:30px; height:30px; flex:0 0 auto; place-items:center; padding:0; border:1px solid rgb(255 255 255 / 35%); border-radius:9px; background:rgb(255 255 255 / 12%); color:#fff; font-size:17px; }
 .header-spacer { width:30px; height:30px; }
 .protected-chip { display:inline-flex; flex:0 0 auto; align-items:center; gap:5px; padding:4px 8px; border:1px solid rgb(255 255 255 / 25%); border-radius:99px; background:rgb(255 255 255 / 11%); color:#fff; font-size:9px; font-weight:650; white-space:nowrap; }
-.protected-chip span { color:#f1d08a; }
+.protected-chip span { color:#dcd3bc; }
 .screen-content { flex:1 1 auto; min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:11px 13px 112px; scrollbar-width:thin; scrollbar-color:#c8cec9 transparent; }
 .card { border:1px solid #e6e3dc; border-radius:17px; background:var(--surface); box-shadow:0 4px 14px rgb(35 48 43 / 5%); }
 .goal-card { padding:12px 12px 11px; text-align:center; }
@@ -40,15 +40,15 @@ button,input,select { font:inherit; } button { cursor:pointer; }
 .miles-total { color:var(--navy); font-size:25px; font-weight:800; letter-spacing:-.05em; line-height:1.1; font-variant-numeric:tabular-nums; }
 .miles-caption { margin-top:3px; color:var(--muted); font-size:10px; }
 .goal-remaining { margin:0; color:var(--teal); font-size:13px; font-weight:780; font-variant-numeric:tabular-nums; }
-.gold-tag { display:inline-block; margin-top:6px; padding:4px 8px; border-radius:99px; background:#fbf0d9; color:#78520f; font-size:9px; font-weight:760; }
+.gold-tag { display:inline-block; margin-top:6px; padding:4px 8px; border-radius:99px; background:#f1ece0; color:#5b5034; font-size:9px; font-weight:760; }
 .role-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:7px; margin-top:8px; }
 .role-actions.organiser-actions,.role-actions.adult-actions { grid-template-columns:repeat(3,minmax(0,1fr)); }
 .action-button { min-height:40px; padding:8px 7px; border:0; border-radius:10px; background:var(--teal); color:#fff; font-size:10px; font-weight:760; line-height:1.25; touch-action:manipulation; transition:background-color 140ms ease,transform 140ms ease; }
 .action-button:hover { background:var(--teal-dark); } .action-button:active { transform:scale(.985); }
 .action-button:focus-visible,.text-button:focus-visible,input:focus-visible,select:focus-visible { outline:3px solid #7bc8b8; outline-offset:2px; }
 .action-button.secondary { border:1px solid #d5dfda; background:#edf4f0; color:var(--teal); }
-.action-button.gold { border:0; background:var(--gold); color:#34250c; }
-.action-button.gold:hover { background:#e8b957; }
+.action-button.gold { border:0; background:var(--gold); color:#3a3220; }
+.action-button.gold:hover { background:#c1b49a; }
 .action-button:disabled { cursor:not-allowed; opacity:.48; }
 .section-heading { display:flex; align-items:center; justify-content:space-between; gap:8px; margin:15px 2px 8px; }
 .section-heading h3 { margin:0; color:var(--navy); font-size:14px; font-weight:780; letter-spacing:-.02em; line-height:1.25; }
@@ -57,26 +57,26 @@ button,input,select { font:inherit; } button { cursor:pointer; }
 .member { display:flex; min-height:51px; align-items:center; gap:8px; padding:6px 9px; }
 .member + .member,.activity-item + .activity-item { border-top:1px solid #eeece6; }
 .member-avatar { display:grid; width:34px; height:34px; flex:0 0 auto; place-items:center; border-radius:50%; background:#e6f0ec; color:var(--teal); font-size:10px; font-weight:800; }
-.member:nth-child(2) .member-avatar { background:#f5eddb; color:#795414; } .member:nth-child(3) .member-avatar { background:#f0eafa; color:#644a94; } .member:nth-child(4) .member-avatar { background:#e9eff7; color:#315577; } .member:nth-child(5) .member-avatar { background:#fcebea; color:#a84642; }
+.member:nth-child(2) .member-avatar { background:#f1ece0; color:#5b5034; } .member:nth-child(3) .member-avatar { background:#e4efe9; color:#3f6f58; } .member:nth-child(4) .member-avatar { background:#ececeb; color:#5a5654; } .member:nth-child(5) .member-avatar { background:#f8e3e4; color:#9a1f26; }
 .member-info { min-width:0; flex:1; } .member-name { color:var(--ink); font-size:11px; font-weight:760; line-height:1.2; }
 .member-meta { display:flex; align-items:center; gap:5px; flex-wrap:wrap; margin-top:3px; }
 .member-role { color:var(--muted); font-size:9px; line-height:1.2; }
 .role-chip { padding:2px 6px; border-radius:99px; background:#e4f0ea; color:var(--teal); font-size:8px; font-weight:800; }
-.role-chip.adult { background:#e9eff7; color:#315577; } .role-chip.junior { background:#fbf0d9; color:#78520f; }
+.role-chip.adult { background:#ececeb; color:#5a5654; } .role-chip.junior { background:#f1ece0; color:#5b5034; }
 .contribution { flex:0 0 auto; text-align:right; } .contribution strong { display:block; color:var(--navy); font-size:11px; font-weight:800; font-variant-numeric:tabular-nums; }
 .contribution span,.used-month { display:block; margin-top:2px; color:var(--muted); font-size:8px; white-space:nowrap; }
-.remove-member { padding:2px 0; border:0; background:transparent; color:#a13e37; font-size:8px; text-decoration:underline; }
+.remove-member { padding:2px 0; border:0; background:transparent; color:#c2262e; font-size:8px; text-decoration:underline; }
 .activity-item { padding:8px 10px; color:var(--ink); font-size:10px; line-height:1.4; animation:activity-in 200ms ease both; }
-.activity-item strong { font-weight:760; } .activity-plus { color:var(--teal); font-weight:780; white-space:nowrap; } .activity-minus { color:#a13e37; font-weight:780; white-space:nowrap; }
-.pending-request { margin-top:9px; padding:9px 10px; border:1px solid #e3bd6e; border-radius:12px; background:#fff3d7; color:#63430b; font-size:10px; font-weight:700; line-height:1.4; }
+.activity-item strong { font-weight:760; } .activity-plus { color:var(--teal); font-weight:780; white-space:nowrap; } .activity-minus { color:#c2262e; font-weight:780; white-space:nowrap; }
+.pending-request { margin-top:9px; padding:9px 10px; border:1px solid #c1b49a; border-radius:12px; background:#f1ece0; color:#5b5034; font-size:10px; font-weight:700; line-height:1.4; }
 .success-banner { margin-top:8px; padding:8px 10px; border-radius:11px; background:#e5f0eb; color:var(--teal); font-size:10px; font-weight:750; }
 .suggestions { display:grid; gap:7px; } .suggestion-card { padding:10px; }
 .suggestion-card p { margin:0; color:var(--ink); font-size:10px; line-height:1.45; } .suggestion-card strong { color:var(--navy); }
 .text-button { margin-top:6px; padding:0; border:0; background:transparent; color:var(--teal); font-size:9px; font-weight:800; text-decoration:underline; text-underline-offset:2px; }
-.junior-note { margin:10px 2px; padding:10px; border-radius:12px; background:#fbf0d9; color:#78520f; font-size:10px; font-weight:700; line-height:1.4; text-align:center; }
-.goal-banner { position:relative; overflow:hidden; margin-bottom:9px; padding:10px; border:1px solid #e3bd6e; border-radius:13px; background:#fff3d7; color:#63430b; font-size:12px; font-weight:800; text-align:center; }
+.junior-note { margin:10px 2px; padding:10px; border-radius:12px; background:#f1ece0; color:#5b5034; font-size:10px; font-weight:700; line-height:1.4; text-align:center; }
+.goal-banner { position:relative; overflow:hidden; margin-bottom:9px; padding:10px; border:1px solid #c1b49a; border-radius:13px; background:#f1ece0; color:#5b5034; font-size:12px; font-weight:800; text-align:center; }
 .goal-banner span { position:relative; z-index:1; } .confetti { position:absolute; top:-10px; width:6px; height:9px; opacity:0; animation:confetti-fall 1.8s ease-out infinite; }
-.confetti:nth-child(1){left:8%;background:var(--teal);animation-delay:.05s}.confetti:nth-child(2){left:18%;background:#e17a5f;animation-delay:.45s}.confetti:nth-child(3){left:31%;background:#d3a33b;animation-delay:.2s}.confetti:nth-child(4){left:45%;background:#6a93bb;animation-delay:.7s}.confetti:nth-child(5){left:58%;background:#d66b85;animation-delay:.35s}.confetti:nth-child(6){left:71%;background:#538b68;animation-delay:.8s}.confetti:nth-child(7){left:84%;background:#9c79b6;animation-delay:.15s}.confetti:nth-child(8){left:94%;background:#d3a33b;animation-delay:.6s}
+.confetti:nth-child(1){left:8%;background:var(--teal);animation-delay:.05s}.confetti:nth-child(2){left:18%;background:#c2262e;animation-delay:.45s}.confetti:nth-child(3){left:31%;background:#a99c7e;animation-delay:.2s}.confetti:nth-child(4){left:45%;background:#6a93bb;animation-delay:.7s}.confetti:nth-child(5){left:58%;background:#d66b85;animation-delay:.35s}.confetti:nth-child(6){left:71%;background:#538b68;animation-delay:.8s}.confetti:nth-child(7){left:84%;background:#9c79b6;animation-delay:.15s}.confetti:nth-child(8){left:94%;background:#a99c7e;animation-delay:.6s}
 @keyframes confetti-fall { 0%{transform:translateY(-12px) rotate(0);opacity:0}15%{opacity:1}100%{transform:translateY(55px) rotate(250deg);opacity:0} }
 .tab-bar { position:absolute; z-index:5; right:0; bottom:0; left:0; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); padding:6px 5px max(8px,env(safe-area-inset-bottom)); border-top:1px solid var(--line); background:#fff; }
 .tab { display:flex; min-width:0; min-height:49px; flex-direction:column; align-items:center; justify-content:center; gap:3px; padding:3px 1px; border:0; border-radius:10px; background:transparent; color:#68716d; }
@@ -91,7 +91,7 @@ button,input,select { font:inherit; } button { cursor:pointer; }
 .form-label { display:block; margin-top:11px; color:var(--muted); font-size:10px; font-weight:700; }
 .form-input { width:100%; min-height:42px; margin-top:5px; padding:8px 10px; border:1px solid #d9ddd7; border-radius:10px; background:#fff; color:var(--ink); font-size:13px; }
 .sheet-actions { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px; } .sheet-actions .action-button { min-height:42px; font-size:11px; }
-.sheet-error { min-height:14px; margin:7px 0 0!important; color:#a13e37!important; font-size:10px!important; }
+.sheet-error { min-height:14px; margin:7px 0 0!important; color:#c2262e!important; font-size:10px!important; }
 .sheet-link-button { width:100%; margin-top:10px; }
 .settings-row { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px; padding-top:12px; border-top:1px solid #eeece6; color:var(--ink); font-size:11px; line-height:1.4; }
 .cap-input { width:112px; min-height:38px; padding:6px 8px; border:1px solid #d9ddd7; border-radius:9px; color:var(--ink); font-size:12px; }
@@ -99,23 +99,23 @@ button,input,select { font:inherit; } button { cursor:pointer; }
 .switch-track { position:absolute; inset:0; border-radius:99px; background:#b9c1bc; cursor:pointer; transition:background .16s ease; }
 .switch-track::after { position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:#fff; content:""; transition:transform .16s ease; }
 .switch input:checked + .switch-track { background:var(--teal); } .switch input:checked + .switch-track::after { transform:translateX(18px); }
-.invite-code { margin-top:11px; padding:11px; border:1px dashed #d7b35c; border-radius:11px; background:#fff8e8; text-align:center; }
-.invite-code small { display:block; color:var(--muted); font-size:9px; } .invite-code strong { display:block; margin-top:4px; color:#78520f; font-size:19px; letter-spacing:.12em; } .invite-code p { margin:5px 0 0; font-size:9px; }
+.invite-code { margin-top:11px; padding:11px; border:1px dashed #c1b49a; border-radius:11px; background:#f6f2e8; text-align:center; }
+.invite-code small { display:block; color:var(--muted); font-size:9px; } .invite-code strong { display:block; margin-top:4px; color:#5b5034; font-size:19px; letter-spacing:.12em; } .invite-code p { margin:5px 0 0; font-size:9px; }
 .trip-plans { display:grid; gap:8px; margin-top:9px; }
-.destination-card { position:relative; overflow:hidden; min-height:76px; padding:10px; border:1px solid rgb(0 39 69 / 9%); border-radius:14px; background:linear-gradient(125deg,#d9eee8,#f5eddb 57%,#dce7f0); box-shadow:0 4px 12px rgb(25 44 41 / 9%); text-align:left; color:var(--navy); }
-.destination-card.osaka { background:linear-gradient(125deg,#e1e9f4,#f2e8dc 55%,#d8ebe4); }.destination-card.tokyo { background:linear-gradient(125deg,#f4e3df,#e5eaf2 55%,#dcece4); }
+.destination-card { position:relative; overflow:hidden; min-height:76px; padding:10px; border:1px solid rgb(0 64 63 / 9%); border-radius:14px; background:linear-gradient(125deg,#d9eee8,#f1ece0 57%,#e4efe9); box-shadow:0 4px 12px rgb(25 44 41 / 9%); text-align:left; color:var(--navy); }
+.destination-card.osaka { background:linear-gradient(125deg,#ececeb,#ece6d6 55%,#d8ebe4); }.destination-card.tokyo { background:linear-gradient(125deg,#f8e3e4,#ececeb 55%,#dcece4); }
 .destination-card.selected { outline:2px solid var(--teal); outline-offset:1px; }
 .destination-card svg { position:absolute; right:2px; bottom:0; width:105px; height:47px; opacity:.68; pointer-events:none; }
 .destination-card.seoul svg { color:#477f76; }.destination-card.osaka svg { color:#53728c; }.destination-card.tokyo svg { color:#8d6570; }
 .destination-content { position:relative; z-index:1; display:flex; justify-content:space-between; align-items:flex-start; gap:8px; }
 .destination-name { color:var(--navy); font-size:12px; font-weight:850; }.destination-rate { display:block; margin-top:4px; color:#3e504d; font-size:9px; font-weight:700; }
-.destination-check { display:grid; width:21px; height:21px; flex:0 0 auto; place-items:center; border:1px solid rgb(0 39 69 / 20%); border-radius:50%; background:rgb(255 255 255 / 70%); color:transparent; font-size:12px; font-weight:900; }
+.destination-check { display:grid; width:21px; height:21px; flex:0 0 auto; place-items:center; border:1px solid rgb(0 64 63 / 20%); border-radius:50%; background:rgb(255 255 255 / 70%); color:transparent; font-size:12px; font-weight:900; }
 .destination-card.selected .destination-check { border-color:var(--teal); background:var(--teal); color:#fff; }
 .plan-step-label { margin:12px 0 7px; color:var(--navy); font-size:11px; font-weight:800; }
 .traveller-list { display:flex; flex-wrap:wrap; gap:8px; }
 .traveller { position:relative; display:flex; width:54px; flex-direction:column; align-items:center; gap:4px; padding:0; border:0; background:transparent; color:var(--ink); font-size:8px; }
 .traveller-avatar { display:grid; width:40px; height:40px; place-items:center; border:2px solid transparent; border-radius:50%; background:#e6f0ec; color:var(--teal); font-size:11px; font-weight:850; transition:border-color .15s ease,box-shadow .15s ease; }
-.traveller:nth-child(2) .traveller-avatar { background:#f5eddb; color:#795414; }.traveller:nth-child(3) .traveller-avatar { background:#f0eafa; color:#644a94; }.traveller:nth-child(4) .traveller-avatar { background:#e9eff7; color:#315577; }.traveller:nth-child(5) .traveller-avatar { background:#fcebea; color:#a84642; }
+.traveller:nth-child(2) .traveller-avatar { background:#f1ece0; color:#5b5034; }.traveller:nth-child(3) .traveller-avatar { background:#e4efe9; color:#3f6f58; }.traveller:nth-child(4) .traveller-avatar { background:#ececeb; color:#5a5654; }.traveller:nth-child(5) .traveller-avatar { background:#f8e3e4; color:#9a1f26; }
 .traveller.selected .traveller-avatar { border-color:var(--teal); box-shadow:0 0 0 2px rgb(0 91 77 / 15%); }
 .traveller-check { position:absolute; top:-2px; right:2px; display:none; width:16px; height:16px; place-items:center; border:2px solid #fff; border-radius:50%; background:var(--teal); color:#fff; font-size:9px; font-weight:900; }
 .traveller.selected .traveller-check { display:grid; }
@@ -130,7 +130,7 @@ button,input,select { font:inherit; } button { cursor:pointer; }
 .nonmember { padding:20px 14px; text-align:center; } .nonmember-mark { display:grid; width:54px; height:54px; margin:3px auto 12px; place-items:center; border-radius:18px; background:#e5f0eb; color:var(--teal); font-size:25px; }
 .nonmember h3 { margin:0; color:var(--navy); font-size:17px; } .nonmember p { color:var(--muted); font-size:11px; line-height:1.5; }
 .nonmember .action-button { width:100%; margin-top:7px; } .nonmember input { width:100%; min-height:40px; margin-top:6px; padding:8px; border:1px solid #d9ddd7; border-radius:9px; }
-.nonmember-note { min-height:14px; color:#a13e37!important; }
+.nonmember-note { min-height:14px; color:#c2262e!important; }
 @keyframes activity-in { from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)} }
 @keyframes toast-in { from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)} }
 @media(max-width:850px) { body{padding:18px 10px}.phones{flex-direction:column;align-items:center;gap:18px}.phone{height:min(850px,88vh);min-height:620px} }
@@ -141,14 +141,14 @@ button,input,select { font:inherit; } button { cursor:pointer; }
 button.destination-card{display:block;width:100%;font:inherit;cursor:pointer}
 .traveller{cursor:pointer}
 .destination-card:focus-visible,.traveller:focus-visible{outline:3px solid #7bc8b8;outline-offset:2px}
-.destination-card.seoul{background:linear-gradient(125deg,#d9eee8,#f5eddb 57%,#dce7f0)}
+.destination-card.seoul{background:linear-gradient(125deg,#d9eee8,#f1ece0 57%,#e4efe9)}
 .activity-item{animation:none}
 
-.hero{position:relative;overflow:hidden;padding:16px 16px 14px;border-radius:22px;background:linear-gradient(150deg,#00705e 0%,#004a52 55%,#002745 100%);color:#fff;box-shadow:0 12px 28px rgb(0 39 69 / 24%)}
-.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:70px;background:radial-gradient(140px 70px at 88% 100%,rgb(223 167 68 / 24%),transparent);pointer-events:none}
+.hero{position:relative;overflow:hidden;padding:16px 16px 14px;border-radius:22px;background:linear-gradient(150deg,#367d79 0%,#006564 55%,#00403f 100%);color:#fff;box-shadow:0 12px 28px rgb(0 64 63 / 24%)}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:70px;background:radial-gradient(140px 70px at 88% 100%,rgb(193 180 154 / 24%),transparent);pointer-events:none}
 .hero-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .hero-eyebrow{color:rgb(255 255 255 / 70%);font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.hero-tag{padding:3px 8px;border:1px solid rgb(223 167 68 / 45%);border-radius:99px;background:rgb(223 167 68 / 20%);color:#f4d99a;font-size:8px;font-weight:800}
+.hero-tag{padding:3px 8px;border:1px solid rgb(193 180 154 / 45%);border-radius:99px;background:rgb(193 180 154 / 20%);color:#dcd3bc;font-size:8px;font-weight:800}
 .hero-title{margin:8px 0 0;font-size:20px;font-weight:800;letter-spacing:-.03em}
 .hero-number{margin-top:2px;font-size:36px;font-weight:850;letter-spacing:-.05em;line-height:1.1;font-variant-numeric:tabular-nums}
 .hero-number small{color:rgb(255 255 255 / 70%);font-size:12px;font-weight:600;letter-spacing:0}
@@ -159,13 +159,13 @@ button.destination-card{display:block;width:100%;font:inherit;cursor:pointer}
 .route-labels{display:flex;justify-content:space-between;margin-top:-2px;color:rgb(255 255 255 / 82%);font-size:10px;font-weight:800;letter-spacing:.1em}
 .hero-foot{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}
 .hero-remaining{font-size:12px;font-weight:700}.hero-remaining span{color:var(--gold);font-weight:850}
-.avatar-stack{display:flex}.avatar-stack i{display:grid;width:24px;height:24px;margin-left:-7px;place-items:center;border:2px solid #0a4a4c;border-radius:50%;font-size:8px;font-style:normal;font-weight:850}
+.avatar-stack{display:flex}.avatar-stack i{display:grid;width:24px;height:24px;margin-left:-7px;place-items:center;border:2px solid #004d4c;border-radius:50%;font-size:8px;font-style:normal;font-weight:850}
 .quick-actions{display:flex;justify-content:space-around;gap:6px;margin:14px 0 4px}
 .qa{position:relative;display:flex;min-width:58px;flex-direction:column;align-items:center;gap:6px;padding:0;border:0;background:transparent;color:var(--navy);font-size:10px;font-weight:750}
 .qa-icon{display:grid;width:48px;height:48px;place-items:center;border:1px solid #e6e3dc;border-radius:16px;background:#fffefa;box-shadow:0 4px 12px rgb(35 48 43 / 8%);color:var(--teal);transition:transform .15s ease,background .15s ease}
 .qa:hover .qa-icon{background:#eef5f1}.qa:active .qa-icon{transform:scale(.93)}.qa:focus-visible{outline:3px solid #7bc8b8;outline-offset:3px;border-radius:12px}
 .qa-icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.qa-dot{position:absolute;top:-2px;right:8px;width:11px;height:11px;border:2px solid var(--paper);border-radius:50%;background:#e0554a}
+.qa-dot{position:absolute;top:-2px;right:8px;width:11px;height:11px;border:2px solid var(--paper);border-radius:50%;background:#c2262e}
 .segmented{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin:12px 0 10px;padding:3px;border-radius:12px;background:#e9e7e0}
 .segmented button{padding:8px 4px;border:0;border-radius:9px;background:transparent;color:var(--muted);font-size:10px;font-weight:750;transition:background .18s,color .18s,box-shadow .18s}
 .segmented button[aria-selected="true"]{background:#fff;color:var(--navy);box-shadow:0 2px 6px rgb(0 0 0 / 10%)}
@@ -179,12 +179,12 @@ button.destination-card{display:block;width:100%;font:inherit;cursor:pointer}
 .focus-detail{min-height:28px;margin:10px 0 0;color:var(--muted);font-size:10px;line-height:1.45}.focus-detail strong{color:var(--navy)}
 .moves{display:flex;gap:9px;margin:0 -13px;padding:2px 13px 8px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.moves::-webkit-scrollbar{display:none}
 .move{flex:0 0 80%;scroll-snap-align:start;padding:13px;border:1px solid #e6e3dc;border-radius:16px;background:var(--surface);box-shadow:0 4px 14px rgb(35 48 43 / 6%)}
-.move-kicker{display:inline-block;margin-bottom:7px;padding:2px 7px;border-radius:99px;background:#fbf0d9;color:#78520f;font-size:8px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
+.move-kicker{display:inline-block;margin-bottom:7px;padding:2px 7px;border-radius:99px;background:#f1ece0;color:#5b5034;font-size:8px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
 .move p{margin:0 0 10px;color:var(--ink);font-size:11px;line-height:1.5}.move p strong{color:var(--navy)}.move .action-button{width:100%}
 .timeline{padding:0}.tl-item{display:flex;align-items:center;gap:10px;padding:8px 0}.tl-item+.tl-item{border-top:1px solid #eeece6}
-.tl-icon{display:grid;width:30px;height:30px;flex:0 0 auto;place-items:center;border-radius:50%;background:#e4f0ea;color:var(--teal);font-size:14px;font-weight:800}.tl-icon.out{background:#fcebea;color:#a13e37}
+.tl-icon{display:grid;width:30px;height:30px;flex:0 0 auto;place-items:center;border-radius:50%;background:#e4f0ea;color:var(--teal);font-size:14px;font-weight:800}.tl-icon.out{background:#f8e3e4;color:#c2262e}
 .tl-main{min-width:0;flex:1;color:var(--ink);font-size:11px;line-height:1.35}.tl-main small{display:block;color:var(--muted);font-size:9px}
-.tl-amt{font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}.tl-amt.in{color:var(--teal)}.tl-amt.out{color:#a13e37}
+.tl-amt{font-size:12px;font-weight:800;font-variant-numeric:tabular-nums}.tl-amt.in{color:var(--teal)}.tl-amt.out{color:#c2262e}
 .mcard{margin-bottom:8px;padding:11px;border:1px solid #e6e3dc;border-radius:16px;background:var(--surface);box-shadow:0 3px 10px rgb(35 48 43 / 5%)}
 .mcard-top{display:flex;align-items:center;gap:10px}.mcard .member-avatar{width:38px;height:38px}
 .mbar{height:6px;margin-top:10px;overflow:hidden;border-radius:99px;background:#eceae4}.mbar span{display:block;height:100%;border-radius:inherit;transition:width .4s ease}
@@ -192,13 +192,13 @@ button.destination-card{display:block;width:100%;font:inherit;cursor:pointer}
 .member-info{min-width:0;flex:1}.member-name{color:var(--ink);font-size:12px;font-weight:760}
 .activity-item{animation:none}
 
-.welcome-hero{position:relative;overflow:hidden;padding:20px 18px 16px;border-radius:22px;background:linear-gradient(150deg,#00705e 0%,#004a52 55%,#002745 100%);color:#fff;box-shadow:0 12px 28px rgb(0 39 69 / 24%)}
-.welcome-hero::after{content:"";position:absolute;inset:auto 0 0 0;height:80px;background:radial-gradient(150px 80px at 88% 100%,rgb(223 167 68 / 24%),transparent);pointer-events:none}
+.welcome-hero{position:relative;overflow:hidden;padding:20px 18px 16px;border-radius:22px;background:linear-gradient(150deg,#367d79 0%,#006564 55%,#00403f 100%);color:#fff;box-shadow:0 12px 28px rgb(0 64 63 / 24%)}
+.welcome-hero::after{content:"";position:absolute;inset:auto 0 0 0;height:80px;background:radial-gradient(150px 80px at 88% 100%,rgb(193 180 154 / 24%),transparent);pointer-events:none}
 .welcome-hero h3{margin:12px 0 5px;font-size:25px;font-weight:800;letter-spacing:-.04em;line-height:1.12}
 .welcome-hero p{margin:0;color:rgb(255 255 255 / 78%);font-size:12px;line-height:1.5}
 .welcome-route{display:block;width:100%;height:auto;margin-top:8px;overflow:visible}
 .welcome-avatars{position:relative;z-index:1;display:flex;justify-content:center;margin-top:2px}
-.welcome-avatars i{display:grid;width:30px;height:30px;margin-left:-8px;place-items:center;border:2px solid #0a4a4c;border-radius:50%;font-size:10px;font-style:normal;font-weight:850}
+.welcome-avatars i{display:grid;width:30px;height:30px;margin-left:-8px;place-items:center;border:2px solid #004d4c;border-radius:50%;font-size:10px;font-style:normal;font-weight:850}
 .perks{display:grid;gap:8px;margin:14px 0 0;padding:0;list-style:none}
 .perk{display:flex;align-items:flex-start;gap:11px;padding:11px;border:1px solid #e6e3dc;border-radius:14px;background:var(--surface)}
 .perk-icon{display:grid;width:34px;height:34px;flex:0 0 auto;place-items:center;border-radius:11px;background:#e6f0ec;color:var(--teal)}
@@ -226,7 +226,7 @@ button.destination-card{display:block;width:100%;font:inherit;cursor:pointer}
 .script-head{display:flex;align-items:center;justify-content:space-between;color:var(--navy);font-size:12px}.script-head span{color:var(--muted);font-size:10px;font-weight:700}
 .script-dots{display:flex;gap:5px;margin:10px 0 14px}.script-dots i{flex:1;height:4px;border-radius:9px;background:#e4e7e2}.script-dots i.done{background:#7bb7a8}.script-dots i.on{background:var(--teal)}
 .script-card h4{margin:0 0 8px;color:var(--navy);font-size:17px;letter-spacing:-.02em}
-.script-say{margin:0 0 10px;color:var(--ink);font-size:12px;line-height:1.55}.script-do{margin:0 0 12px;padding:8px 10px;border-radius:10px;background:#fbf0d9;color:#63430b;font-size:11px;font-weight:700}
+.script-say{margin:0 0 10px;color:var(--ink);font-size:12px;line-height:1.55}.script-do{margin:0 0 12px;padding:8px 10px;border-radius:10px;background:#f1ece0;color:#5b5034;font-size:11px;font-weight:700}
 .script-card>.action-button{width:100%;min-height:44px;font-size:12px}
 .script-nav{display:flex;justify-content:space-between;margin-top:10px}.script-nav .demo-link{border:0;background:transparent;font-size:11px}.script-nav .demo-link:disabled{opacity:.35;cursor:not-allowed}
 .cathay{max-width:880px;margin:0 auto}
@@ -235,40 +235,41 @@ button.destination-card{display:block;width:100%;font:inherit;cursor:pointer}
 .cathay-card h2{margin:4px 0 4px;color:var(--navy);font-size:26px;letter-spacing:-.035em}.cathay-sub{margin:0;color:var(--muted);font-size:12px}
 .cathay-card h3{margin:24px 0 10px;color:var(--navy);font-size:15px}
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
-.kpi{padding:14px;border-radius:16px;background:linear-gradient(150deg,#00705e,#004a52 60%,#002745);color:#fff}
+.kpi{padding:14px;border-radius:16px;background:linear-gradient(150deg,#367d79,#006564 60%,#00403f);color:#fff}
 .kpi span{display:block;color:rgb(255 255 255 / 75%);font-size:10px;font-weight:700}.kpi strong{display:block;margin-top:6px;font-size:26px;letter-spacing:-.04em;font-variant-numeric:tabular-nums}.kpi small{display:block;margin-top:4px;color:rgb(255 255 255 / 55%);font-size:9px}
 .pilot{display:grid;gap:8px;margin:0;padding:0;list-style:none}.pilot li{display:grid;grid-template-columns:200px 1fr;gap:4px 14px;padding:12px 14px;border:1px solid #e6e3dc;border-radius:14px;background:#fff}
 .pilot strong{color:var(--navy);font-size:12px}.pilot span{color:var(--ink);font-size:12px}.pilot em{grid-column:2;color:var(--muted);font-size:10px;font-style:normal}
 .why{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.why div{padding:14px;border-radius:14px;background:#f3f5f0}.why strong{display:block;color:var(--teal);font-size:13px}.why span{display:block;margin-top:5px;color:var(--ink);font-size:11px;line-height:1.5}
 .fare{margin-bottom:10px}.fare-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.fare-head h4{margin:0}
-.verified{padding:3px 8px;border-radius:99px;background:#e4f0ea;color:var(--teal);font-size:9px;font-weight:800}.unverified{padding:3px 8px;border-radius:99px;background:#fcebea;color:#a13e37;font-size:9px;font-weight:800}
+.verified{padding:3px 8px;border-radius:99px;background:#e4f0ea;color:var(--teal);font-size:9px;font-weight:800}.unverified{padding:3px 8px;border-radius:99px;background:#f8e3e4;color:#c2262e;font-size:9px;font-weight:800}
 .ladder{display:flex;gap:6px;margin:0 0 10px;padding:0;list-style:none}
 .ladder-step{display:flex;flex:1;flex-direction:column;align-items:center;gap:2px;padding:9px 4px;border:1px solid #e6e3dc;border-radius:12px;background:#fff;color:var(--muted)}
 .ladder-step strong{color:var(--navy);font-size:15px}.ladder-step small{font-size:9px}
 .ladder-dot{display:grid;width:20px;height:20px;place-items:center;border-radius:50%;background:#eceae4;font-size:10px;font-weight:800}
 .ladder-step.done{background:#eef6f2}.ladder-step.done .ladder-dot{background:var(--teal);color:#fff}
-.ladder-step.next{border-color:var(--gold);box-shadow:0 0 0 2px rgb(223 167 68 / 22%)}.ladder-step.next .ladder-dot{background:var(--gold);color:#34250c}
+.ladder-step.next{border-color:var(--gold);box-shadow:0 0 0 2px rgb(193 180 154 / 28%)}.ladder-step.next .ladder-dot{background:var(--gold);color:#3a3220}
 .fare-text{margin:0 0 10px;color:var(--ink);font-size:11px;line-height:1.5}.fare-text strong{color:var(--navy)}.fare .action-button{width:100%}
 .tab-text{margin:0 0 10px;color:var(--ink);font-size:11px;line-height:1.5}.tab-text strong{color:var(--navy)}.tab-gap{margin-top:10px}.panel>.action-button{width:100%}
 .offer-list{display:grid;gap:8px;margin:0;padding:0;list-style:none}.offer-list li{display:grid;gap:2px;padding:10px;border:1px solid #eeece6;border-radius:12px}
 .offer-list strong{color:var(--navy);font-size:12px}.offer-list span{color:var(--muted);font-size:10px}.offer-list em{color:var(--teal);font-size:9px;font-style:normal;font-weight:800}
 .consent{display:flex;gap:8px;align-items:flex-start;margin-top:12px;color:var(--ink);font-size:10px;line-height:1.4}
 @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.why{grid-template-columns:1fr}.pilot li{grid-template-columns:1fr}.pilot em{grid-column:1}.script-card{width:min(390px,100%)}}
+.ladder-step strong{font-size:11px;text-align:center}.tier{margin-bottom:10px}
 </style>
 </head>
 <body>
 <header class="demo-heading"><h1>One family, one miles pool</h1><p>Prototype with sample data · changes on either phone update both</p></header>
 <div class="stage" id="stage"><main class="phones" id="phones" aria-label="Shared family miles pool demo"></main><aside id="script" class="script-card" hidden></aside></div>
 <section id="cathay" class="cathay" hidden></section>
-<div class="demo-tools"><button class="demo-link" type="button" data-global-action="reset">Reset demo</button><button class="demo-link" type="button" data-global-action="toggle-script">Demo script</button><button class="demo-link" type="button" data-global-action="sim-purchase">Simulate a student purchase</button><button class="demo-link" id="view-toggle" type="button" data-global-action="toggle-view">Demo: show a non-member's view</button><button class="demo-link" type="button" data-global-action="toggle-cathay">Cathay's view</button></div>
+<div class="demo-tools"><button class="demo-link" type="button" data-global-action="reset">Reset demo</button><button class="demo-link" type="button" data-global-action="toggle-script">Demo script</button><button class="demo-link" type="button" data-global-action="sim-purchase">Simulate student earning</button><button class="demo-link" id="view-toggle" type="button" data-global-action="toggle-view">Demo: show a non-member's view</button><button class="demo-link" type="button" data-global-action="toggle-cathay">Cathay's view</button></div>
 <script>
 (()=>{
 const initialMembers=[{id:'erien',name:'Erien',role:'Organiser',miles:40000},{id:'naarie',name:'Naarie',role:'Adult member',miles:22000},{id:'wei',name:'Wei',role:'Adult member',miles:12000,student:true},{id:'chen',name:'Chen',role:'Adult member',miles:6000,student:true},{id:'lin',name:'Lin',role:'Junior member',miles:2000}];
-const initialActivity=[{source:'Wei',destination:'everyday spending → pool',miles:45},{source:'Naarie',destination:'card rewards → pool',miles:320},{source:'Chen',destination:'everyday spending → pool',miles:500},{source:'Erien',destination:'family transfer → pool',miles:800},{source:'Wei',destination:'everyday spending → pool',miles:735}];
+const initialActivity=[{source:'Wei',destination:'partner purchase → pool',miles:45},{source:'Naarie',destination:'Cathay card → pool',miles:320},{source:'Chen',destination:'partner purchase → pool',miles:500},{source:'Erien',destination:'family transfer → pool',miles:800},{source:'Wei',destination:'partner purchase → pool',miles:735}];
 const trips=[{id:'seoul',name:'Seoul',code:'ICN',rate:20000},{id:'osaka',name:'Osaka',code:'KIX',rate:25000},{id:'tokyo',name:'Tokyo',code:'NRT',rate:30000}];
-const ladder=[5,10,15],fare=11000,tripMiles=2500;
-const colours=['#005B4D','#DFA744','#8a6bbf','#4f7fae','#d66b6b'];
-const tints=[['#e6f0ec','#005B4D'],['#f5eddb','#795414'],['#f0eafa','#644a94'],['#e9eff7','#315577'],['#fcebea','#a84642']];
+const perks=['Free in-flight Wi-Fi','Bonus status points','Bonus pool miles + 1 free date change'],perkShort=['Wi-Fi','Status points','Pool miles'],discount=10,fare=11000,tripMiles=2500;
+const colours=['#006564','#c1b49a','#5e967e','#8a8480','#c2262e'];
+const tints=[['#e6f0ec','#006564'],['#f1ece0','#5b5034'],['#e4efe9','#3f6f58'],['#ececeb','#5a5654'],['#f8e3e4','#9a1f26']];
 const shown={left:null,right:null},tw={left:0,right:0};
 const defaultTravellers=['naarie','wei','chen','lin'];
 const fresh=()=>({members:initialMembers.map(m=>({...m})),activity:initialActivity.map(a=>({...a})),earnedThisMonth:2400,usedThisMonth:{erien:0,naarie:0,wei:0,chen:0,lin:0},personal:{erien:35000,naarie:12000,wei:800,chen:400,lin:0},autoAdd:{wei:true,chen:true},studentTrips:{wei:1,chen:0},verified:{wei:true,chen:false},redemptions:0,view:'app',script:{open:false,i:0},monthlyCap:20000,approvalsRequired:true,accounts:{left:'erien',right:'wei'},tabs:{left:'Family',right:'Family'},sheets:{left:null,right:null},feedback:{left:'',right:''},request:null,notice:'',nonMember:false,views:{left:'overview',right:'overview'},focus:{left:null,right:null},inviteCode:'',pinned:{tripId:'tokyo',memberIds:[...defaultTravellers]},plan:{left:{tripId:'tokyo',memberIds:[...defaultTravellers]},right:{tripId:'tokyo',memberIds:[...defaultTravellers]}}});
@@ -311,7 +312,7 @@ function heroMarkup(g,pool){
   const t=tripFor(state.pinned.tripId),remaining=Math.max(g.cost-pool,0),pct=Math.min(pool/g.cost*100,100);
   const stack=state.pinned.memberIds.map(id=>{const i=mIndex(id),[bg,fg]=tint(i);return `<i style="background:${bg};color:${fg}">${esc(initials(nameOf(id)))}</i>`;}).join('');
   const d='M24 74 C 90 -4, 230 -4, 296 74';
-  return `<section class="hero" data-hero data-pool="${pool}" data-cost="${g.cost}" aria-label="Family goal progress"><div class="hero-top"><span class="hero-eyebrow">Family goal</span><span class="hero-tag">New: two-way family pool</span></div><h3 class="hero-title">${esc(g.name)}</h3><div class="hero-number"><span data-hero-count>${fmt(pool)}</span><small> / ${fmt(g.cost)} miles</small></div><div class="route"><svg class="route-svg" viewBox="0 0 320 96" aria-hidden="true"><path class="route-track" d="${d}" pathLength="100"/><path class="route-progress" data-route-progress d="${d}" pathLength="100" stroke-dasharray="0 100"/><circle class="route-dot" cx="24" cy="74" r="5"/><circle class="route-dot end" cx="296" cy="74" r="5"/><g data-plane><path d="M-9 -6 L10 0 L-9 6 L-5 0Z" fill="#DFA744" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></g></svg><div class="route-labels"><span>HKG</span><span>${t.code}</span></div></div><div class="hero-foot"><div class="hero-remaining">${remaining?`<span>${fmt(remaining)}</span> miles to go · ${Math.round(pct)}%`:'Goal reached'}</div><div class="avatar-stack" title="Travellers">${stack}</div></div></section>`;
+  return `<section class="hero" data-hero data-pool="${pool}" data-cost="${g.cost}" aria-label="Family goal progress"><div class="hero-top"><span class="hero-eyebrow">Family goal</span><span class="hero-tag">New: two-way family pool</span></div><h3 class="hero-title">${esc(g.name)}</h3><div class="hero-number"><span data-hero-count>${fmt(pool)}</span><small> / ${fmt(g.cost)} miles</small></div><div class="route"><svg class="route-svg" viewBox="0 0 320 96" aria-hidden="true"><path class="route-track" d="${d}" pathLength="100"/><path class="route-progress" data-route-progress d="${d}" pathLength="100" stroke-dasharray="0 100"/><circle class="route-dot" cx="24" cy="74" r="5"/><circle class="route-dot end" cx="296" cy="74" r="5"/><g data-plane><path d="M-9 -6 L10 0 L-9 6 L-5 0Z" fill="#c1b49a" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></g></svg><div class="route-labels"><span>HKG</span><span>${t.code}</span></div></div><div class="hero-foot"><div class="hero-remaining">${remaining?`<span>${fmt(remaining)}</span> miles to go · ${Math.round(pct)}%`:'Goal reached'}</div><div class="avatar-stack" title="Travellers">${stack}</div></div></section>`;
 }
 function contributionPanel(viewer,side){
   const pool=total()||1,junior=isJunior(viewer);
@@ -329,7 +330,7 @@ function movesMarkup(g,member){
   const cards=[];
   if(remaining>0){
     const m1=Math.max(Math.round(remaining/2400),1),m2=Math.max(Math.round(remaining/(2400+Math.round(4333/6))),1),saved=m1-m2;
-    cards.push(`<article class="move"><span class="move-kicker">Fly sooner</span><p><strong>At +2,400 a month you'll reach ${esc(g.name)} in about ${m1} months.</strong>${saved>=1?` A weekly grocery shop (about HK$1,000) through your linked card could save about ${saved} month${saved>1?'s':''}.`:''}</p><button class="action-button" type="button" data-action="demo-shop">Try a HK$1,000 shop (+166)</button></article>`);
+    cards.push(`<article class="move"><span class="move-kicker">Fly sooner</span><p><strong>At +2,400 a month you'll reach ${esc(g.name)} in about ${m1} months.</strong>${saved>=1?` A weekly HK$1,000 spend with your Cathay card or an Asia Miles partner could save about ${saved} month${saved>1?'s':''}.`:''}</p><button class="action-button" type="button" data-action="demo-shop">Try a HK$1,000 partner purchase (+166)</button></article>`);
   }
   if(pool>=g.cost)cards.push(`<article class="move"><span class="move-kicker">Ready</span><p><strong>Your pool covers ${esc(g.name)}.</strong> Pick who is flying and send it for approval.</p><button class="action-button gold" type="button" data-action="redeem">Redeem for the family</button></article>`);
   else if(count>=1)cards.push(`<article class="move"><span class="move-kicker">Where next</span><p><strong>Your pool covers Seoul for ${count} today.</strong> ${esc(g.name)} needs ${fmt(g.cost-pool)} more.</p><button class="action-button secondary" type="button" data-action="plan-seoul">Plan Seoul</button></article>`);
@@ -349,7 +350,7 @@ function memberCards(viewer){
 }
 function minePanel(member){
   const on=!!state.autoAdd[member.id];
-  return `<section class="panel mine"><div class="mine-row"><div><span class="mine-label">Your miles</span><strong class="mine-value">${fmt(state.personal[member.id]||0)}</strong></div><span class="mine-hint">Only you can see this</span></div><label class="auto-row"><span>Auto-add my everyday-spending miles to the pool</span><span class="switch"><input type="checkbox" data-auto-toggle ${on?'checked':''}><span class="switch-track"></span></span></label></section>`;
+  return `<section class="panel mine"><div class="mine-row"><div><span class="mine-label">Your miles</span><strong class="mine-value">${fmt(state.personal[member.id]||0)}</strong></div><span class="mine-hint">Only you can see this</span></div><label class="auto-row"><span>Auto-add the miles I earn to the pool</span><span class="switch"><input type="checkbox" data-auto-toggle ${on?'checked':''}><span class="switch-track"></span></span></label></section>`;
 }
 function familyView(side,member){
   const pool=total(),g=goalInfo(),junior=isJunior(member),view=junior?'overview':state.views[side];
@@ -361,7 +362,7 @@ function familyView(side,member){
   if(junior)return `${head}<p class="junior-note">Parental consent required to join</p>${contributionPanel(member,side)}`;
   const seg=`<div class="segmented" role="tablist">${[['overview','Overview'],['activity','Activity'],['members','Members']].map(([v,l])=>`<button type="button" role="tab" aria-selected="${v===view}" data-action="view" data-view="${v}">${l}</button>`).join('')}</div>`;
   let body='';
-  if(view==='overview')body=`${minePanel(member)}${farePanel(member)}${contributionPanel(member,side)}${movesMarkup(g,member)}`;
+  if(view==='overview')body=`${minePanel(member)}${farePanel(member)}${tierPanel(member)}${contributionPanel(member,side)}${movesMarkup(g,member)}`;
   else if(view==='activity')body=`<div class="section-heading"><h3>Recent activity</h3><span class="small-meta">Earned this month +${fmt(state.earnedThisMonth)}</span></div>${timelineMarkup()}`;
   else body=`<div class="section-heading"><h3>Family members</h3><span class="small-meta">${state.members.length} members</span></div>${memberCards(member)}`;
   return `${head}${seg}${body}`;
@@ -370,7 +371,7 @@ function familyView(side,member){
 function nonMemberView(){
   const av=['Erien','Naarie','Wei','Chen','Lin'].map((n,i)=>{const [bg,fg]=tint(i);return `<i style="background:${bg};color:${fg}">${n[0]}</i>`;}).join('');
   const perk=(svg,t,d)=>`<li class="perk"><span class="perk-icon">${svg}</span><div><strong>${t}</strong><span>${d}</span></div></li>`;
-  return `<section class="welcome"><div class="welcome-hero"><span class="hero-tag">New: two-way family pool</span><h3>Bring your miles together</h3><p>One shared pool for the people you travel with.</p><svg class="welcome-route" viewBox="0 0 320 96" aria-hidden="true"><path class="route-track" d="M24 74 C 90 -4, 230 -4, 296 74" pathLength="100"/><circle class="route-dot" cx="24" cy="74" r="5"/><circle class="route-dot end" cx="296" cy="74" r="5"/><g transform="translate(160 15.5)"><path d="M-9 -6 L10 0 L-9 6 L-5 0Z" fill="#DFA744" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></g></svg><div class="welcome-avatars">${av}</div></div><ul class="perks">${perk(ic.transfer,'Miles flow both ways','Parents add miles. Students add just by spending.')}${perk(ic.redeem,'Plan trips together','Pick a destination and who is flying.')}${perk('<svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2.2 2.2L15 10"/></svg>','Protected by design','Organiser approval, monthly caps, invite only.')}</ul><button class="action-button gold" type="button" data-action="start-pool">Start a family pool</button><p class="join-or">or join a pool you've been invited to</p><form data-form="join" data-side="right"><div class="code-row"><input name="code" type="text" maxlength="6" placeholder="INVITE CODE" autocomplete="off" aria-label="Invite code" required><button class="action-button secondary" type="submit">Join</button></div><p class="sheet-error" data-join-error>${esc(state.feedback.right||'')}</p></form></section>`;
+  return `<section class="welcome"><div class="welcome-hero"><span class="hero-tag">New: two-way family pool</span><h3>Bring your miles together</h3><p>One shared pool for the people you travel with.</p><svg class="welcome-route" viewBox="0 0 320 96" aria-hidden="true"><path class="route-track" d="M24 74 C 90 -4, 230 -4, 296 74" pathLength="100"/><circle class="route-dot" cx="24" cy="74" r="5"/><circle class="route-dot end" cx="296" cy="74" r="5"/><g transform="translate(160 15.5)"><path d="M-9 -6 L10 0 L-9 6 L-5 0Z" fill="#c1b49a" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/></g></svg><div class="welcome-avatars">${av}</div></div><ul class="perks">${perk(ic.transfer,'Miles flow both ways','Parents add miles. Students add as they fly and shop.')}${perk(ic.redeem,'Plan trips together','Pick a destination and who is flying.')}${perk('<svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2.2 2.2L15 10"/></svg>','Protected by design','Organiser approval, monthly caps, invite only.')}</ul><button class="action-button gold" type="button" data-action="start-pool">Start a family pool</button><p class="join-or">or join a pool you've been invited to</p><form data-form="join" data-side="right"><div class="code-row"><input name="code" type="text" maxlength="6" placeholder="INVITE CODE" autocomplete="off" aria-label="Invite code" required><button class="action-button secondary" type="submit">Join</button></div><p class="sheet-error" data-join-error>${esc(state.feedback.right||'')}</p></form></section>`;
 }
 function planSheet(side){
   const plan=state.plan[side],trip=tripFor(plan.tripId),n=plan.memberIds.length,cost=trip.rate*n,pool=total(),short=Math.max(cost-pool,0),ok=n>0&&short===0,member=getMember(state.accounts[side]);
@@ -381,11 +382,11 @@ function planSheet(side){
 function sheetContent(side,kind){
   const member=getMember(state.accounts[side]);
   const used=state.usedThisMonth[member.id]||0;
-  if(kind==='trip'){const done=state.studentTrips[member.id]||0,d=ladder[Math.min(done,2)],pay=Math.round(fare*(1-d/100)),auto=!!state.autoAdd[member.id];return `<div class="sheet-handle"></div><h3>Book a student trip</h3><p>Sample return trip. The fare is illustrative.</p><div class="plan-summary"><div class="plan-total-row"><span>Standard fare</span><span>HK$${fmt(fare)}</span></div><div class="plan-total-row" style="margin-top:6px"><span>Student ladder, trip ${Math.min(done+1,3)}</span><span>−${d}%</span></div><div class="plan-total-row" style="margin-top:6px"><span>You pay</span><span>HK$${fmt(pay)}</span></div></div><p>You earn about ${fmt(tripMiles)} miles, ${auto?'added to your family pool automatically':'kept in your own balance'}.</p><div class="sheet-actions"><button class="action-button secondary" type="button" data-action="close-sheet">Cancel</button><button class="action-button" type="button" data-action="confirm-trip">Confirm booking</button></div>`;}
+  if(kind==='trip'){const done=state.studentTrips[member.id]||0,d=discount,pay=Math.round(fare*(1-d/100)),auto=!!state.autoAdd[member.id];return `<div class="sheet-handle"></div><h3>Book a student trip</h3><p>Sample return trip. The fare is illustrative.</p><div class="plan-summary"><div class="plan-total-row"><span>Standard fare</span><span>HK$${fmt(fare)}</span></div><div class="plan-total-row" style="margin-top:6px"><span>Student fare</span><span>−${d}%</span></div><div class="plan-total-row" style="margin-top:6px"><span>Unlocked this trip</span><span>${perks[Math.min(done,2)]}</span></div><div class="plan-total-row" style="margin-top:6px"><span>You pay</span><span>HK$${fmt(pay)}</span></div></div><p>You earn about ${fmt(tripMiles)} miles, ${auto?'added to your family pool automatically':'kept in your own balance'}.</p><div class="sheet-actions"><button class="action-button secondary" type="button" data-action="close-sheet">Cancel</button><button class="action-button" type="button" data-action="confirm-trip">Confirm booking</button></div>`;}
   if(kind==='verify')return `<div class="sheet-handle"></div><h3>Verify student status</h3><p>Connect your student ID. No paper upload and no waiting.</p><div class="plan-summary"><div class="plan-total-row"><span>Student ID (sample)</span><span>Connected</span></div></div><button class="action-button sheet-link-button" type="button" data-action="confirm-verify">Verify instantly</button>`;
   if(kind==='plan')return planSheet(side);
   if(kind==='transfer')return `<div class="sheet-handle"></div><h3>Transfer miles</h3><p>Move miles from your own balance into the family pool.</p><p><strong>Your miles: ${fmt(state.personal[member.id]||0)}</strong></p><p><strong>Used ${fmt(used)} of ${fmt(state.monthlyCap)} miles this month</strong></p><form data-form="transfer" data-side="${side}"><label class="form-label">Miles to transfer<input class="form-input" name="amount" type="number" min="1" step="1" placeholder="e.g. 5000" inputmode="numeric" required></label><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><button class="action-button" type="submit">Add miles to pool</button></form>`;
-  if(kind==='spending')return `<div class="sheet-handle"></div><h3>Simulate everyday spending</h3><p>Demo: in the real app this happens automatically when you pay with your linked card or at partners like foodpanda. Enter an amount to simulate a purchase. HK$6 = 1 mile. If auto-add is on (the default for students), the miles go straight to the family pool. If you turn it off, they stay in your own balance until you add them.</p><form data-form="spending" data-side="${side}"><label class="form-label">Amount in HK$<input class="form-input" name="amount" type="number" min="6" step="1" placeholder="e.g. 300" inputmode="decimal" required></label><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><button class="action-button" type="submit">Simulate purchase</button></form><p>Your family sees what you add to the pool, not what you buy or what you hold.</p>`;
+  if(kind==='spending')return `<div class="sheet-handle"></div><h3>Simulate earning miles</h3><p>Demo: in the real app this happens automatically when you fly, pay with your Cathay membership card, or shop at Asia Miles partners. Enter an amount to simulate a purchase. HK$6 = 1 mile. If auto-add is on (the default for students), the miles go straight to the family pool. If you turn it off, they stay in your own balance until you add them.</p><form data-form="spending" data-side="${side}"><label class="form-label">Amount in HK$<input class="form-input" name="amount" type="number" min="6" step="1" placeholder="e.g. 300" inputmode="decimal" required></label><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><button class="action-button" type="submit">Simulate purchase</button></form><p>Your family sees what you add to the pool, not what you buy or what you hold.</p>`;
   if(kind==='review'){const r=state.request;return `<div class="sheet-handle"></div><h3>Review redemption</h3>${!r||r.status!=='pending'?'<p>There are no pending redemption requests.</p>':`<p>${esc(r.name)} requested <strong>${esc(r.label)}</strong> for ${r.members.map(id=>esc(nameOf(id))).join(', ')}. Approving redeems ${fmt(r.cost)} miles from the pool.</p><div class="sheet-actions"><button class="action-button secondary" type="button" data-action="decline">Decline</button><button class="action-button" type="button" data-action="approve">Approve</button></div>`}`;}
   if(kind==='protected')return `<div class="sheet-handle"></div><h3>Protected pool</h3><p>Only the organiser approves redemptions. Each member has a monthly transfer cap. Members join by invite, with parental consent for minors. Anyone who leaves takes back their unspent miles.</p><button class="action-button secondary sheet-link-button" type="button" data-action="close-sheet">Done</button>`;
   if(kind==='settings')return `<div class="sheet-handle"></div><h3>Pool settings</h3><div class="settings-row"><label for="cap-setting">Monthly cap per member</label><input id="cap-setting" class="cap-input" type="number" min="1" step="1" value="${state.monthlyCap}" data-cap-setting></div><div class="settings-row"><span>Organiser approves redemptions</span><label class="switch" aria-label="Organiser approves redemptions"><input type="checkbox" data-approval-toggle ${state.approvalsRequired?'checked':''}><span class="switch-track"></span></label></div><button class="action-button sheet-link-button" type="button" data-action="show-invite-code">Invite a member</button>${state.inviteCode?`<div class="invite-code" role="status"><small>Share this invite code</small><strong>${state.inviteCode}</strong><p>Parental consent required for anyone under 18.</p><button class="text-button" type="button" data-action="add-invited">Add invited member</button></div>`:''}<p class="sheet-error" data-settings-error></p>`;
@@ -413,23 +414,26 @@ function hydrate(phone,side){
 
 function farePanel(member){
   if(!member.student)return '';
-  const ok=state.verified[member.id],done=state.studentTrips[member.id]||0,cur=Math.min(done,2),next=ladder[cur];
-  const steps=ladder.map((d,i)=>`<li class="ladder-step${i<done?' done':''}${ok&&i===cur&&done<3?' next':''}"><span class="ladder-dot">${i<done?'✓':i+1}</span><strong>${d}%</strong><small>Trip ${i+1}</small></li>`).join('');
-  const text=done>=3?'Top tier unlocked: <strong>15% off</strong> on your next trip.':`Next trip: <strong>${next}% off</strong>${done<2?`, then ${ladder[done+1]}% on trip ${done+2}.`:'.'}`;
-  return `<section class="panel fare"><div class="fare-head"><h4>Your student fare</h4>${ok?'<span class="verified">✓ Verified student</span>':'<span class="unverified">Not verified</span>'}</div>${ok?`<ol class="ladder">${steps}</ol><p class="fare-text">${text} Every trip also earns miles for your family pool.</p><button class="action-button" type="button" data-action="book-trip">Book a student trip (demo)</button>`:`<p class="fare-text">Verify once to unlock a student fare that grows with every trip: 5%, then 10%, then 15%.</p><button class="action-button" type="button" data-action="verify">Verify with student ID</button>`}</section>`;
+  const ok=state.verified[member.id],done=state.studentTrips[member.id]||0,cur=Math.min(done,2);
+  const steps=perks.map((p,i)=>`<li class="ladder-step${i<done?' done':''}${ok&&i===cur&&done<3?' next':''}"><span class="ladder-dot">${i<done?'✓':i+1}</span><strong>${perkShort[i]}</strong><small>Trip ${i+1}</small></li>`).join('');
+  const text=done>=3?`All perks unlocked. Every trip still gets <strong>${discount}% off</strong>.`:`<strong>${discount}% off</strong> every trip. Next trip unlocks: <strong>${perks[cur]}</strong>.`;
+  return `<section class="panel fare"><div class="fare-head"><h4>Your student fare</h4>${ok?'<span class="verified">✓ Verified student</span>':'<span class="unverified">Not verified</span>'}</div>${ok?`<ol class="ladder">${steps}</ol><p class="fare-text">${text} Every trip also earns miles for your family pool.</p><button class="action-button" type="button" data-action="book-trip">Book a student trip (demo)</button>`:`<p class="fare-text">Verify once to get ${discount}% off every trip, plus perks that grow with each trip: Wi-Fi, status points, then pool miles and a free date change.</p><button class="action-button" type="button" data-action="verify">Verify with student ID</button>`}</section>`;
+}
+function tierPanel(member){
+  return `<section class="panel tier"><div class="fare-head"><h4>Shared tier perks</h4><span class="verified">Erien · Gold</span></div><p class="fare-text">Everyone in the pool can use perks from the highest tier in the family, such as lounge guest access, 2 per year. Illustrative example.</p></section>`;
 }
 function tabView(tab,side,member){
   const pool=fmt(total()),junior=isJunior(member);
   if(tab==='Home')return `<section class="panel"><h4>Good evening, ${esc(member.name)}</h4><p class="tab-text">Your family pool is at <strong>${pool}</strong> miles.</p><button class="action-button" type="button" data-action="goto-family">Open Family</button></section><section class="panel tab-gap"><h4>Asia Miles</h4><p class="tab-text">Prototype screen. The Family tab is the new feature.</p></section>`;
   if(tab==='Offers')return `<section class="panel"><h4>Partner offers</h4><p class="tab-text">Partners are already in the app. Now the miles can feed your family goal.</p><ul class="offer-list"><li><strong>Dining</strong><span>Earn miles on dinners out</span><em>Feeds family pool</em></li><li><strong>Food delivery</strong><span>Earn miles on every order</span><em>Feeds family pool</em></li><li><strong>Cathay Shop</strong><span>Care packages and gifts</span><em>Feeds family pool</em></li></ul></section>`;
-  if(tab==='Earn')return `<section class="panel"><h4>Where your miles go</h4><p class="tab-text">Miles from everyday spending go to your own balance, or straight into the family pool if auto-add is on.</p></section>${junior?'':minePanel(member)}`;
+  if(tab==='Earn')return `<section class="panel"><h4>Where your miles go</h4><p class="tab-text">Miles from flights, your Cathay card and partners go to your own balance, or straight into the family pool if auto-add is on.</p></section>${junior?'':minePanel(member)}`;
   if(tab==='Redeem')return `<section class="panel"><h4>Redeem miles</h4><p class="tab-text">Use the family pool for a trip together. Pick a destination and who is flying.</p>${junior?'<p class="tab-text">Juniors can see the pool, and an adult plans the trip.</p>':'<button class="action-button" type="button" data-action="redeem">Plan a family trip</button>'}</section>`;
   return '';
 }
 function bookTrip(member){
-  const done=state.studentTrips[member.id]||0,d=ladder[Math.min(done,2)];
+  const done=state.studentTrips[member.id]||0,d=discount;
   state.studentTrips[member.id]=done+1;earnMiles(member,tripMiles);
-  state.notice=`Trip booked at ${d}% off. ${state.notice}`;
+  state.notice=`Trip booked at ${d}% off. Unlocked: ${perks[Math.min(done,2)]}. ${state.notice}`;
 }
 function contribute(member,amount){
   const used=state.usedThisMonth[member.id]||0;
@@ -440,9 +444,9 @@ function contribute(member,amount){
 }
 const steps=[
  {title:'The problem today',say:'Families fly together, but their miles sit in separate accounts. Students drift away after Year 1.',doText:'Starts from a fresh demo.',runLabel:'Restart demo',run(){const k=state.script;state=fresh();state.script={open:true,i:k.i};}},
- {title:'Students feed the pool',say:'Wei pays with his linked card. He has auto-add on, so the miles go straight into the family pool.',doText:'Wei spends HK$3,000.',runLabel:'Run: Wei spends',run(){state.view='app';state.nonMember=false;state.accounts.right='wei';state.tabs.right='Family';state.sheets.right=null;state.autoAdd.wei=true;earnMiles(getMember('wei'),500);}},
+ {title:'Students feed the pool',say:'Wei earns miles on a flight or a partner purchase. He has auto-add on, so the miles go straight into the family pool.',doText:'Wei earns 500 miles from a partner purchase.',runLabel:'Run: Wei earns miles',run(){state.view='app';state.nonMember=false;state.accounts.right='wei';state.tabs.right='Family';state.sheets.right=null;state.autoAdd.wei=true;earnMiles(getMember('wei'),500);}},
  {title:'Parents add miles',say:'Parents move their own miles into the pool. Miles flow both ways.',doText:'Erien adds 5,000 miles.',runLabel:'Run: Erien adds 5,000',run(){state.view='app';state.accounts.left='erien';state.tabs.left='Family';state.sheets.left=null;contribute(getMember('erien'),5000);}},
- {title:'A student fare that grows',say:'Wei is a verified student. Each trip unlocks a bigger discount and also earns miles for the family.',doText:'Wei books his next trip at 10% off.',runLabel:'Run: Wei books a trip',run(){state.view='app';state.verified.wei=true;state.accounts.right='wei';state.sheets.right=null;bookTrip(getMember('wei'));}},
+ {title:'A student fare that grows',say:'Wei is a verified student. He gets 10% off every trip, and each trip unlocks a perk that costs Cathay little. It also earns miles for the family.',doText:'Wei books his next trip: 10% off and bonus status points.',runLabel:'Run: Wei books a trip',run(){state.view='app';state.verified.wei=true;state.accounts.right='wei';state.sheets.right=null;bookTrip(getMember('wei'));}},
  {title:'Plan a trip together',say:'The family picks a destination and who is flying. The pool covers it, so Wei sends a request.',doText:'Wei requests Seoul for 4.',runLabel:'Run: Wei requests Seoul',run(){state.view='app';state.accounts.right='wei';state.tabs.right='Family';state.sheets.right=null;state.plan.right={tripId:'seoul',memberIds:['naarie','wei','chen','lin']};createRequest('right');}},
  {title:'The organiser approves',say:'Only the organiser approves redemptions. The miles come out of the pool.',doText:'Erien approves.',runLabel:'Run: Erien approves',run(){state.view='app';state.accounts.left='erien';state.tabs.left='Family';state.sheets.left=null;approveRequest();}},
  {title:'Protected by design',say:'There are monthly caps per member. If someone tries to move too much, it is blocked.',doText:'Erien tries to add 20,000 more.',runLabel:'Run: show the cap',run(){state.view='app';state.accounts.left='erien';state.tabs.left='Family';const used=state.usedThisMonth.erien||0;state.sheets.left='transfer';state.feedback.left=`Transfer blocked: this would exceed your ${fmt(state.monthlyCap)}-mile monthly cap. You have ${fmt(Math.max(state.monthlyCap-used,0))} miles remaining.`;}},
@@ -462,7 +466,7 @@ function renderCathay(){
   const contributors=state.members.filter(m=>m.miles>0).length,tripsBooked=Object.values(state.studentTrips).reduce((a,b)=>a+b,0);
   const tile=(l,v,n)=>`<div class="kpi"><span>${l}</span><strong>${v}</strong><small>${n}</small></div>`;
   const row=(a,b,c)=>`<li><strong>${a}</strong><span>${b}</span><em>${c}</em></li>`;
-  el.innerHTML=`<div class="cathay-card"><div class="cathay-top"><div><p class="eyebrow">Cathay's view</p><h2>What the family pool tells Cathay</h2><p class="cathay-sub">Illustrative dashboard with demo data. In a real pilot these come from Cathay's CRM.</p></div><button class="demo-link" type="button" data-global-action="close-cathay">← Back to the app</button></div><div class="kpis">${tile('Pooled miles',fmt(total()),'live from this demo')}${tile('Members contributing',`${contributors} of ${state.members.length}`,'live from this demo')}${tile('Student trips booked',tripsBooked,'live from this demo')}${tile('Redemptions approved',state.redemptions,'live from this demo')}</div><h3>What the pilot would measure</h3><ul class="pilot">${row('Family pooling rate','Share of linked families who pool miles within 6 months','Source: CRM data. Target agreed before launch')}${row('Student trip share','Student trips taken with Cathay, pilot group vs control group','Source: pilot vs control. Target agreed before launch')}${row('Year-2 student retention','Students still flying Cathay in their second year, pilot vs control','Source: pilot vs control. Target agreed before launch')}</ul><h3>Why it works for Cathay</h3><div class="why"><div><strong>Students stay</strong><span>A fare that grows with every trip gives them a reason to keep flying Cathay.</span></div><div><strong>Parents join in</strong><span>A shared goal gives the whole family a reason to book together.</span></div><div><strong>Miles get used</strong><span>Pooled miles go toward real trips, with caps and approvals protecting the programme.</span></div></div></div>`;
+  el.innerHTML=`<div class="cathay-card"><div class="cathay-top"><div><p class="eyebrow">Cathay's view</p><h2>What the family pool tells Cathay</h2><p class="cathay-sub">Illustrative dashboard with demo data. In a real pilot these come from Cathay's CRM.</p></div><button class="demo-link" type="button" data-global-action="close-cathay">← Back to the app</button></div><div class="kpis">${tile('Pooled miles',fmt(total()),'live from this demo')}${tile('Members contributing',`${contributors} of ${state.members.length}`,'live from this demo')}${tile('Student trips booked',tripsBooked,'live from this demo')}${tile('Redemptions approved',state.redemptions,'live from this demo')}</div><h3>What the pilot would measure</h3><ul class="pilot">${row('Family pooling rate','Share of linked families who pool miles within 6 months','Source: CRM data. Target agreed before launch')}${row('Student trip share','Student trips taken with Cathay, pilot group vs control group','Source: pilot vs control. Target agreed before launch')}${row('Year-2 student retention','Students still flying Cathay in their second year, pilot vs control','Source: pilot vs control. Target agreed before launch')}</ul><h3>Why it works for Cathay</h3><div class="why"><div><strong>Students stay</strong><span>A flat 10% plus a perk that unlocks with each trip gives them a reason to keep flying Cathay.</span></div><div><strong>Parents join in</strong><span>A shared goal gives the whole family a reason to book together.</span></div><div><strong>Miles get used</strong><span>Pooled miles go toward real trips, with caps and approvals protecting the programme.</span></div></div></div>`;
 }
 function render(){
   if(!phones.children.length)phones.innerHTML=phoneMarkup('left',"Parent's phone · Erien",'erien')+phoneMarkup('right',"Student's phone · Wei",'wei');
@@ -502,7 +506,7 @@ function deductProportionally(cost){
   parts.forEach(p=>{p.m.miles-=p.d;});return true;
 }
 function earnMiles(member,miles){
-  if(state.autoAdd[member.id]){member.miles+=miles;addActivity(member.name,'everyday spending → pool',miles);state.notice=`${fmt(miles)} miles earned and added to the pool automatically.`;}
+  if(state.autoAdd[member.id]){member.miles+=miles;addActivity(member.name,'partner purchase → pool',miles);state.notice=`${fmt(miles)} miles earned and added to the pool automatically.`;}
   else{state.personal[member.id]=(state.personal[member.id]||0)+miles;state.notice=`${fmt(miles)} miles earned. They stay in your own balance until you add them to the pool.`;}
 }
 function approveRequest(){
