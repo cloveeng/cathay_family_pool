@@ -255,13 +255,49 @@ button.destination-card{display:block;width:100%;font:inherit;cursor:pointer}
 .consent{display:flex;gap:8px;align-items:flex-start;margin-top:12px;color:var(--ink);font-size:10px;line-height:1.4}
 @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.why{grid-template-columns:1fr}.pilot li{grid-template-columns:1fr}.pilot em{grid-column:1}.script-card{width:min(390px,100%)}}
 .ladder-step strong{font-size:11px;text-align:center}.tier{margin-bottom:10px}
+.badge-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:0 0 10px;padding:0;list-style:none}.badge{display:grid;gap:2px;padding:10px;border:1px dashed #d9ddd7;border-radius:12px;background:#fff;opacity:.6}.badge.on{border:1px solid var(--teal);background:#eef6f2;opacity:1}.badge-mark{display:grid;width:20px;height:20px;place-items:center;border-radius:50%;background:#ececeb;color:#5a5654;font-size:11px;font-weight:800}.badge.on .badge-mark{background:var(--teal);color:#fff}.badge strong{color:var(--navy);font-size:11px}.badge small{color:var(--muted);font-size:9px;line-height:1.3}.badges{margin-bottom:10px}
+
+.badge-grid{grid-template-columns:repeat(3,1fr)!important;gap:8px!important}
+.badge{justify-items:center;text-align:center;padding:10px 4px 8px!important;border-radius:16px!important;border:1px dashed #d9ddd7;background:#fafaf8!important;opacity:1!important}
+.badge.on{border:1px solid #cfe3da!important;background:linear-gradient(180deg,#f3f9f6,#fff)!important}
+.medal{position:relative;display:grid;width:46px;height:46px;place-items:center;border-radius:50%;background:#ececeb;color:#a7a3a1;box-shadow:inset 0 0 0 3px #fff}
+.medal svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.badge.on .medal{background:linear-gradient(145deg,#5e967e,#006564);color:#fff;box-shadow:0 0 0 3px #dcd3bc,0 4px 10px rgb(0 101 100 / 28%)}
+.badge.on .medal::after{content:"✦";position:absolute;top:-6px;right:-6px;color:#c1b49a;font-size:13px}
+.badge strong{margin-top:6px;font-size:10px!important;line-height:1.2}.badge small{font-size:8.5px!important}
+.streak{margin-bottom:10px}.flame{width:14px;height:14px;fill:#c1b49a;stroke:#006564;stroke-width:1.5;vertical-align:-2px}
+.streak-dots{display:flex;gap:6px;margin:0 0 10px}.streak-dots i{flex:1;height:10px;border-radius:99px;background:#ececeb}.streak-dots i.on{background:linear-gradient(90deg,#5e967e,#006564)}
+
+body{background:radial-gradient(520px 340px at 12% 0%,#f4efe3,transparent 70%),radial-gradient(560px 360px at 90% 6%,#e1eee8,transparent 70%),#ebedec!important}
+.phone{box-shadow:0 28px 70px rgb(0 64 63 / 16%),0 4px 14px rgb(35 48 43 / 8%)!important}
+.action-button,.qa-icon,.demo-link,.chip,.badge,.panel,.mcard,.kpi,.ladder-step{transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.action-button:active{transform:scale(.97)}
+.quick-actions button:hover .qa-icon{transform:translateY(-3px);box-shadow:0 10px 18px rgb(0 101 100 / 18%)}
+.quick-actions button:active .qa-icon{transform:scale(.94)}
+.badge:hover{transform:translateY(-3px);box-shadow:0 8px 16px rgb(0 64 63 / 12%)}
+.mcard:hover,.kpi:hover{transform:translateY(-2px)}
+.demo-tools .demo-link:hover{transform:translateY(-1px);box-shadow:0 6px 12px rgb(0 64 63 / 12%)}
+.hero-title::after{content:" ✦";color:#dcd3bc;font-size:13px;display:inline-block;animation:twinkle 2.8s ease-in-out infinite}
+.flame{animation:flicker 1.6s ease-in-out infinite;transform-origin:50% 90%}
+.success-banner.fresh{animation:banner-in .45s cubic-bezier(.2,.9,.3,1.2) both}
+.badge.new .medal{animation:medal-pop .8s cubic-bezier(.2,.9,.3,1.4) both}
+.burst{position:absolute;inset:0;z-index:30;overflow:hidden;pointer-events:none;border-radius:inherit}
+.burst i{position:absolute;top:-12px;width:7px;height:11px;border-radius:2px;opacity:0;animation:burst-fall 1.9s cubic-bezier(.3,.6,.4,1) forwards}
+.intro .screen-content>*{animation:rise .6s cubic-bezier(.2,.8,.2,1) both}
+.intro .screen-content>*:nth-child(2){animation-delay:.07s}.intro .screen-content>*:nth-child(3){animation-delay:.14s}.intro .screen-content>*:nth-child(4){animation-delay:.21s}.intro .screen-content>*:nth-child(5){animation-delay:.28s}.intro .screen-content>*:nth-child(n+6){animation-delay:.35s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes twinkle{0%,100%{opacity:.35;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(20deg)}}
+@keyframes flicker{0%,100%{transform:scale(1) rotate(-2deg)}50%{transform:scale(1.12,1.18) rotate(3deg)}}
+@keyframes banner-in{from{opacity:0;transform:translateY(-8px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes medal-pop{0%{transform:scale(.3) rotate(-25deg);opacity:0}60%{transform:scale(1.18) rotate(6deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+@keyframes burst-fall{0%{transform:translate(0,0) rotate(0);opacity:0}12%{opacity:1}100%{transform:translate(var(--dx),780px) rotate(var(--rot));opacity:0}}
 </style>
 </head>
 <body>
 <header class="demo-heading"><h1>One family, one miles pool</h1><p>Prototype with sample data · changes on either phone update both</p></header>
 <div class="stage" id="stage"><main class="phones" id="phones" aria-label="Shared family miles pool demo"></main><aside id="script" class="script-card" hidden></aside></div>
 <section id="cathay" class="cathay" hidden></section>
-<div class="demo-tools"><button class="demo-link" type="button" data-global-action="reset">Reset demo</button><button class="demo-link" type="button" data-global-action="toggle-script">Demo script</button><button class="demo-link" type="button" data-global-action="sim-purchase">Simulate student earning</button><button class="demo-link" id="view-toggle" type="button" data-global-action="toggle-view">Demo: show a non-member's view</button><button class="demo-link" type="button" data-global-action="toggle-cathay">Cathay's view</button></div>
+<div class="demo-tools"><button class="demo-link" type="button" data-global-action="reset">Reset demo</button><button class="demo-link" type="button" data-global-action="toggle-script">Demo script</button><button class="demo-link" type="button" data-global-action="sim-purchase">Simulate student earning</button><button class="demo-link" id="view-toggle" type="button" data-global-action="toggle-view">Demo: show a non-member's view</button><button class="demo-link" type="button" data-global-action="next-week">Simulate next week</button><button class="demo-link" type="button" data-global-action="toggle-cathay">Cathay's view</button></div>
 <script>
 (()=>{
 const initialMembers=[{id:'erien',name:'Erien',role:'Organiser',miles:40000},{id:'naarie',name:'Naarie',role:'Adult member',miles:22000},{id:'wei',name:'Wei',role:'Adult member',miles:12000,student:true},{id:'chen',name:'Chen',role:'Adult member',miles:6000,student:true},{id:'lin',name:'Lin',role:'Junior member',miles:2000}];
@@ -272,7 +308,7 @@ const colours=['#006564','#c1b49a','#5e967e','#8a8480','#c2262e'];
 const tints=[['#e6f0ec','#006564'],['#f1ece0','#5b5034'],['#e4efe9','#3f6f58'],['#ececeb','#5a5654'],['#f8e3e4','#9a1f26']];
 const shown={left:null,right:null},tw={left:0,right:0};
 const defaultTravellers=['naarie','wei','chen','lin'];
-const fresh=()=>({members:initialMembers.map(m=>({...m})),activity:initialActivity.map(a=>({...a})),earnedThisMonth:2400,usedThisMonth:{erien:0,naarie:0,wei:0,chen:0,lin:0},personal:{erien:35000,naarie:12000,wei:800,chen:400,lin:0},autoAdd:{wei:true,chen:true},studentTrips:{wei:1,chen:0},verified:{wei:true,chen:false},redemptions:0,view:'app',script:{open:false,i:0},monthlyCap:20000,approvalsRequired:true,accounts:{left:'erien',right:'wei'},tabs:{left:'Family',right:'Family'},sheets:{left:null,right:null},feedback:{left:'',right:''},request:null,notice:'',nonMember:false,views:{left:'overview',right:'overview'},focus:{left:null,right:null},inviteCode:'',pinned:{tripId:'tokyo',memberIds:[...defaultTravellers]},plan:{left:{tripId:'tokyo',memberIds:[...defaultTravellers]},right:{tripId:'tokyo',memberIds:[...defaultTravellers]}}});
+const fresh=()=>({members:initialMembers.map(m=>({...m})),activity:initialActivity.map(a=>({...a})),earnedThisMonth:2400,usedThisMonth:{erien:0,naarie:0,wei:0,chen:0,lin:0},personal:{erien:35000,naarie:12000,wei:800,chen:400,lin:0},autoAdd:{wei:true,chen:true},studentTrips:{wei:1,chen:0},verified:{wei:true,chen:false},redemptions:0,trips:[],streak:{weeks:3,thisWeek:false,done:false,flash:''},view:'app',script:{open:false,i:0},monthlyCap:20000,approvalsRequired:true,accounts:{left:'erien',right:'wei'},tabs:{left:'Family',right:'Family'},sheets:{left:null,right:null},feedback:{left:'',right:''},request:null,notice:'',nonMember:false,views:{left:'overview',right:'overview'},focus:{left:null,right:null},inviteCode:'',pinned:{tripId:'tokyo',memberIds:[...defaultTravellers]},plan:{left:{tripId:'tokyo',memberIds:[...defaultTravellers]},right:{tripId:'tokyo',memberIds:[...defaultTravellers]}}});
 let state=fresh();
 const phones=document.getElementById('phones');
 const fmt=n=>Math.round(n).toLocaleString('en-US');
@@ -357,12 +393,12 @@ function familyView(side,member){
   const r=state.request;
   const pending=r?.status==='pending'?`<div class="pending-request" role="status">${esc(r.name)} requested ${esc(r.label)} (${r.members.map(id=>esc(nameOf(id))).join(', ')}), waiting for organiser approval.</div>`:'';
   const banner=pool>=g.cost?`<div class="goal-banner" role="status"><span>Goal reached! Redeem for the family</span>${Array.from({length:8},()=>'<i class="confetti" aria-hidden="true"></i>').join('')}</div>`:'';
-  const notice=state.notice?`<div class="success-banner" role="status">${esc(state.notice)}</div>`:'';
+  const notice=state.notice?`<div class="success-banner${noticeIsNew?' fresh':''}" role="status">${esc(state.notice)}</div>`:'';
   const head=`${banner}${notice}${heroMarkup(g,pool)}${quickActions(member)}${pending}`;
   if(junior)return `${head}<p class="junior-note">Parental consent required to join</p>${contributionPanel(member,side)}`;
   const seg=`<div class="segmented" role="tablist">${[['overview','Overview'],['activity','Activity'],['members','Members']].map(([v,l])=>`<button type="button" role="tab" aria-selected="${v===view}" data-action="view" data-view="${v}">${l}</button>`).join('')}</div>`;
   let body='';
-  if(view==='overview')body=`${minePanel(member)}${farePanel(member)}${tierPanel(member)}${contributionPanel(member,side)}${movesMarkup(g,member)}`;
+  if(view==='overview')body=`${minePanel(member)}${farePanel(member)}${tierPanel(member)}${streakPanel()}${badgesPanel()}${contributionPanel(member,side)}${movesMarkup(g,member)}`;
   else if(view==='activity')body=`<div class="section-heading"><h3>Recent activity</h3><span class="small-meta">Earned this month +${fmt(state.earnedThisMonth)}</span></div>${timelineMarkup()}`;
   else body=`<div class="section-heading"><h3>Family members</h3><span class="small-meta">${state.members.length} members</span></div>${memberCards(member)}`;
   return `${head}${seg}${body}`;
@@ -468,7 +504,28 @@ function renderCathay(){
   const row=(a,b,c)=>`<li><strong>${a}</strong><span>${b}</span><em>${c}</em></li>`;
   el.innerHTML=`<div class="cathay-card"><div class="cathay-top"><div><p class="eyebrow">Cathay's view</p><h2>What the family pool tells Cathay</h2><p class="cathay-sub">Illustrative dashboard with demo data. In a real pilot these come from Cathay's CRM.</p></div><button class="demo-link" type="button" data-global-action="close-cathay">← Back to the app</button></div><div class="kpis">${tile('Pooled miles',fmt(total()),'live from this demo')}${tile('Members contributing',`${contributors} of ${state.members.length}`,'live from this demo')}${tile('Student trips booked',tripsBooked,'live from this demo')}${tile('Redemptions approved',state.redemptions,'live from this demo')}</div><h3>What the pilot would measure</h3><ul class="pilot">${row('Family pooling rate','Share of linked families who pool miles within 6 months','Source: CRM data. Target agreed before launch')}${row('Student trip share','Student trips taken with Cathay, pilot group vs control group','Source: pilot vs control. Target agreed before launch')}${row('Year-2 student retention','Students still flying Cathay in their second year, pilot vs control','Source: pilot vs control. Target agreed before launch')}</ul><h3>Why it works for Cathay</h3><div class="why"><div><strong>Students stay</strong><span>A flat 10% plus a perk that unlocks with each trip gives them a reason to keep flying Cathay.</span></div><div><strong>Parents join in</strong><span>A shared goal gives the whole family a reason to book together.</span></div><div><strong>Miles get used</strong><span>Pooled miles go toward real trips, with caps and approvals protecting the programme.</span></div></div></div>`;
 }
+let prevBadges=null,lastNotice='',noticeIsNew=false,newBadgeIds=[],introDone=false;
+function burst(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const cols=['#006564','#c1b49a','#5e967e','#dcd3bc','#c2262e','#367d79'];
+  document.querySelectorAll('.phone').forEach(ph=>{
+    const box=document.createElement('div');box.className='burst';
+    for(let i=0;i<30;i++){const c=document.createElement('i');c.style.left=(Math.random()*100)+'%';c.style.background=cols[i%cols.length];c.style.animationDelay=(Math.random()*.35)+'s';c.style.setProperty('--dx',((Math.random()-.5)*80)+'px');c.style.setProperty('--rot',((Math.random()-.5)*720)+'deg');if(i%3===0)c.style.borderRadius='50%';box.appendChild(c);}
+    ph.appendChild(box);setTimeout(()=>box.remove(),2300);
+  });
+}
 function render(){
+  if(state.streak.flash){state.notice=`${state.notice||''} ${state.streak.flash}`.trim();state.streak.flash='';}
+  const cur=badgeList().filter(b=>b.on).map(b=>b.id);
+  newBadgeIds=prevBadges?cur.filter(id=>!prevBadges.includes(id)):[];prevBadges=cur;
+  noticeIsNew=!!state.notice&&state.notice!==lastNotice;
+  if(!introDone){introDone=true;document.body.classList.add('intro');setTimeout(()=>document.body.classList.remove('intro'),1500);}
+  render0();
+  lastNotice=state.notice;
+  if(newBadgeIds.length)burst();
+}
+function render0(){
+  if(state.streak.flash){state.notice=`${state.notice||''} ${state.streak.flash}`.trim();state.streak.flash='';}
   if(!phones.children.length)phones.innerHTML=phoneMarkup('left',"Parent's phone · Erien",'erien')+phoneMarkup('right',"Student's phone · Wei",'wei');
   document.querySelectorAll('.phone').forEach(phone=>{
     const side=phone.dataset.phone;
@@ -493,7 +550,19 @@ function render(){
   document.getElementById('view-toggle').textContent=state.nonMember?'Return to family view':"Demo: show a non-member's view";renderScript();renderCathay();
 }
 
-function addActivity(name,destination,miles){state.activity.unshift({source:name,destination,miles});state.earnedThisMonth+=miles;}
+function addActivity(name,destination,miles){state.activity.unshift({source:name,destination,miles});state.earnedThisMonth+=miles;if(!/streak/i.test(destination))bumpStreak(name);}
+function bumpStreak(name){
+  const m=state.members.find(x=>x.name===name),k=state.streak;
+  if(!m||isJunior(m)||k.thisWeek)return;
+  k.thisWeek=true;k.weeks=Math.min(k.weeks+1,4);
+  if(k.weeks>=4&&!k.done){k.done=true;m.miles+=200;state.activity.unshift({source:name,destination:'streak bonus → pool',miles:200});k.flash='Family streak complete: +200 bonus miles in the pool.';}
+}
+function streakPanel(){
+  const k=state.streak,dots=[0,1,2,3].map(i=>`<i class="${i<k.weeks?'on':''}"></i>`).join('');
+  const text=k.done?'Streak complete! A bonus of 200 pool miles was added. Bonus is limited to once a month.':k.thisWeek?'You kept the streak going this week. Come back next week.':'Add any amount to the pool this week to keep the streak going. 4 weeks in a row earns a 200-mile bonus, once a month.';
+  return `<section class="panel streak"><div class="fare-head"><h4><svg class="flame" viewBox="0 0 24 24"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 01-10 0c0-2 1-3 2-4 .3 1.6 1 2.2 1.8 2.5C10.5 8 10.5 5.5 12 3z"/></svg> Family streak</h4><span class="verified">${k.weeks} of 4 weeks</span></div><div class="streak-dots">${dots}</div><p class="fare-text">${text}</p></section>`;
+}
+
 function openSheet(side,kind){state.feedback[side]='';state.notice='';state.sheets[side]=kind;render();}
 function closeSheet(side){state.sheets[side]=null;state.feedback[side]='';render();}
 function makeInviteCode(){return Math.random().toString(36).slice(2,8).toUpperCase();}
@@ -509,11 +578,35 @@ function earnMiles(member,miles){
   if(state.autoAdd[member.id]){member.miles+=miles;addActivity(member.name,'partner purchase → pool',miles);state.notice=`${fmt(miles)} miles earned and added to the pool automatically.`;}
   else{state.personal[member.id]=(state.personal[member.id]||0)+miles;state.notice=`${fmt(miles)} miles earned. They stay in your own balance until you add them to the pool.`;}
 }
+function badgeList(){
+  const asia=['seoul','osaka','tokyo'],t=state.trips||[];
+  const students=Object.values(state.studentTrips).reduce((a,b)=>a+b,0);
+  return [
+    {id:'family',name:'First family trip',note:'3+ on a pooled trip',on:t.some(x=>x.n>=3)},
+    {id:'asia',name:'Asia explorers',note:'First trip in Asia',on:t.some(x=>asia.includes(x.id))},
+    {id:'europe',name:'First Europe trip',note:'Coming soon',on:t.some(x=>!asia.includes(x.id))},
+    {id:'student',name:'First flight home',note:'A student books a trip',on:students>0},
+    {id:'allin',name:'Whole family in',note:'Everyone has added',on:state.members.every(m=>m.miles>0)},
+    {id:'streak',name:'Streak keeper',note:'4 weeks in a row',on:state.streak.done||state.streak.weeks>=4}
+  ];
+}
+const badgeIcon={
+  family:'<path d="M12 20s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 10c0 5.6-7 10-7 10z"/>',
+  asia:'<circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16"/>',
+  europe:'<circle cx="12" cy="12" r="8"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/>',
+  student:'<path d="M3 12l18-8-6 16-3.5-6.5z"/>',
+  allin:'<circle cx="8" cy="10" r="2.5"/><circle cx="16" cy="10" r="2.5"/><path d="M3.5 19c.5-3 2.3-4.5 4.5-4.5s4 1.5 4.5 4.5M11.5 19c.5-3 2.3-4.5 4.5-4.5s4 1.5 4.5 4.5"/>',
+  streak:'<path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 01-10 0c0-2 1-3 2-4 .3 1.6 1 2.2 1.8 2.5C10.5 8 10.5 5.5 12 3z"/>'
+};
+function badgesPanel(){
+  const list=badgeList(),n=list.filter(b=>b.on).length;
+  return `<section class="panel badges"><div class="fare-head"><h4>Family badges</h4><span class="verified">${n} of ${list.length}</span></div><ul class="badge-grid">${list.map(b=>`<li class="badge${b.on?' on':''}${newBadgeIds.includes(b.id)?' new':''}"><span class="medal"><svg viewBox="0 0 24 24">${badgeIcon[b.id]}</svg></span><strong>${b.name}</strong><small>${b.note}</small></li>`).join('')}</ul><p class="fare-text">Badges are earned together as a family. Illustrative.</p></section>`;
+}
 function approveRequest(){
   const r=state.request;if(!r||r.status!=='pending')return;
   if(!deductProportionally(r.cost)){state.notice='Not enough miles to approve this request.';state.request=null;return;}
-  state.redemptions++;state.activity.unshift({description:`${r.label} redeemed · pool`,miles:-r.cost});
-  state.notice=`${r.label} redeemed for ${fmt(r.cost)} miles (${r.members.map(nameOf).join(', ')}).`;state.request=null;
+  const before=badgeList().filter(b=>b.on).map(b=>b.id);state.trips.push({id:r.tripId,n:r.members.length});state.redemptions++;state.activity.unshift({description:`${r.label} redeemed · pool`,miles:-r.cost});
+  const fresh2=badgeList().filter(b=>b.on&&!before.includes(b.id)).map(b=>b.name);state.notice=`${r.label} redeemed for ${fmt(r.cost)} miles (${r.members.map(nameOf).join(', ')}).${fresh2.length?` Badge unlocked: ${fresh2.join(', ')}.`:''}`;state.request=null;
 }
 function createRequest(side){
   const member=getMember(state.accounts[side]),plan=state.plan[side],trip=tripFor(plan.tripId),n=plan.memberIds.length,cost=trip.rate*n;
@@ -623,6 +716,7 @@ document.addEventListener('click',e=>{
   if(action==='script-next'){state.script.i=Math.min(steps.length-1,state.script.i+1);render();return;}
   if(action==='script-run'){steps[state.script.i].run();render();return;}
   if(action==='toggle-cathay'){state.view=state.view==='cathay'?'app':'cathay';render();return;}
+  if(action==='next-week'){const k=state.streak;if(k.done){k.weeks=0;k.done=false;}k.thisWeek=false;state.notice='A new week starts.';render();return;}
   if(action==='close-cathay'){state.view='app';render();return;}if(action==='sim-purchase'){const side=(state.nonMember||isJunior(getMember(state.accounts.right)))?'left':'right';if(isJunior(getMember(state.accounts[side])))return;state.tabs[side]='Family';openSheet(side,'spending');}
 });
 render();
