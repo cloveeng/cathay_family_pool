@@ -322,6 +322,11 @@ body{background:radial-gradient(520px 340px at 12% 0%,#f4efe3,transparent 70%),r
 /* mixed weights: bold for key numbers and titles, lighter elsewhere */
 .header-title,.hero-number,.mine-value,.section-heading h3,.panel h4,.cel-card h3,.cel-miles strong,.welcome-hero h3,.goal-banner,.goal-name{font-weight:700}
 
+/* gifts */
+.cel-later{display:block;margin:10px auto 0;padding:6px 10px;border:0;background:none;color:var(--muted);font-size:12px;font-weight:600;cursor:pointer;text-decoration:underline}
+
+.gift-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:12px 0 0;padding:10px 12px;border-radius:12px;background:#f3f5f0;font-size:11px;line-height:1.4}.gift-row strong{display:block;color:var(--teal);font-size:12px}.gift-row span{color:var(--muted)}.gift-row.locked{background:#f4f4f2}.gift-row.locked strong{color:#4a5656}.gift-row.done{background:#e3f0ed}
+.gift-list{display:grid;gap:8px;margin:12px 0}.gift-opt{padding:13px;border:1px solid #cdd6d1;border-radius:12px;background:#fffefa;color:var(--teal);font-size:13px;font-weight:600;text-align:left;cursor:pointer}.gift-opt:hover{background:#eef5f1;border-color:var(--teal)}
 /* live join */
 .lj-modal{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;background:rgb(0 26 37 / 55%)}.lj-modal[hidden]{display:none}
 .lj-card{width:min(340px,92vw);padding:22px;border-radius:20px;background:#fffefa;text-align:center;box-shadow:0 24px 60px rgb(0 0 0 / 30%)}
@@ -354,7 +359,7 @@ const colours=['#006564','#c1b49a','#5e967e','#8a8480','#c2262e'];
 const tints=[['#e6f0ec','#006564'],['#f1ece0','#5b5034'],['#e4efe9','#3f6f58'],['#ececeb','#5a5654'],['#f8e3e4','#9a1f26']];
 const shown={left:null,right:null},tw={left:0,right:0};
 const defaultTravellers=['naarie','wei','chen','lin'];
-const fresh=()=>({members:initialMembers.map(m=>({...m})),activity:initialActivity.map(a=>({...a})),earnedThisMonth:2400,usedThisMonth:{erien:0,naarie:0,wei:0,chen:0,lin:0},personal:{erien:150000,naarie:120000,wei:80000,chen:60000,lin:5000},autoAdd:{wei:true,chen:true},studentTrips:{wei:1,chen:0},verified:{wei:true,chen:false},redemptions:0,trips:[],streak:{weeks:3,thisWeek:false,done:false,flash:''},view:'app',script:{open:false,i:0},spendLimit:20000,contribCap:50000,dailyCap:150000,twoFaAbove:25000,outflowToday:0,removed:{},approvalsRequired:true,accounts:{left:'erien',right:'wei'},tabs:{left:'Family',right:'Family'},sheets:{left:null,right:null},feedback:{left:'',right:''},request:null,notice:'',nonMember:false,views:{left:'overview',right:'overview'},focus:{left:null,right:null},celebrate:null,reminderOff:{left:false,right:false},linked:{ride:true,food:true,grocery:false,coffee:false},inviteCode:'',inviteName:'',pendingInvite:'',pinned:{tripId:'tokyo',memberIds:[...defaultTravellers]},plan:{left:{tripId:'tokyo',memberIds:[...defaultTravellers]},right:{tripId:'tokyo',memberIds:[...defaultTravellers]}}});
+const fresh=()=>({members:initialMembers.map(m=>({...m})),activity:initialActivity.map(a=>({...a})),earnedThisMonth:2400,usedThisMonth:{erien:0,naarie:0,wei:0,chen:0,lin:0},personal:{erien:150000,naarie:120000,wei:80000,chen:60000,lin:5000},autoAdd:{wei:true,chen:true},studentTrips:{wei:1,chen:0},gift:null,badgePop:null,verified:{wei:true,chen:false},redemptions:0,trips:[],streak:{weeks:3,thisWeek:false,done:false,flash:''},view:'app',script:{open:false,i:0},spendLimit:20000,contribCap:50000,dailyCap:150000,twoFaAbove:25000,outflowToday:0,removed:{},approvalsRequired:true,accounts:{left:'erien',right:'wei'},tabs:{left:'Family',right:'Family'},sheets:{left:null,right:null},feedback:{left:'',right:''},request:null,notice:'',nonMember:false,views:{left:'overview',right:'overview'},focus:{left:null,right:null},celebrate:null,reminderOff:{left:false,right:false},linked:{ride:true,food:true,grocery:false,coffee:false},inviteCode:'',inviteName:'',pendingInvite:'',pinned:{tripId:'tokyo',memberIds:[...defaultTravellers]},plan:{left:{tripId:'tokyo',memberIds:[...defaultTravellers]},right:{tripId:'tokyo',memberIds:[...defaultTravellers]}}});
 let state=fresh();
 const phones=document.getElementById('phones');
 const fmt=n=>Math.round(n).toLocaleString('en-US');
@@ -469,6 +474,7 @@ function sheetContent(side,kind){
   const used=state.usedThisMonth[member.id]||0;
   if(kind==='trip'){const done=state.studentTrips[member.id]||0,d=discount,pay=Math.round(fare*(1-d/100)),auto=!!state.autoAdd[member.id];return `<div class="sheet-handle"></div><h3>Book a student trip</h3><p>Sample return trip. The fare is illustrative.</p><div class="plan-summary"><div class="plan-total-row"><span>Standard fare</span><span>HK$${fmt(fare)}</span></div><div class="plan-total-row" style="margin-top:6px"><span>Student fare</span><span>−${d}%</span></div><div class="plan-total-row" style="margin-top:6px"><span>Unlocked this trip</span><span>${perks[Math.min(done,2)]}</span></div><div class="plan-total-row" style="margin-top:6px"><span>You pay</span><span>HK$${fmt(pay)}</span></div></div><p>You earn about ${fmt(tripMiles)} miles, ${auto?'added to your family pool automatically':'kept in your own balance'}.</p><div class="sheet-actions"><button class="action-button secondary" type="button" data-action="close-sheet">Cancel</button><button class="action-button" type="button" data-action="confirm-trip">Confirm booking</button></div>`;}
   if(kind==='verify')return `<div class="sheet-handle"></div><h3>Verify student status</h3><p>A verification partner (such as SheerID) checks your university (ages 18 to 25) or boarding school (13 to 17) in seconds, so there's usually no paper upload. Under 18s join through a parent or guardian's invite.</p><div class="plan-summary"><div class="plan-total-row"><span>Student record (sample)</span><span>Matched</span></div><div class="plan-total-row" style="margin-top:6px"><span>Re-verify</span><span>Every year</span></div></div><button class="action-button sheet-link-button" type="button" data-action="confirm-verify">Verify instantly</button>`;
+  if(kind==='gift')return `<div class="sheet-handle"></div><h3>Choose a souvenir</h3><p>Your family collected 3 badges. Pick one gift. Sample range for the demo; Cathay would choose the real one.</p><div class="gift-list">${gifts.map(g=>`<button class="gift-opt" type="button" data-action="pick-gift" data-gift="${g.id}">${g.name}</button>`).join('')}</div><div class="sheet-actions"><button class="action-button secondary" type="button" data-action="close-sheet">Cancel</button></div>`;
   if(kind==='plan')return planSheet(side);
   if(kind==='transfer')return `<div class="sheet-handle"></div><h3>Transfer miles</h3><p>Move miles from your own balance into the family pool.</p><p><strong>Your miles: ${fmt(state.personal[member.id]||0)}</strong></p><p>Added this month: ${fmt(used)} of ${fmt(state.contribCap)}. Resets on the 1st.</p><form data-form="transfer" data-side="${side}"><label class="form-label">Miles to transfer<input class="form-input" name="amount" type="number" min="1" step="1" placeholder="e.g. 5000" inputmode="numeric" required></label><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><button class="action-button" type="submit">Add miles to pool</button></form>`;
   if(kind==='spending')return `<div class="sheet-handle"></div><h3>Simulate earning miles</h3><p>Demo: in the real app this happens automatically when you fly, pay with your Cathay membership card, or shop at Asia Miles partners. Enter an amount to simulate a purchase. HK$6 = 1 mile. If auto-add is on (the default for students), the miles go straight to the family pool. If you turn it off, they stay in your own balance until you add them.</p><form data-form="spending" data-side="${side}"><label class="form-label">Amount in HK$<input class="form-input" name="amount" type="number" min="6" step="1" placeholder="e.g. 300" inputmode="decimal" required></label><p class="sheet-error" data-sheet-error>${esc(state.feedback[side]||'')}</p><button class="action-button" type="submit">Simulate purchase</button></form><p>Your family sees what you add to the pool, not what you buy or what you hold.</p>`;
@@ -568,6 +574,7 @@ function render(){
   if(state.streak.flash){state.notice=`${state.notice||''} ${state.streak.flash}`.trim();state.streak.flash='';}
   const cur=badgeList().filter(b=>b.on).map(b=>b.id);
   newBadgeIds=prevBadges?cur.filter(id=>!prevBadges.includes(id)):[];prevBadges=cur;
+  if(newBadgeIds.length&&!joinParam)state.badgePop={ids:[...new Set([...(state.badgePop?state.badgePop.ids:[]),...newBadgeIds])]};
   noticeIsNew=!!state.notice&&state.notice!==lastNotice;
   if(!introDone){introDone=true;document.body.classList.add('intro');setTimeout(()=>document.body.classList.remove('intro'),1500);}
   render0();
@@ -595,7 +602,7 @@ function render0(){
     else screen.innerHTML=familyView(side,member);
     screen.scrollTop=top;hydrate(phone,side);
     const cel=phone.querySelector('[data-celebrate]');
-    if(cel){if(state.celebrate&&!state.sheets[side]){const c=state.celebrate;if(cel.dataset.key!==c.title+c.cost){cel.dataset.key=c.title+c.cost;cel.innerHTML=`<div class="cel-card"><span class="cel-plane" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 3L3 10.5l6.5 2.5L12 21l3-6.5z" fill="currentColor"/></svg></span><h3>${esc(c.title)}</h3><p>${esc(c.who)} are flying together.</p><div class="cel-miles"><strong>${fmt(c.cost)}</strong><span>miles from the family pool</span></div>${c.badges.length?`<p class="cel-badge">Badge unlocked: ${esc(c.badges.join(', '))}</p>`:''}<button class="action-button" type="button" data-action="close-celebrate">Done</button>${Array.from({length:14},(_,i)=>`<i class="confetti cel-c" style="left:${6+i*6.5}%;animation-delay:${(i%5)*0.15}s;background:${['#006564','#c1b49a','#5e967e','#dcd3bc','#c2262e'][i%5]}" aria-hidden="true"></i>`).join('')}</div>`;}cel.hidden=false;}else{cel.hidden=true;cel.dataset.key='';}}
+    if(cel){if(state.celebrate&&!state.sheets[side]){const c=state.celebrate;if(cel.dataset.key!==c.title+c.cost){cel.dataset.key=c.title+c.cost;cel.innerHTML=`<div class="cel-card"><span class="cel-plane" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 3L3 10.5l6.5 2.5L12 21l3-6.5z" fill="currentColor"/></svg></span><h3>${esc(c.title)}</h3><p>${esc(c.who)} are flying together.</p><div class="cel-miles"><strong>${fmt(c.cost)}</strong><span>miles from the family pool</span></div><button class="action-button" type="button" data-action="close-celebrate">Done</button>${Array.from({length:14},(_,i)=>`<i class="confetti cel-c" style="left:${6+i*6.5}%;animation-delay:${(i%5)*0.15}s;background:${['#006564','#c1b49a','#5e967e','#dcd3bc','#c2262e'][i%5]}" aria-hidden="true"></i>`).join('')}</div>`;}cel.hidden=false;}else if(state.badgePop&&!state.sheets[side]){const n=badgeList().filter(b=>b.on).length,claim=n>=3&&!state.gift&&!isJunior(member),key='bp'+state.badgePop.ids.join(',')+(claim?'c':'');if(cel.dataset.key!==key){cel.dataset.key=key;cel.innerHTML=badgePopHTML(state.badgePop.ids,claim);}cel.hidden=false;}else{cel.hidden=true;cel.dataset.key='';}}
     const overlay=phone.querySelector('[data-overlay]'),sheet=phone.querySelector('[data-sheet]'),kind=state.sheets[side];
     if(kind){sheet.innerHTML=sheetContent(side,kind);overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');}
     else{overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');sheet.innerHTML='';}
@@ -651,9 +658,20 @@ const badgeIcon={
   allin:'<circle cx="8" cy="10" r="2.5"/><circle cx="16" cy="10" r="2.5"/><path d="M3.5 19c.5-3 2.3-4.5 4.5-4.5s4 1.5 4.5 4.5M11.5 19c.5-3 2.3-4.5 4.5-4.5s4 1.5 4.5 4.5"/>',
   streak:'<path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 01-10 0c0-2 1-3 2-4 .3 1.6 1 2.2 1.8 2.5C10.5 8 10.5 5.5 12 3z"/>'
 };
+const gifts=[{id:'tag',name:'Luggage tag'},{id:'bear',name:'Plush bear'},{id:'notebook',name:'Travel notebook'}];
+function badgePopHTML(ids,claim){
+  const list=badgeList().filter(b=>ids.includes(b.id));
+  if(!list.length)return '';
+  return `<div class="cel-card"><span class="cel-plane" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${badgeIcon[list[0].id]}</svg></span><h3>Badge unlocked!</h3><p>${esc(list.map(b=>b.name).join(', '))}</p>${claim?`<p class="cel-badge">${badgeList().filter(b=>b.on).length} badges collected. A souvenir is waiting for your family.</p><button class="action-button" type="button" data-action="badge-claim">Choose gift</button><button class="cel-later" type="button" data-action="close-badge">Later</button>`:`<button class="action-button" type="button" data-action="close-badge">Done</button>`}${Array.from({length:14},(_,i)=>`<i class="confetti cel-c" style="left:${6+i*6.5}%;animation-delay:${(i%5)*0.15}s;background:${['#006564','#c1b49a','#5e967e','#dcd3bc','#c2262e'][i%5]}" aria-hidden="true"></i>`).join('')}</div>`;
+}
+function giftRow(n){
+  if(state.gift)return `<div class="gift-row done"><strong>Souvenir claimed</strong><span>${esc(state.gift.name)}, chosen by ${esc(state.gift.by)}</span></div>`;
+  if(n>=3)return `<div class="gift-row"><div><strong>Gift unlocked</strong><span>${n} badges collected. Choose a Cathay souvenir.</span></div><button class="action-button" type="button" data-action="claim-gift">Choose gift</button></div>`;
+  return `<div class="gift-row locked"><strong>Collect 3 badges for a souvenir</strong><span>${n} of 3 so far</span></div>`;
+}
 function badgesPanel(){
   const list=badgeList(),n=list.filter(b=>b.on).length;
-  return `<section class="panel badges"><div class="fare-head"><h4>Family badges</h4><span class="verified">${n} of ${list.length}</span></div><ul class="badge-grid">${list.map(b=>`<li class="badge${b.on?' on':''}${newBadgeIds.includes(b.id)?' new':''}"><span class="medal"><svg viewBox="0 0 24 24">${badgeIcon[b.id]}</svg></span><strong>${b.name}</strong><small>${b.note}</small></li>`).join('')}</ul><p class="fare-text">Badges are earned together as a family. Illustrative.</p></section>`;
+  return `<section class="panel badges"><div class="fare-head"><h4>Family badges</h4><span class="verified">${n} of ${list.length}</span></div><ul class="badge-grid">${list.map(b=>`<li class="badge${b.on?' on':''}${newBadgeIds.includes(b.id)?' new':''}"><span class="medal"><svg viewBox="0 0 24 24">${badgeIcon[b.id]}</svg></span><strong>${b.name}</strong><small>${b.note}</small></li>`).join('')}</ul>${giftRow(n)}<p class="fare-text">Badges are earned together as a family. Gifts are illustrative.</p></section>`;
 }
 function qaLoad(){
   const base={erien:150000,naarie:120000,wei:80000,chen:60000,lin:2000};
@@ -738,6 +756,8 @@ phones.addEventListener('click',e=>{
   const button=e.target.closest('[data-action]');if(!button)return;
   const action=button.dataset.action,junior=isJunior(member),org=isOrganiser(member);
   if(action==='close-celebrate'){state.celebrate=null;render();return;}
+  if(action==='close-badge'){state.badgePop=null;render();return;}
+  if(action==='badge-claim'){state.badgePop=null;if(!junior&&!state.gift&&badgeList().filter(b=>b.on).length>=3)openSheet(side,'gift');else render();return;}
   if(action==='reminder-close'){state.reminderOff[side]=true;render();return;}
   if(action==='reminder-add'){openSheet(side,'transfer');return;}
   if(action==='transfer'&&!junior)openSheet(side,'transfer');
@@ -748,6 +768,8 @@ phones.addEventListener('click',e=>{
   else if(action==='demo-shop'&&!junior){earnMiles(member,166);render();}
   else if(action==='plan-seoul'&&!junior){const n=Math.min(state.members.length,Math.floor(total()/trips[0].rate));state.plan[side]={tripId:'seoul',memberIds:state.members.slice(0,Math.max(n,1)).map(m=>m.id)};openSheet(side,'plan');}
   else if(action==='invite-open'&&org){state.inviteCode=state.inviteCode||makeInviteCode();openSheet(side,'settings');}
+  else if(action==='claim-gift'&&!junior&&!state.gift&&badgeList().filter(b=>b.on).length>=3)openSheet(side,'gift');
+  else if(action==='pick-gift'&&!junior&&!state.gift){const g=gifts.find(x=>x.id===button.dataset.gift);if(g&&badgeList().filter(b=>b.on).length>=3){state.gift={id:g.id,name:g.name,by:member.name};state.sheets[side]=null;state.notice=`Souvenir claimed: ${g.name}. A collection voucher goes to the organiser (sample).`;render();}}
   else if(action==='book-trip'&&member.student&&state.verified[member.id])openSheet(side,'trip');
   else if(action==='confirm-trip'&&member.student){bookTrip(member);state.sheets[side]=null;render();}
   else if(action==='verify'&&member.student)openSheet(side,'verify');
