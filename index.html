@@ -643,11 +643,8 @@ function badgeList(){
   const students=Object.values(state.studentTrips).reduce((a,b)=>a+b,0);
   return [
     {id:'family',name:'First family trip',note:'3+ on a pooled trip',on:t.some(x=>x.n>=3)},
-    {id:'asia',name:'Asia explorers',note:'First trip in Asia',on:t.some(x=>asia.includes(x.id))},
-    {id:'europe',name:'First Europe trip',note:'Coming soon',on:t.some(x=>!asia.includes(x.id))},
     {id:'student',name:'First flight home',note:'A student books a trip',on:students>0},
-    {id:'allin',name:'Whole family in',note:'Everyone has added',on:state.members.filter(m=>!m.cooling).every(m=>m.miles>0)},
-    {id:'streak',name:'Streak keeper',note:'4 weeks in a row',on:state.streak.done||state.streak.weeks>=4}
+    {id:'allin',name:'Whole family in',note:'Everyone has added',on:state.members.filter(m=>!m.cooling).every(m=>m.miles>0)}
   ];
 }
 const badgeIcon={
