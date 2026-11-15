@@ -12,8 +12,8 @@ Challenge: *What can we do in terms of membership proposition which help the fam
 Members only engage with Cathay when they book a flight. Cathay Circle gives a family one shared Asia Miles pool and a reason to come back every week:
 
 - **Family pool:** up to 8 named members add miles to one shared goal (for example, Tokyo for four). Pooled miles can only be used for trips by named members.
-- **Student membership:** verified students get a flat 10% fare, and each trip unlocks the next perk (a free date change, bonus pool miles, then a head start towards their first tier after graduation).
-- **Weekly streak and badges:** adding to the pool in any week keeps the family streak going, with a bonus after four weeks in a row.
+- **Student membership:** verified students get a flat 10% fare, and perks grow in three tiers: Starter (+1 bag, 1 free change, welcome miles), Regular after 4 trips (+10 kg, free seat choice, 1.25× miles) and Frequent after 8 trips (+15 kg and sports gear, unlimited changes, 1.5× miles and lounge passes).
+- **Weekly streak and badges:** adding to the pool in any week keeps the family streak going, and four weeks in a row completes it. The streak is recognition only and pays no miles.
 
 ## What the prototype shows
 
