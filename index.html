@@ -633,11 +633,11 @@ function bumpStreak(name){
   const m=state.members.find(x=>x.name===name),k=state.streak;
   if(!m||isJunior(m)||k.thisWeek)return;
   k.thisWeek=true;k.weeks=Math.min(k.weeks+1,4);
-  if(k.weeks>=4&&!k.done){k.done=true;m.miles+=200;state.activity.unshift({source:name,destination:'streak bonus → pool',miles:200});k.flash='Family streak complete: +200 bonus miles in the pool.';}
+  if(k.weeks>=4&&!k.done){k.done=true;k.flash='Family streak complete: 4 weeks in a row. Keep it going.';}
 }
 function streakPanel(){
   const k=state.streak,dots=[0,1,2,3].map(i=>`<i class="${i<k.weeks?'on':''}"></i>`).join('');
-  const text=k.done?'Streak complete! A bonus of 200 pool miles was added. Bonus is limited to once a month.':k.thisWeek?'You kept the streak going this week. Come back next week.':'Add any amount to the pool this week to keep the streak going. 4 weeks in a row earns a 200-mile bonus, once a month.';
+  const text=k.done?'Streak complete! 4 weeks in a row. Keep it going.':k.thisWeek?'You kept the streak going this week. Come back next week.':'Add any amount to the pool this week to keep the streak going. Four weeks in a row completes the streak.';
   return `<section class="panel streak"><div class="fare-head"><h4><svg class="flame" viewBox="0 0 24 24"><path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 01-10 0c0-2 1-3 2-4 .3 1.6 1 2.2 1.8 2.5C10.5 8 10.5 5.5 12 3z"/></svg> Family streak</h4><span class="verified">${k.weeks} of 4 weeks</span></div><div class="streak-dots">${dots}</div><p class="fare-text">${text}</p></section>`;
 }
 
