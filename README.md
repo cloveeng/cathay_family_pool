@@ -13,6 +13,7 @@ Members only engage with Cathay when they book a flight. Cathay Circle gives a f
 
 - **Family pool:** up to 8 named members add miles to one shared goal (for example, Tokyo for four). Pooled miles can only be used for trips by named members.
 - **Student membership:** verified students get a flat 10% fare, and perks grow in three tiers: Starter (+1 bag, 1 free change, welcome miles), Regular after 4 trips (+10 kg, free seat choice, 1.25× miles) and Frequent after 8 trips (+15 kg and sports gear, unlimited changes, 1.5× miles and lounge passes).
+- **Household profile:** optional comfort preferences and travel needs (for example a bassinet or kids meal), picked from a fixed list with no personality labels. The organiser sets them for under-18s, and a booking prefills them.
 - **Weekly streak and badges:** adding to the pool in any week keeps the family streak going, and four weeks in a row completes it. The streak is recognition only and pays no miles.
 
 ## What the prototype shows
@@ -21,7 +22,8 @@ The page shows two phones side by side: the organiser (Grace) and a student (Eth
 
 - Add miles to the pool and watch the goal and streak move.
 - Redeem a trip. Requests above the spend limit go to the organiser for approval, and trips above 25,000 miles ask for a passkey (simulated).
-- Book a student trip to see the 10% fare and the next perk unlock.
+- Book a student trip to see the 10% fare, the tier perks and the miles earned.
+- Open the Members tab to see the Household profile, then plan a trip to see it prefilled.
 - Invite a new member with a code and see the 7-day cooling-off.
 - Use the buttons under the phones: **Reset demo**, **show a non-member's view**, **Cathay's view** and **Judge phone (QR)**.
 
